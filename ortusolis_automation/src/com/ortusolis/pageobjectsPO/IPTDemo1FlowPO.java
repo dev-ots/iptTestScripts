@@ -18,6 +18,7 @@ final Logger log = LoggerFactory.getLogger(getClass().getSimpleName());
 	public static JSONObject oJsTD_Reg = new JSONObject();
 	
 	
+	
 	public void loadLoginPageLOcators() throws Exception {
 		oJsConfig = oComUtil.ReadJsonFileGetJsonObject(System.getProperty("user.dir") + "/src/config/config.json");
 		oJsOR_Reg = oComUtil.ReadJsonFileGetJsonObject(System.getProperty("user.dir") + "/src/objectRepo/locators_Login.json");
