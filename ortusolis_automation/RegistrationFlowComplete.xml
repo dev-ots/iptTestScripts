@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Registration Suite" parallel="false">
+<listeners>
+        <listener class-name="com.ortusolis.listeners.ExtentReporter" />
+</listeners>
+<!--  Test --> 
+    <!--  -->
+  <test name="Registration Flow On Customized">
+  <parameter name="URL_Type" value="Registration_coldStone"/>
+    <classes>
+      <class name="com.ortusolis.registration.CCA_003"/>
+    </classes>
+  </test> 
+
+   <test name="Registration Flow On Templeted">
+  <parameter name="URL_Type" value="Registration_blimpie"/>
+    <classes>
+      <class name="com.ortusolis.registration.CCA_003"/>
+    </classes>
+  </test>
+ <test name="Registration Flow On Generic">
+  <parameter name="URL_Type" value="Registration_jamesconey"/>
+    <classes>
+      <class name="com.ortusolis.registration.CCA_003"/>
+    </classes>
+  </test> 
+  
+
+<test name="Registration Flow - Phone number, email and password error check">
+  <parameter name="URL_Type" value="Registration_coldStone"/>
+    <classes>
+      <class name="com.ortusolis.registration.CCA_004"/>
+    </classes>
+  </test>
+   
+</suite> <!-- Suite -->

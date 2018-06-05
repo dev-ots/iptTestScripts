@@ -1,0 +1,9 @@
+{
+"Register_FirstName":"id::firstNameSignUp",
+"Register_LastName":"id::lastNameSignUp",
+"Register_Email":"id::emailSignUp",
+"Register_UserID":"id::daimlerIdSignUp",
+"Register_UserRole":"id::selectRole",
+"Register_button":"id::registerNewUser",
+"Register_Success":""
+}

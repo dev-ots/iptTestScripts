@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="38942" started-at="2018-06-04T12:04:25Z" finished-at="2018-06-04T12:05:04Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="38942" started-at="2018-06-04T12:04:25Z" finished-at="2018-06-04T12:05:04Z">
+      <class name="com.ortusolis.registration.IPTDemo1">
+        <test-method status="PASS" signature="BeforeSuiteDependencyTrigger()[pri:0, instance:com.ortusolis.registration.IPTDemo1@598067a5]" name="BeforeSuiteDependencyTrigger" is-config="true" duration-ms="14098" started-at="2018-06-04T17:34:11Z" finished-at="2018-06-04T17:34:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BeforeSuiteDependencyTrigger -->
+        <test-method status="PASS" signature="IPT_User_Demo()[pri:0, instance:com.ortusolis.registration.IPTDemo1@598067a5]" name="IPT_User_Demo" duration-ms="38925" started-at="2018-06-04T17:34:25Z" finished-at="2018-06-04T17:35:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- IPT_User_Demo -->
+        <test-method status="PASS" signature="zzzUfRepotFormatSet()[pri:0, instance:com.ortusolis.registration.IPTDemo1@598067a5]" name="zzzUfRepotFormatSet" is-config="true" duration-ms="0" started-at="2018-06-04T17:35:04Z" finished-at="2018-06-04T17:35:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- zzzUfRepotFormatSet -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.ortusolis.registration.IPTDemo1@598067a5]" name="tearDown" is-config="true" duration-ms="0" started-at="2018-06-04T17:35:04Z" finished-at="2018-06-04T17:35:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.ortusolis.registration.IPTDemo1 -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

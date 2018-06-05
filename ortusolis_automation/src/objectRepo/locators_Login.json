@@ -1,0 +1,11 @@
+{
+"Sign_Username": "id::userName",
+"Sign_Password": "id::password",
+"Signin_SignButton":"id::login",
+"Signin_ForgotPassword":"id::forgotPAsswordId",
+"Signin_registerForNewUSer":"id::registerForNewUser",
+"Signin_Success":""
+
+
+
+}
