@@ -1,0 +1,45 @@
+{
+ "New_Rgstr":"::",
+ "fname":"::",
+ "lname":"::",
+ "email":"::",
+ "Daimlr":"::",
+ "role":"::",
+ "Rgstr_Usr":"::",
+ "Rgstr_Sucess":"::",
+ 
+ 
+"USER_NAME":"::",
+"PASSWRD":"::",
+"SIGN_IN":"::",
+
+"Srh_fld":"::",
+"New_Shi":"::",
+"Chng_Shi":"::",
+"Progr_Shi":"::",
+"PrtRcvd_Shi":"::",
+
+"User_Profile":"::",
+"logout":"::",
+"Switch_Admin":"::",
+"Admn_Scr":"::",
+
+"Add_NewUsr":"::",
+"Pndg_Rqst":"::",
+"Updt_Role":"::",
+
+"Add_Usr":"::",
+"fname1":"::",
+ "lname1":"::",
+ "email1":"::",
+ "Daimlr1":"::",
+ "role1":"::",
+ "Sub_Usr":"::",
+ 
+ "updt_btn":"::",
+ "d_idFld":"::",
+ "Get_dtl":"::",
+ "rol_rol":"::",
+ "sbmt":"::"
+ 
+}

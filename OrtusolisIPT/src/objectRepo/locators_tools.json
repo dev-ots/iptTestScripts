@@ -1,0 +1,29 @@
+{
+"WS_Admin": {
+"username":"ngmodel::username",
+"password":"ngmodel::password",
+"signin":"buttontext::Sign In",
+"support":"id::supportContainer",
+"mergeParent":"id::mergeParent",
+"selectPhoneOrEmail":"xpath::.//div[@class='input-group-btn']",
+"phone": "xpath:://ul[@id='fields']/li[1]/a",
+"email": "xpath:://ul[@id='fields']/li[2]/a",
+"_phone": "css::'[ng-click=changeField('phone')]'",
+"_email": "css::'[ng-click=changeField('email')]'",
+"searchTerm":"ngmodel::searchTerm",
+"_submitSearch":"css::[ng-click=submitSearch()",
+"submitSearch":"xpath:://span[@class='glyphicon glyphicon-search']",
+"invalidEmailErrorText":"xpath::.//p[@class='ng-binding']",
+"errorDialog":"id::errorDialog",
+"AccountDetail":"xpath:://div[@class='col-xs-12 ng-binding']",
+"delete":"id::delete",
+"deleteReasonId":"xpath:://button[@class='btn dropdown-toggle btn-default']",
+"TypographicalError":"xpath::.//ul[@class='dropdown-menu inner']/li[2]/a/span",
+"deleteUsername":"ngmodel::deleteUsername",
+"deletePhone":"ngmodel::deletePhone",
+"DeleteButton":"buttontext::Delete",
+"DeleteSuccess":"xpath:://div[@class='alert alert-success']",
+"logout":"partialLinkText::Log Out"
+
+
+}}

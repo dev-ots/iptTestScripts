@@ -1,0 +1,22 @@
+{
+
+ "Usr":"id::userName",
+ "Pwd":"id::password",
+ "SignI":"id::login",
+ "LogScr":"::",
+ "SearchBy":"id::rdHomedropdownBasic1",
+ "Shi_":"id::rdTeamsearcShikeshoNumber",
+ "EO":"id::rdTeamsearchEONumber",
+ "Knri_":"id::rdTeamSearchKanriNumber",
+ "PrtNo":"id::rdTeamSearchPartNumber",
+ "SrhFld":"id::searchInputValue",
+ "Srh_Clk":"id::rdHomeSearch", 
+ 
+ "New_Shi":"id::approvedStausContent",
+ "Chng_Shi":"id::approvedStausContent1",
+ "Pro_Shi":"id::approvedStausContent1",
+ "PrtRcvd":"id::approvedStausContent2",
+ "Digit":"id::lmDetailsKanriSixthDigit",
+ "Updt_Btn":"id::lmDetailsSubmitData",
+ "Wrong_Digi_Msg":""
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="21895" started-at="2018-06-13T04:11:07Z" finished-at="2018-06-13T04:11:29Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="21895" started-at="2018-06-13T04:11:07Z" finished-at="2018-06-13T04:11:29Z">
+      <class name="com.ortusolis.registration.LMrqstAprvByAd">
+        <test-method status="PASS" signature="BeforeSuiteDependencyTrigger()[pri:0, instance:com.ortusolis.registration.LMrqstAprvByAd@1e397ed7]" name="BeforeSuiteDependencyTrigger" is-config="true" duration-ms="5561" started-at="2018-06-13T09:41:02Z" finished-at="2018-06-13T09:41:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BeforeSuiteDependencyTrigger -->
+        <test-method status="PASS" signature="LM_AdmnLog()[pri:0, instance:com.ortusolis.registration.LMrqstAprvByAd@1e397ed7]" name="LM_AdmnLog" duration-ms="21842" started-at="2018-06-13T09:41:07Z" finished-at="2018-06-13T09:41:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LM_AdmnLog -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.ortusolis.registration.LMrqstAprvByAd@1e397ed7]" name="tearDown" is-config="true" duration-ms="0" started-at="2018-06-13T09:41:29Z" finished-at="2018-06-13T09:41:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.ortusolis.registration.LMrqstAprvByAd -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

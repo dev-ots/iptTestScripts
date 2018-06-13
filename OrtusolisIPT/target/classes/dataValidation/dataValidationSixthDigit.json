@@ -1,0 +1,26 @@
+{
+ "LogScr":"",
+ 
+ "digiVal":"Enter the valid digit",
+ "Blank":"Delivery to design",   
+  "A":"New vehicle assembly",                
+  "B":"revamp a vehicle",
+ "C":"After-revamping a vehicle", 
+ "D":"After-revamping a vehicle",
+ "E":"Delivery to the Test team",  
+ "F":"Supplier test",  
+ "0":"Engine parts / ENG",    
+ "1":"Transmission parts / TM", 
+ "2":"Axle parts / Axel", 
+ "9":"After-revamping a component",   
+ "Z":"other = This Z symbol uses only LM",
+ 
+ "G":"something",
+ "a":"nothing",
+ "5":"anynum",
+ "-1":"anycan",
+ "z":"last",
+ "8":"gain",
+ "10":"",
+ " ":"coming",
+}

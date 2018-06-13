@@ -1,0 +1,14 @@
+{
+"environment":"naviit",
+"Browser":"chrome",
+"_Browser":"chrome,Firefox,edge",
+"Registration_coldStone":"https://my.spendgoenv.com/coldstone",
+"Registration_jamesconey":"https://my.spendgoenv.com/jamesconey/index.html#/rewards",
+"Registration_blimpie":"https://my.spendgoenv.com/spendgo/index.html#/register/Blimpie",
+
+
+"Tools":{
+"URL_WS_Admin":"https://ws.naviit.com",
+"EmailOrPhoneNumber":"4444000003"
+}
+}

@@ -1,0 +1,42 @@
+{	
+	"Password":"TestAuto123",
+	"F_Name": "Automation",
+	"L_Name": "Testing",
+	"zip_code":"94203",
+	"Email_Update":"Yes",
+	"TextUpdate":"Yes",
+"DOB": {
+	"MM" :"10",
+	"DD" :"10",
+	"YY" : "1990"
+	},	
+"Generic": {
+	"Phone": "4446000001",
+	"Email":"AutoTestUser_1@spendgo.com",
+	"Gender": "Female"
+},
+"Customized":{
+
+	"_Phone": "4444000003",
+	"_Email":"srinidhi@spendgo.com",
+	"Phone": "4446000003",
+	"Email":"AutoTestUser_3@spendgo.com",
+	"Gender": "Male"
+},
+"Templeted":{
+	"Phone": "4446000005",
+	"Email":"AutoTestUser_5@spendgo.com",
+	"Gender": "Male"
+},
+"error":{
+	"error_email_invalidEmail":"spendgoinvalid@spendgo",
+	"error_email_onlyAlpahabet":"spendgoisreadynow",
+	"error_email_alreadyRegistered":"srinidhi@spendgo.com",
+	"error_phone_belowTen":"4440",
+	"error_phone_alreadyRegistered":"4444000003",
+	"error_password_belowSix":"1234",
+	"error_password_aboveFifteen":"spendgo1234567890",
+	"error_zipcode_invalid":"9asd9",
+	"error_zipcode_NoStore":"00000"
+	
+}}

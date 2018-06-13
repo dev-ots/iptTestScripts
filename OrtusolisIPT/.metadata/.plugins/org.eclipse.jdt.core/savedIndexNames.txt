@@ -1,0 +1,2 @@
+INDEX VERSION 1.130+C:\WORKSPACE\workspace1\OrtusolisIPT\.metadata\.plugins\org.eclipse.jdt.core
+2567704648.index

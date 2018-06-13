@@ -1,0 +1,20 @@
+{
+ "New_Rgstr":"id::registerForNewUser",
+ "fname":"id::firstNameSignUp",
+ "lname":"id::lastNameSignUp",
+ "email":"id::emailSignUp",
+ "Daimlr":"id::daimlerIdSignUp",
+ "role":"id::selectRole",
+ "Rgstr_Usr":"id::registerNewUser", 
+ 
+ "Usr":"id::userName",
+ "Pwd":"id::password",
+ "signup":"id::login",
+ 
+ "Usr_pro":"id::lmHomePopverButton",
+ "swtcadmn":"id::rdTeamSwitchToAdminId",
+ "Pndg":"id::approvedStausContent2",
+ "ClkUsr":"id::rdAdminHomeAccordionOpenCardContactNumber",
+ "Aprv":"id::rdAdminHomeAccordionModalApprove",
+ "signout":"id::rdAdminHomeLogout"
+}

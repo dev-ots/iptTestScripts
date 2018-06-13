@@ -1,0 +1,53 @@
+{
+ "New_Rgstr":"id::registerForNewUser",
+ "fname":"id::firstNameSignUp",
+ "lname":"id::lastNameSignUp",
+ "email":"id::emailSignUp",
+ "Daimlr":"id::daimlerIdSignUp",
+ "role":"id::selectRole",
+ "Rgstr_Usr":"id::registerNewUser",
+ 
+  "Usr":"id::userName",
+ "Pwd":"id::password",
+ "signup":"id::login",
+ "signout":"id::rdAdminHomeLogout",
+
+ "Usr_pro":"id::lmHomePopverButton",
+ "swtcadmn":"id::rdTeamSwitchToAdminId",
+ "Pndg":"id::approvedStausContent2",
+ "ClkUsr":"id::rdAdminHomeAccordionOpenCardContactNumber",
+ "Aprv":"id::rdAdminHomeAccordionModalApprove",
+  "Reject":"::",
+  
+  "Add_New_User":"::",
+  "UpdateROle":"::",
+  "updt_btn":"::",
+ "d_idFld":"::",
+ "Get_dtl":"::",
+ "rol_rol":"::",
+ "sbmt":"::",
+ 
+ "SearchBy":"id::rdHomedropdownBasic1",
+ "Shi_":"id::rdTeamsearcShikeshoNumber",
+ "EO":"id::rdTeamsearchEONumber",
+ "Knri_":"id::rdTeamSearchKanriNumber",
+ "PrtNo":"id::rdTeamSearchPartNumber",
+ "SrhFld":"id::searchInputValue",
+ "Srh_Clk":"id::rdHomeSearch",
+ "New_Shi":"id::approvedStausContent",
+ "Chng_Shi":"id::approvedStausContent1",
+ "Pro_Shi":"id::approvedStausContent1",
+ "PrtRcvd":"id::approvedStausContent2",
+ "Value":"id::",
+ 
+ "LOc":"id::lmDetailsDesiredLocation",
+ "DlvrDt":"id::lmDetailsLmApprovedDate",
+ "Quant":"::",
+ "Digit":"id::lmDetailsKanriSixthDigit",
+ "Sv_Updt_Btn":"id::lmDetailsSubmitData",
+ "Updated_Msg":"id::",
+ "fundLink":"::",
+ "fundClose":"::", 
+ 
+  
+}

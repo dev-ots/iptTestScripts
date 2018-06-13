@@ -1,0 +1,20 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 17, Failures: 4, Errors: 0, Skipped: 13, Time elapsed: 11.667 s <<< FAILURE! - in TestSuite
+getURLSettingEnvironment(com.ortusolis.registration.CCA_003)  Time elapsed: 9.197 s  <<< FAILURE!
+org.json.JSONException: JSONObject["Registration_coldStone"] not found.
+	at com.ortusolis.registration.CCA_003.getURLSettingEnvironment(CCA_003.java:25)
+
+getURLSettingEnvironment(com.ortusolis.registration.CCA_003)  Time elapsed: 9.327 s  <<< FAILURE!
+org.json.JSONException: JSONObject["Registration_blimpie"] not found.
+	at com.ortusolis.registration.CCA_003.getURLSettingEnvironment(CCA_003.java:25)
+
+getURLSettingEnvironment(com.ortusolis.registration.CCA_003)  Time elapsed: 9.367 s  <<< FAILURE!
+org.json.JSONException: JSONObject["Registration_jamesconey"] not found.
+	at com.ortusolis.registration.CCA_003.getURLSettingEnvironment(CCA_003.java:25)
+
+getURLSettingEnvironment(com.ortusolis.registration.CCA_004)  Time elapsed: 9.402 s  <<< FAILURE!
+org.json.JSONException: JSONObject["Registration_coldStone"] not found.
+	at com.ortusolis.registration.CCA_004.getURLSettingEnvironment(CCA_004.java:28)
+

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [Registration Suite]">
+  <listeners>
+    <listener class-name="com.ortusolis.listeners.ExtentReporter"/>
+  </listeners>
+  <test name="Registration Flow On Customized(failed)">
+    <parameter name="URL_Type" value="Registration_coldStone"/>
+    <classes>
+      <class name="com.ortusolis.registration.CCA_003">
+        <methods>
+          <include name="getURLSettingEnvironment"/>
+          <include name="tearDown"/>
+          <include name="BeforeSuiteDependencyTrigger"/>
+          <include name="CCA_003_Registration_On_AllPages"/>
+        </methods>
+      </class> <!-- com.ortusolis.registration.CCA_003 -->
+    </classes>
+  </test> <!-- Registration Flow On Customized(failed) -->
+  <test name="Registration Flow On Templeted(failed)">
+    <parameter name="URL_Type" value="Registration_blimpie"/>
+    <classes>
+      <class name="com.ortusolis.registration.CCA_003">
+        <methods>
+          <include name="getURLSettingEnvironment"/>
+          <include name="tearDown"/>
+          <include name="BeforeSuiteDependencyTrigger"/>
+          <include name="CCA_003_Registration_On_AllPages"/>
+        </methods>
+      </class> <!-- com.ortusolis.registration.CCA_003 -->
+    </classes>
+  </test> <!-- Registration Flow On Templeted(failed) -->
+  <test name="Registration Flow On Generic(failed)">
+    <parameter name="URL_Type" value="Registration_jamesconey"/>
+    <classes>
+      <class name="com.ortusolis.registration.CCA_003">
+        <methods>
+          <include name="getURLSettingEnvironment"/>
+          <include name="tearDown"/>
+          <include name="BeforeSuiteDependencyTrigger"/>
+          <include name="CCA_003_Registration_On_AllPages"/>
+        </methods>
+      </class> <!-- com.ortusolis.registration.CCA_003 -->
+    </classes>
+  </test> <!-- Registration Flow On Generic(failed) -->
+  <test name="Registration Flow - Phone number, email and password error check(failed)">
+    <parameter name="URL_Type" value="Registration_coldStone"/>
+    <classes>
+      <class name="com.ortusolis.registration.CCA_004">
+        <methods>
+          <include name="CCA_004_ZipCodeErrorValidation"/>
+          <include name="getURLSettingEnvironment"/>
+          <include name="CCA_004_FNameLNameErrorValidation"/>
+          <include name="CCA_004_YesIAgreeWerrorValidation"/>
+          <include name="tearDown"/>
+          <include name="BeforeSuiteDependencyTrigger"/>
+          <include name="CCA_004_WhenEmptyAllShouldPopulate"/>
+          <include name="CCA_004_emailErrorValidation"/>
+          <include name="CCA_004_BirthDayErrorValidation"/>
+          <include name="CCA_004_GenderErrorValidation"/>
+          <include name="CCA_004_passwordErrorValidation"/>
+          <include name="CCA_004_phoneNumberErrorValidation"/>
+        </methods>
+      </class> <!-- com.ortusolis.registration.CCA_004 -->
+    </classes>
+  </test> <!-- Registration Flow - Phone number, email and password error check(failed) -->
+</suite> <!-- Failed suite [Registration Suite] -->

@@ -1,0 +1,27 @@
+{	
+	"Password":"TestAuto123",
+	"F_Name": "Automation",
+	"L_Name": "Testing",
+	"zip_code":"94203",
+	"Email_Update":"Yes",
+	"TextUpdate":"Yes",
+"DOB": {
+	"MM" :"10",
+	"DD" :"10",
+	"YY" : "1990"
+	},	
+"Generic": {
+	"Phone": "4446000001",
+	"Email":"AutoTestUser_1@spendgo.com",
+	"Gender": "Male"
+},
+"Customized":{
+	"Phone": "4446000003",
+	"Email":"AutoTestUser_3@spendgo.com",
+	"Gender": "Female"
+},
+"Templeted":{
+	"Phone": "4446000005",
+	"Email":"AutoTestUser_5@spendgo.com",
+	"Gender": "Male"
+}}
