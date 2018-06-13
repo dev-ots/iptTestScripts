@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.json.JSONString;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.slf4j.Logger;
@@ -115,7 +116,7 @@ RestAPIUtilities oRes = new RestAPIUtilities();
 			driver.navigate().to(oJsConfig.getString("IPT_RD_LANDING"));
 			System.out.println("Inside the RD Landing screen");
 			
-			bRes_Flag= getRDRequests();
+			//bRes_Flag= getRDRequests();
 		}
 		/*else if(userRole.contains(Constants.sRDAdRole))
 		{
@@ -180,25 +181,12 @@ RestAPIUtilities oRes = new RestAPIUtilities();
 		//JSONObject obj = new JSONObject(sRes);
 		
 			JSONObject obj = oRes.convertStringToJson(sRes);
-		//obj.getJSONObject("id");
+		
 			JSONObject obj2 = (JSONObject) obj.get("response");
 			System.out.println(obj.getJSONObject("response"));
-			
-			System.out.println(obj2.names());
-			System.out.println(obj2.names().get(5));
-			System.out.println(obj2.getNames(obj));
-			
-			
 		
-		//JSONArray jArray = (JSONArray) obj.get("response");
-		//System.out.println(jArray.get(3));
-		
-	//	JSONParser parser = new JSONParser();
-		
-		//System.out.println(obj.getJSONObject("user_id"));
-		//sobj.getJSONObject("user_id");
-		
-		
+			System.out.println(obj2.getString("designation"));
+
 		
 			}
 		catch(Exception e)
