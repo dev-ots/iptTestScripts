@@ -1,11 +1,17 @@
 {
 "environment":"int",
 "Browser":"chrome",
-"_Browser":"chrome,Firefox,edge",
+"_Browser":"chrome,Firefox,edge,ie",
 "IPT_Login_URL":"http://53.87.137.65/login",
 "IPT_USER_REGISTRATION":"http://53.87.137.65/signUp",
 "IPT_RD_LANDING":"http://53.87.137.65/rdHome",
 "IPT_RD_ADMIN":"http://53.87.137.65/rdAdminHome",
-"IPT_LM_LANDING":"http://53.87.137.65/lmHome"
+"IPT_LM_LANDING":"http://53.87.137.65/lmHome",
+"IPT_LM_ADMIN":"http://53.87.137.65/lmAdminHome",
+"IPT_RD_DETAILS":"http://53.87.137.65/rdDetails",
 
+"RestAPI":{
+"Rest_URL":"http://53.87.132.60:8080",
+"Rest_User_Signin":"/api/ipt-user/user_sign_in?"
+}
 }

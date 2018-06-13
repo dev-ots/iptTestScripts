@@ -52,43 +52,95 @@ private void Register_User(JSONObject oJsOR_Reg)
 public boolean Register_flow(String strFlowName) throws Exception{
 	boolean rGst_flag=false;
 	try {
-	
-	oSelUtil.ufClear(driver, 	Register_FirstName);
-	oSelUtil.ufSendKeys(driver,	Register_FirstName, oJsTD_Reg.getString("iptFirst_Name"));
-	
-	oSelUtil.ufClear(driver, Register_LastName);
-	oSelUtil.ufSendKeys(driver, Register_LastName, oJsTD_Reg.getString("iptlast_Name"));
-	oSelUtil.ufClear(driver, Register_Email);
-	oSelUtil.ufSendKeys(driver, Register_Email, oJsTD_Reg.getString("iptEmail_email"));
-	oSelUtil.ufClear(driver, Register_UserID);
-	oSelUtil.ufSendKeys(driver, Register_UserID, oJsTD_Reg.getString("iptID_id"));
-	
-	Select oSelect = new Select(driver.findElement(Register_UserRole));
-	oSelect.selectByValue("Rd_admin");
-	//oSelect.selectByValue(strFlowName);
+		System.out.println(strFlowName);
+		
+		Select oSelect = null;
+		if(strFlowName == "RD User")
+		{
+			oSelUtil.ufClear(driver, 	Register_FirstName);
+			oSelUtil.ufSendKeys(driver,	Register_FirstName, oJsTD_Reg.getString("iptFirst_Name2"));
+			
+			oSelUtil.ufClear(driver, Register_LastName);
+			oSelUtil.ufSendKeys(driver, Register_LastName, oJsTD_Reg.getString("iptlast_Name2"));
+			oSelUtil.ufClear(driver, Register_Email);
+			oSelUtil.ufSendKeys(driver, Register_Email, oJsTD_Reg.getString("iptEmail_email2"));
+			oSelUtil.ufClear(driver, Register_UserID);
+			oSelUtil.ufSendKeys(driver, Register_UserID, oJsTD_Reg.getString("iptID_id2"));
+			
+			oSelect = new Select(driver.findElement(Register_UserRole));
+			oSelect.selectByValue("R02");
+		}
+		else if(strFlowName == "RD Admin")
+		{
+			oSelUtil.ufClear(driver, 	Register_FirstName);
+			oSelUtil.ufSendKeys(driver,	Register_FirstName, oJsTD_Reg.getString("iptFirst_Name"));
+			
+			oSelUtil.ufClear(driver, Register_LastName);
+			oSelUtil.ufSendKeys(driver, Register_LastName, oJsTD_Reg.getString("iptlast_Name"));
+			oSelUtil.ufClear(driver, Register_Email);
+			oSelUtil.ufSendKeys(driver, Register_Email, oJsTD_Reg.getString("iptEmail_email"));
+			oSelUtil.ufClear(driver, Register_UserID);
+			oSelUtil.ufSendKeys(driver, Register_UserID, oJsTD_Reg.getString("iptID_id"));
+			
+			oSelect = new Select(driver.findElement(Register_UserRole));
+			oSelect.selectByValue("R01");
+		}
+		else if(strFlowName == "LM Admin")
+		{
+			oSelUtil.ufClear(driver, 	Register_FirstName);
+			oSelUtil.ufSendKeys(driver,	Register_FirstName, oJsTD_Reg.getString("iptFirst_Name1"));
+			
+			oSelUtil.ufClear(driver, Register_LastName);
+			oSelUtil.ufSendKeys(driver, Register_LastName, oJsTD_Reg.getString("iptlast_Name1"));
+			oSelUtil.ufClear(driver, Register_Email);
+			oSelUtil.ufSendKeys(driver, Register_Email, oJsTD_Reg.getString("iptEmail_email1"));
+			oSelUtil.ufClear(driver, Register_UserID);
+			oSelUtil.ufSendKeys(driver, Register_UserID, oJsTD_Reg.getString("iptID_id1"));
+			
+			oSelect = new Select(driver.findElement(Register_UserRole));
+			oSelect.selectByValue("R03");
+		}
+		else if(strFlowName == "LM User")
+		{
+			oSelUtil.ufClear(driver, 	Register_FirstName);
+			oSelUtil.ufSendKeys(driver,	Register_FirstName, oJsTD_Reg.getString("iptFirst_Name2"));
+			
+			oSelUtil.ufClear(driver, Register_LastName);
+			oSelUtil.ufSendKeys(driver, Register_LastName, oJsTD_Reg.getString("iptlast_Name2"));
+			oSelUtil.ufClear(driver, Register_Email);
+			oSelUtil.ufSendKeys(driver, Register_Email, oJsTD_Reg.getString("iptEmail_email2"));
+			oSelUtil.ufClear(driver, Register_UserID);
+			oSelUtil.ufSendKeys(driver, Register_UserID, oJsTD_Reg.getString("iptID_id2"));
+			
+			oSelect = new Select(driver.findElement(Register_UserRole));
+			oSelect.selectByValue("R04");
+		}
 	oSelUtil.ufClick(driver, Register_button);
+	
 	Robot rb= new Robot();
 	Thread.sleep(4000);
 	rb.keyPress(KeyEvent.VK_ENTER);
 	
-	//Alert al = driver.switchTo().alert();
-	//String strAlert = al.getText();
-	//String popUp = al.getText();
-	//Thread.sleep(5000);
-	String expPopUp = "Registration Successful";
-//Assert.assertEquals(strAlert, expPopUp);
-System.out.println("Assert equals" );
-//al.accept();
 
-	if(oSelect.getFirstSelectedOption().getText().equalsIgnoreCase("RD User"))
+	if(oSelect.getFirstSelectedOption().getText().equalsIgnoreCase("RD Designer"))
 	{
-		
-		driver.navigate().to(oJsConfig.getString("IPT_RD_LANDING").toString());
+		rGst_flag=true;
+		//driver.navigate().to(oJsConfig.getString("IPT_RD_LANDING").toString());
 	}
-	else if(oSelect.getFirstSelectedOption().getText().equalsIgnoreCase("Rd_admin"))
+	else if(oSelect.getFirstSelectedOption().getText().equalsIgnoreCase("RD Admin"))
 	{
-		driver.navigate().to(oJsConfig.getString("IPT_RD_LANDING").toString());
-		
+		//driver.navigate().to(oJsConfig.getString("IPT_RD_ADMIN").toString());
+		rGst_flag=true;
+	}
+	else if(oSelect.getFirstSelectedOption().getText().equalsIgnoreCase("LM Admin"))
+	{
+		//driver.navigate().to(oJsConfig.getString("IPT_LM_ADMIN").toString());
+		rGst_flag=true;
+	}
+	else if(oSelect.getFirstSelectedOption().getText().equalsIgnoreCase("LM User"))
+	{
+		//driver.navigate().to(oJsConfig.getString("IPT_LM_LANDING").toString());
+		rGst_flag=true;
 	}
 	else {
 		rGst_flag=false;

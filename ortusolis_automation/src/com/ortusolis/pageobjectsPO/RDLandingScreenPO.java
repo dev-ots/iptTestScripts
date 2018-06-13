@@ -53,9 +53,9 @@ final Logger log = LoggerFactory.getLogger(getClass().getSimpleName());
 		boolean bRes_flag=false;
 		try {
 		oSelUtil.ufClear(driver, SearchBy_Text);
-		System.out.println("Before click on the dropdown");
+		
 		oSelUtil.ufClick(driver, SearchBy_Dropdown);
-		System.out.println("After click on to the dropdown");
+		
 		
 		oSelUtil.ufClick(driver,SearchBy_EO);
 		oSelUtil.ufSendKeys(driver, SearchBy_Text, oJsTD_Reg.getString("SearchBy_Value"));
@@ -67,12 +67,14 @@ final Logger log = LoggerFactory.getLogger(getClass().getSimpleName());
 			//oSelUtil.ufClick(driver, funding_close);
 			
 			Thread.sleep(3000);
-			
+		}	
 			oSelUtil.ufClick(driver, User_Name);
+			Thread.sleep(2000);
 			//ngWebDriver.waitForAngularRequestsToFinish();
 			oSelUtil.ufClick(driver, Switch_Admin_Role);
+			Thread.sleep(2000);
 			
-		}
+		
 		
 		
 		

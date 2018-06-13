@@ -1,6 +1,7 @@
 package com.ortusolis.pageobjectsPO;
 
 import org.json.JSONObject;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 import org.slf4j.Logger;
@@ -75,9 +76,15 @@ public class RDAdminPO extends TestBase
 					if(lrd_flag)
 					{
 						log.info("The user has been successfully added into IPT system");
+						
+						lrd_flag=false;
 					}
 					
-					lrd_flag = updateUserRole();
+										
+			
+					lrd_flag = approvePendingRequests();
+					
+					//lrd_flag = updateUserRole();
 					
 						
 				log.info("Text validation welcome page "+lrd_flag);
@@ -149,24 +156,49 @@ public class RDAdminPO extends TestBase
 				if(oSelect.getFirstSelectedOption().getText().equalsIgnoreCase("admin"))
 				{
 					System.out.println("Admin");
-					//driver.navigate().to(oJsConfig.getString("IPT_RD_LANDING").toString());
+					lrd_flag=true;
 				}
 				oSelUtil.ufClick(driver, Submit_Add_User_Button);
-				
-				Thread.sleep(5000);
-				
-				
-				
-				
+				driver.navigate().to(oJsConfig.getString("IPT_RD_ADMIN").toString());
 				
 				
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
+					lrd_flag=false;
 				}
 				
 				return lrd_flag;
 			}
+			
+		
+			private boolean approvePendingRequests()
+			{
+				boolean bRes_flag=false;
+				try {
+				oSelUtil.ufClick(driver, Pending_Requests);
+				Thread.sleep(2000);
+				oSelUtil.ufClick(driver, Pending_Requests_For_Admin);
+				Thread.sleep(2000);
+				oSelUtil.ufClick(driver, Approve_Request);
+				Thread.sleep(4000);
+				
+				
+				Alert al = driver.switchTo().alert();
+				al.accept();
+				bRes_flag=true;
+				
+				} catch(Exception e)
+				{
+					e.printStackTrace();
+					bRes_flag= false;
+				}
+				
+				return bRes_flag;
+				
+			}
+			
+		
 }
 
 

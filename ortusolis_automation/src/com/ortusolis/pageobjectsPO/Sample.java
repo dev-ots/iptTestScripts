@@ -40,9 +40,9 @@ public class Sample extends TestBase
 					System.out.println("Starting the Login page of IPT");
 					ngWebDriver.waitForAngularRequestsToFinish();
 					
-					driver.findElement(ByAngular.model("Sign_Username")).sendKeys("SRRAMAK");
+			
 					
-/*				oSelUtil.ufClear(ngWebDriver, Sign_Username);
+				oSelUtil.ufClear(ngWebDriver, Sign_Username);
 				oSelUtil.ufSendKeys(ngWebDriver, Sign_Username, oJsTD_Reg.getString("USER_NAME"));
 				
 				oSelUtil.ufClear(ngWebDriver, Sign_Password);
@@ -51,7 +51,7 @@ public class Sample extends TestBase
 				
 				lfipt_flag= oSelUtil.ufGetTextValidation(ngWebDriver, Signin_Success, oJsTD_Reg.getString("Signin_Success"));
 				log.info("Text validation welcome page "+lfipt_flag);
-*/				}catch(Exception ea) {
+				}catch(Exception ea) {
 					log.info("Exception in login_flow : "+ea);
 					lfipt_flag=false;
 				}

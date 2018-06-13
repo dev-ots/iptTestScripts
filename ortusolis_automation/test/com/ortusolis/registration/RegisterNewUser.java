@@ -23,7 +23,7 @@ public class RegisterNewUser extends TestBase
 		
 	//	sample.login_flowIPT();
 		cis.Register_Uscript();
-		bTestCase=cis. Register_flow("");
+		bTestCase=cis. Register_flow("RD User");
 		
 	}
 

@@ -9,6 +9,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 //import org.openqa.selenium.firefox.FirefoxDriver;
 //import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.*;
@@ -26,6 +27,7 @@ public class TestBase {
 	public static NgWebDriver ngWebDriver=null;
 	public static SeleniumUtilities oSelUtil = new SeleniumUtilities();
 	public static CommonUtilities oComUtil = new CommonUtilities();
+	public static RestAPIUtilities oRestUtil = new RestAPIUtilities();
 	public static Constants oCons = new Constants();
 	public static JSONObject oJsConfig = new JSONObject();
 	public static JSONObject oJsDataVal = new JSONObject();
@@ -54,7 +56,13 @@ public class TestBase {
 
 	@AfterSuite
 	public void tearDown() {
-		//driver.close();
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		driver.close();
 	}
 	
 	/*
@@ -76,7 +84,14 @@ public class TestBase {
 			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/drivers/chromedriver.exe");
 			driver = new ChromeDriver();
 			//driver.manage().window().maximize();
-		}else if(sBrowser.toLowerCase().contains("edge")) {
+		}
+		else if(sBrowser.toLowerCase().contains("ie"))
+		{
+			System.setProperty("webdriver.ie.driver", System.getProperty("user.dir")+"/drivers/IEDriverServer.exe");
+			driver = new InternetExplorerDriver();
+			driver.manage().window().maximize();
+		}
+		else if(sBrowser.toLowerCase().contains("edge")) {
 			//MicrosoftWebDriver.exe
 			
 			System.setProperty("webdriver.edge.driver", System.getProperty("user.dir")+"/drivers/MicrosoftWebDriver.exe");

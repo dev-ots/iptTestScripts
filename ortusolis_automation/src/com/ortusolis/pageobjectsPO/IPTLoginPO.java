@@ -1,20 +1,24 @@
 package com.ortusolis.pageobjectsPO;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.json.JSONObject;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.ortusolis.utilities.Constants;
+import com.ortusolis.utilities.RestAPIUtilities;
 import com.ortusolis.utilities.TestBase;
 
 
 public class IPTLoginPO extends TestBase{
 	
 final Logger log = LoggerFactory.getLogger(getClass().getSimpleName());
+RestAPIUtilities oRes = new RestAPIUtilities();
 	
 	By Sign_Username,Sign_Password,Signin_SignButton,Signin_ForgotPassword,
 	Signin_registerForNewUSer,Signin_Success;
@@ -51,9 +55,13 @@ final Logger log = LoggerFactory.getLogger(getClass().getSimpleName());
 		oSelUtil.ufClear(driver, Sign_Password);
 		oSelUtil.ufSendKeys(driver, Sign_Password, oJsTD_Reg.getString("Password"));
 		oSelUtil.ufClick(driver, Signin_SignButton);
-		bRes_flag = userValidation(Sign_Username.toString());
-		
 		ngWebDriver.waitForAngularRequestsToFinish();
+		
+		bRes_flag = userValidation(Sign_Username.toString());	
+		
+		Alert al = driver.switchTo().alert();
+		al.accept();
+		
 		//bRes_flag=oSelUtil.ufIsDisplayed(driver, Email_login_success);
 		//log.info("is Display welcome page "+bRes_flag);
 		
@@ -112,6 +120,11 @@ final Logger log = LoggerFactory.getLogger(getClass().getSimpleName());
 		return Constants.sRDRole;
 	}
 	private String checkUserExist() throws Exception{
+		HashMap<String, String> param = new HashMap();
+		param.put("user_id", "bchinta");
+		HashMap <String,String> dummy = new HashMap();
+		oRes.ufGet("http://d575aapyh039.jpadc.corpintra.net:8080/api/ipt-user/user_sign_in?", param);
+		log.info(oRes.toString());
 		
 		return "True";
 	}

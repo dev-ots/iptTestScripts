@@ -10,6 +10,7 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.*;
 
+import com.ortusolis.utilities.RestAPIUtilities;
 import com.paulhammant.ngwebdriver.*;
 
 public class Demo {
@@ -19,10 +20,10 @@ public class Demo {
 	//String sBrowser = "edge";
 	WebDriver driver;
 	NgWebDriver ngWebDriver;
-	
+	RestAPIUtilities oRestUtil = new RestAPIUtilities();
 	@BeforeTest
 	public void launchBrowser() {
-		if(sBrowser.contains("Firefox")) {
+		/*if(sBrowser.contains("Firefox")) {
 			System.setProperty("webdriver.firefox.marionette",System.getProperty("user.dir")+"/drivers/geckodriver.exe");
 			//DesiredCapabilities capabilities = DesiredCapabilities.firefox();
 		    //capabilities.setCapability("marionette", true); 
@@ -41,13 +42,17 @@ public class Demo {
 			System.out.println("Option is invalid");
 		}
 		System.out.println("End of launchBrowser");
-		ngWebDriver = new NgWebDriver((JavascriptExecutor) driver);
+		ngWebDriver = new NgWebDriver((JavascriptExecutor) driver);*/
 	}
 
 	@Test
-	public void executeBrowser() {
+	public void executeBrowser() throws Exception {
 		System.out.println("executeBrowser");
-		driver.get("https://my.naviit.com/coldstone");
+		String sResponse;
+		//oJsConfig.get(key)
+		//sResponse=oRestUtil.ufGet("http://53.87.132.60:8080/api/ipt-user/user_sign_in?", "user_id=BCHINTA");
+		//System.out.println(sResponse);
+		/*driver.get("https://my.naviit.com/coldstone");
 		ngWebDriver.waitForAngularRequestsToFinish();
 		driver.findElement(ByAngular.model("phone")).sendKeys("4444000005");
 		driver.findElement(ByAngular.model("email")).sendKeys("sri@spendgo.com");
@@ -55,9 +60,9 @@ public class Demo {
 		driver.findElement(By.id("agree")).click();
 		driver.findElement(ByAngular.buttonText("NEXT STEP")).click();
 		ngWebDriver.waitForAngularRequestsToFinish();
-		}
+*/		}
 	@AfterTest
 	public void tearDown() {
-		driver.close();
+		//driver.close();
 	}
 }

@@ -1,16 +1,27 @@
 package com.ortusolis.pageobjectsPO;
 
+import java.util.HashMap;
+
+import org.json.JSONArray;
 import org.json.JSONObject;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.testng.Assert;
 
+import com.jayway.restassured.response.ResponseBody;
 import com.ortusolis.utilities.Constants;
+import com.ortusolis.utilities.RestAPIUtilities;
 import com.ortusolis.utilities.TestBase;
+
 
 public class IPTDemo1FlowPO extends TestBase {
 	
 final Logger log = LoggerFactory.getLogger(getClass().getSimpleName());
+
+RestAPIUtilities oRes = new RestAPIUtilities();
+
 	
 	By Sign_Username,Sign_Password,Signin_SignButton,Signin_ForgotPassword,
 	Signin_registerForNewUSer,Signin_Success;
@@ -41,6 +52,17 @@ final Logger log = LoggerFactory.getLogger(getClass().getSimpleName());
 		boolean bRes_flag=false;
 		try {
 			
+			RegisterIPTUser registerUser = new RegisterIPTUser();
+			
+			driver.get("http://53.87.137.65/signUp");
+			
+			registerUser.Register_Uscript();
+			boolean breg_flag = registerUser.Register_flow("RD Admin");
+			
+			System.out.println("Registered new user?" +breg_flag);
+			
+			driver.navigate().to(oJsConfig.getString("IPT_Login_URL").toString());
+			ngWebDriver.waitForAngularRequestsToFinish();
 
 			oSelUtil.ufClear(driver, Sign_Username);
 			oSelUtil.ufSendKeys(driver, Sign_Username, oJsTD_Reg.getString("USER_NAME_RD"));
@@ -48,7 +70,11 @@ final Logger log = LoggerFactory.getLogger(getClass().getSimpleName());
 			oSelUtil.ufClear(driver, Sign_Password);
 			oSelUtil.ufSendKeys(driver, Sign_Password, oJsTD_Reg.getString("PASS_WORD_RD"));
 			oSelUtil.ufClick(driver, Signin_SignButton);
+			Thread.sleep(3000);
+			//Alert al = driver.switchTo().alert();
+			//al.accept();
 			bRes_flag = userValidation(Sign_Username.toString());
+			
 			
 			ngWebDriver.waitForAngularRequestsToFinish();
 			
@@ -60,14 +86,14 @@ final Logger log = LoggerFactory.getLogger(getClass().getSimpleName());
 		return bRes_flag;
 }
 	public boolean userValidation(String Username) throws Exception{
-		String userBelongsTo=checkUserExist();
+		System.out.println("Inside UserValidation function");
+		boolean userBelongsTo=checkUserExist();
 		boolean bRes_Flag=false;
-		
-		if(userBelongsTo.equals("false"))
+		System.out.println("outside UserValidation function");
+		if(!userBelongsTo)
 		{
-			//implement not Registered here
+			System.out.println("The user is not valid");
 			bRes_Flag= false;
-			//bRes_Flag=oSelUtil.ufGetTextValidation(driver, Signin_Success, oJsDataVal.getString("Login_success"));
 		}
 		else
 		{
@@ -80,6 +106,7 @@ final Logger log = LoggerFactory.getLogger(getClass().getSimpleName());
 			{
 				driver.navigate().to(oJsConfig.getString("IPT_RD_LANDING"));
 				bRes_Flag= getRDRequests();
+				Thread.sleep(5000);
 				System.out.println("After in Admin else");
 				bRes_Flag = getRDAdminRole();	
 			}
@@ -127,11 +154,8 @@ final Logger log = LoggerFactory.getLogger(getClass().getSimpleName());
 			rdAdmin.loadLoginPageLOcators();
 			System.out.println("Before or after failing");
 			rdAdmin.rdAdminActivities();
-			//}
-			/*else
-			{
-				System.out.println("The user is not an Admin user");
-			}*/
+			
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -143,9 +167,48 @@ final Logger log = LoggerFactory.getLogger(getClass().getSimpleName());
 		// TODO Auto-generated method stub
 		return Constants.sRDAdRole;
 	}
-	private String checkUserExist() throws Exception{
+	private boolean checkUserExist() throws Exception{
 		
-		return "True";
+		try {
+		//String sResponse;
+		System.out.println("Inside chekc user exist func");
+		HashMap<String, String> param = new HashMap();
+		param.put("user_id", "bchinta");
+		HashMap <String,String> dummy = new HashMap();
+		String sRes = oRes.ufGet("http://d575aapyh039.jpadc.corpintra.net:8080/api/ipt-user/user_sign_in?", param);
+		
+		//JSONObject obj = new JSONObject(sRes);
+		
+			JSONObject obj = oRes.convertStringToJson(sRes);
+		//obj.getJSONObject("id");
+			JSONObject obj2 = (JSONObject) obj.get("response");
+			System.out.println(obj.getJSONObject("response"));
+			
+			System.out.println(obj2.names());
+			System.out.println(obj2.names().get(5));
+			System.out.println(obj2.getNames(obj));
+			
+			
+		
+		//JSONArray jArray = (JSONArray) obj.get("response");
+		//System.out.println(jArray.get(3));
+		
+	//	JSONParser parser = new JSONParser();
+		
+		//System.out.println(obj.getJSONObject("user_id"));
+		//sobj.getJSONObject("user_id");
+		
+		
+		
+			}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			return false;
+		}
+		
+	
+		return true;
 	}
 	
 	private boolean getRDRequests()
@@ -153,9 +216,10 @@ final Logger log = LoggerFactory.getLogger(getClass().getSimpleName());
 		boolean bRes_flag=false;
 		RDLandingScreenPO rdLanding = new RDLandingScreenPO(); 
 		try {
-			System.out.println("Inside the RD Requests method");
+			
 			rdLanding.loadRegistrationPageLocators();
 			bRes_flag= rdLanding.search_ShikeishoDetails();
+			ngWebDriver.waitForAngularRequestsToFinish();
 			bRes_flag=true;
 			System.out.println("After performing the action of the RD Landing screen");
 		} catch (Exception e) {
@@ -165,5 +229,7 @@ final Logger log = LoggerFactory.getLogger(getClass().getSimpleName());
 		}return bRes_flag;
 		
 	}
+	
+	
 
 }

@@ -21,8 +21,7 @@ public class IPTDemo1 extends TestBase
 	@Test
 	public void IPT_User_Demo() throws Exception {
 		log.info(oJsConfig.getString("IPT_Login_URL"));
-		driver.navigate().to(oJsConfig.getString("IPT_Login_URL").toString());
-		ngWebDriver.waitForAngularRequestsToFinish();
+		
 		log.info("page load completed");
 		demoFlow.loadLoginPageLOcators();
 		demoFlow.demo1_IPTFlow();
