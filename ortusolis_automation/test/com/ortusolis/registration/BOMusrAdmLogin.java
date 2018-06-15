@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.testng.annotations.Test;
 
 import com.ortusolis.pageobjectsPO.BOMusrAdmnScrPO;
-import com.ortusolis.pageobjectsPO.LMloginPO;
+
 import com.ortusolis.utilities.TestBase;
 
 public class BOMusrAdmLogin extends TestBase

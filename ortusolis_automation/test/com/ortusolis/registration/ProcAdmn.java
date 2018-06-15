@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.Test;
 
-import com.ortusolis.pageobjectsPO.LMloginPO;
+
 import com.ortusolis.pageobjectsPO.ProcAdmnPO;
 import com.ortusolis.utilities.TestBase;
 
