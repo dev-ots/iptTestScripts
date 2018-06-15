@@ -4,6 +4,7 @@ import java.awt.Robot;
 import java.awt.event.KeyEvent;
 
 import org.json.JSONObject;
+import org.openqa.selenium.Alert;
 //import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -103,14 +104,14 @@ public boolean Register_flow(String strFlowName) throws Exception{
 		else if(strFlowName == "LM User")
 		{
 			oSelUtil.ufClear(driver, 	Register_FirstName);
-			oSelUtil.ufSendKeys(driver,	Register_FirstName, oJsTD_Reg.getString("iptFirst_Name2"));
+			oSelUtil.ufSendKeys(driver,	Register_FirstName, oJsTD_Reg.getString("iptFirst_Name3"));
 			
 			oSelUtil.ufClear(driver, Register_LastName);
-			oSelUtil.ufSendKeys(driver, Register_LastName, oJsTD_Reg.getString("iptlast_Name2"));
+			oSelUtil.ufSendKeys(driver, Register_LastName, oJsTD_Reg.getString("iptlast_Name3"));
 			oSelUtil.ufClear(driver, Register_Email);
-			oSelUtil.ufSendKeys(driver, Register_Email, oJsTD_Reg.getString("iptEmail_email2"));
+			oSelUtil.ufSendKeys(driver, Register_Email, oJsTD_Reg.getString("iptEmail_email3"));
 			oSelUtil.ufClear(driver, Register_UserID);
-			oSelUtil.ufSendKeys(driver, Register_UserID, oJsTD_Reg.getString("iptID_id2"));
+			oSelUtil.ufSendKeys(driver, Register_UserID, oJsTD_Reg.getString("iptID_id3"));
 			
 			oSelect = new Select(driver.findElement(Register_UserRole));
 			oSelect.selectByValue("R04");
@@ -121,6 +122,9 @@ public boolean Register_flow(String strFlowName) throws Exception{
 	Thread.sleep(4000);
 	rb.keyPress(KeyEvent.VK_ENTER);
 	
+	
+	/*Alert alert = driver.switchTo().alert();
+	alert.accept();*/
 
 	if(oSelect.getFirstSelectedOption().getText().equalsIgnoreCase("RD Designer"))
 	{

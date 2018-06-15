@@ -16,8 +16,7 @@ import com.ortusolis.utilities.Constants;
 import com.ortusolis.utilities.RestAPIUtilities;
 import com.ortusolis.utilities.TestBase;
 
-
-public class IPTDemo1FlowPO extends TestBase {
+public class IPTDemo1LMFlowPO extends TestBase {
 	
 final Logger log = LoggerFactory.getLogger(getClass().getSimpleName());
 
@@ -48,8 +47,9 @@ RestAPIUtilities oRes = new RestAPIUtilities();
 		
 }
 
-	public boolean demo1_IPTFlow() throws Exception{
+	public boolean demo1LM_IPTFlow() throws Exception{
 		boolean bRes_flag=false;
+		boolean bUser_flag=false;
 		try {
 			
 			RegisterIPTUser registerUser = new RegisterIPTUser();
@@ -57,24 +57,28 @@ RestAPIUtilities oRes = new RestAPIUtilities();
 			driver.get("http://53.87.137.65/signUp");
 			
 			registerUser.Register_Uscript();
-			boolean breg_flag = registerUser.Register_flow("RD Admin");
+			boolean breg_flag = registerUser.Register_flow("LM User");
 			
-			driver.navigate().to(oJsConfig.getString("IPT_Login_URL").toString());
-			ngWebDriver.waitForAngularRequestsToFinish();
-
-			oSelUtil.ufClear(driver, Sign_Username);
-			oSelUtil.ufSendKeys(driver, Sign_Username, oJsTD_Reg.getString("USER_NAME"));
+			if(breg_flag == true) {
 			
-			oSelUtil.ufClear(driver, Sign_Password);
-			oSelUtil.ufSendKeys(driver, Sign_Password, oJsTD_Reg.getString("PASS_WORD"));
-			oSelUtil.ufClick(driver, Signin_SignButton);
-			Thread.sleep(3000);
-			
-			bRes_flag = userValidation(Sign_Username.toString());
-			
-			
-			ngWebDriver.waitForAngularRequestsToFinish();
-			
+				driver.navigate().to(oJsConfig.getString("IPT_Login_URL").toString());
+				ngWebDriver.waitForAngularRequestsToFinish();
+	
+				oSelUtil.ufClear(driver, Sign_Username);
+				oSelUtil.ufSendKeys(driver, Sign_Username, oJsTD_Reg.getString("USER_NAME_LM"));
+				
+				oSelUtil.ufClear(driver, Sign_Password);
+				oSelUtil.ufSendKeys(driver, Sign_Password, oJsTD_Reg.getString("PASS_WORD_LM"));
+				oSelUtil.ufClick(driver, Signin_SignButton);
+				Thread.sleep(3000);
+				
+				bRes_flag = userValidation(Sign_Username.toString());
+				
+				
+				ngWebDriver.waitForAngularRequestsToFinish();
+				
+				bUser_flag= validateUserDetails();
+			}
 		
 		} catch(Exception ea) {
 			//throw new Exception();
@@ -82,6 +86,12 @@ RestAPIUtilities oRes = new RestAPIUtilities();
 		}
 		return bRes_flag;
 }
+	private boolean validateUserDetails() {
+		
+		
+		// TODO Auto-generated method stub
+		return false;
+	}
 	public boolean userValidation(String Username) throws Exception{
 		
 		boolean userBelongsTo=checkUserExist();
@@ -117,15 +127,14 @@ RestAPIUtilities oRes = new RestAPIUtilities();
 		else if(userRole.contains(Constants.sLMRole))
 		{
 			driver.navigate().to(oJsConfig.getString("IPT_LM_LANDING"));
+			return true;
 		}
 		else if(userRole.contains(Constants.sLMAdRole))
 		{
 			driver.navigate().to(oJsConfig.getString("IPT_LM_LANDING"));
+			return true;
 		}
-		else
-		{
-			
-		}
+		
 		return bRes_Flag;
 		}
 		return bRes_Flag;

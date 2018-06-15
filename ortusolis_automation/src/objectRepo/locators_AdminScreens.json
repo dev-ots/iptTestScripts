@@ -25,5 +25,7 @@
 "Update_Email":"id::cvcv",
 "Update_UserRole":"id::dfd",
 "Update_UserRole_Dropdown":"id::dfd",
-"Submit_Button":"id::dfdf"
+"Submit_Button":"id::dfdf",
+"Enter_Details_Back":"id::rdupdateRoleTableEnterDetails",
+"User_Search_Back":"id::rdupdateRoleTableUserSearch"
 }
