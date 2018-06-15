@@ -2,15 +2,32 @@
  "f_name":"BAN",
 "l_name":"KARANE",
 "email":"bnglr@daimler.com",
-"Daimler":"NAMOD",
+"Daimler":"BHARATH",
 "role":"",
  
- "UsrId":"",
+ "UsrId":"BHARATH",
  "UsrPwd":"qqq",
  
  "AdmnId":"SABIN",
- "AdmnPwd":"aaaaa"
-
+ "AdmnPwd":"aaaaa",
+ 
+ "SHIKEISHO_ID":"",
+ "PART_ID":"",
+ "EO_ID":"",
+ "KANRI_ID":"",
+ 
+ "LOCATION":"DELHI",
+  "DELIVERY_DATE":"2018-12-18",
+  "DIGIT":"X",
+  "QUANTITY":"",
+  "ADD_NEW_USER":"",
+  "CONTACT_NUMBER":"",
+  "DAIMLER_DAIMLER":"",
+  "NEW_USER_BUTTON":"",
+  "USER_NAME":"",
+  "DEPARTMENT":"",
+  "ROLE_ROLE":"",
+  "SUBMIT_AND_ADDUSER":""
  
 
 }
