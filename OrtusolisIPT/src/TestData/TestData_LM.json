@@ -1,0 +1,48 @@
+{
+"fname":"LLL",
+"lname":"POLE",
+"email":"lml@ortusolis.com",
+"USERDAIMLER":"LML",
+
+"fnameAd":"sss",
+"lnameAd":"qqq",
+"emailAd":"sq@ortusolis.com",
+"ADMINDAIMLER":"SQS",
+
+"USERID":"LML",
+"USERPWD":"****",
+
+"ADMINID":"SQS",
+"ADMNPWD":"****",
+
+"SUPRADMNID":"BCHINTA",
+"SUPRADMNPWD":"***",
+
+ "SrhFldVal":"",
+ "Quan":"10",
+ "DlvrDt":"23/11/2018",
+ "Loc":"BANG",
+ "6thDigi":"Z",
+ 
+ "fname1":"LLL",
+"lname1":"POLE",
+"email1":"lml@ortusolis.com",
+"USERDAIMLER1":"PQRS",
+ 
+ "D_idUpdt role":"",
+ 
+ "RDuser":"",
+ "RDPwd":"",
+ "RD_shi":"",
+ 
+ "BOMuser":"",
+ "BOMPwd":"",
+ "BOM_Shi":""
+
+
+
+
+
+
+
+}

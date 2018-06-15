@@ -1,18 +1,17 @@
 {
- "UsrId":"",
- "Pwd":"",
+ "LM_USER_ID":"",
+ "LM_USER_PWD":"",
  
- "SrhFldVal":"",
- "Quan":"",
- "DlvrDt":"",
- "Loc":"",
- "6thDigi":"",
+ "SHIKEISHO_VALUE":"",
+ "QUANTITY":"",
+ "DELIVERYDATE":"",
+ "LOCATION":"",
+ "SIXTH_DIGIT":"",
  
- "RDuser":"",
- "RDPwd":"",
- "RD_shi":"",
+ "RD_USER_ID":"",
+ "RD_USER_PASSWORD":"",
  
- "BOMuser":"",
- "BOMPwd":"",
- "BOM_Shi":""
+ "BOM_USER_ID":"",
+ "BOM_USER_PASSWORD":""
+
 }
