@@ -17,7 +17,11 @@ import com.paulhammant.ngwebdriver.NgWebDriver;
 public class LMrqstAprvByAdmnPO extends TestBase 
 {
   By New_Rgstr, fname, lname, email, Daimlr, role, Rgstr_Usr, Usr,
-  Pwd, signup, Usr_pro, swtcadmn, Pndg, ClkUsr, Aprv, signout;
+  Pwd, signup, Usr_pro, swtcadmn, Pndg, ClkUsr, Aprv,Admn_Pro, signout, SEARCH_BY,SHIKEISHO_NUM,
+  PART_NUM,KANRI_NUM,EO_NUM,SEARCH_FIELD,SEARCH_BUTTON,NEW_SHIKEISHO,CHANGED_SHIKEISHO,SHIKEISHO_ID,
+  PART_ID,KANRI_ID,EO_ID,APPROVE,REJECT,FUNDING_LINK,FUNDING_CLOSE,LOCATION,DELIVERY_DATE,DIGIT,QUANTITY,
+  SUBMIT_BUTTON,ADD_NEW_USER,CONTACT_NUMBER,DAIMLER_DAIMLER,NEW_USER_BUTTON,USER_NAME,DEPARTMENT,ROLE_ROLE,SUBMIT_AND_ADDUSER;
+ 
   final Logger log = LoggerFactory.getLogger(getClass().getSimpleName());
 	public static JSONObject oJsOR_Reg = new JSONObject();
 	public static JSONObject oJsTD_Reg = new JSONObject();
@@ -53,7 +57,37 @@ public class LMrqstAprvByAdmnPO extends TestBase
 		ClkUsr =oSelUtil.loadWithBy(oJsOR_Reg.getString("ClkUsr"));
 	    Aprv =oSelUtil.loadWithBy(oJsOR_Reg.getString("Aprv"));
 	    signout = oSelUtil.loadWithBy(oJsOR_Reg.getString("signout"));
-	    
+	    Admn_Pro = oSelUtil.loadWithBy(oJsOR_Reg.getString("Admn_Pro"));
+	    SEARCH_BY = oSelUtil.loadWithBy(oJsOR_Reg.getString("SEARCH_BY"));
+	    SHIKEISHO_NUM = oSelUtil.loadWithBy(oJsOR_Reg.getString("SHIKEISHO_NUM"));
+	    PART_NUM = oSelUtil.loadWithBy(oJsOR_Reg.getString("PART_NUM"));
+	    KANRI_NUM = oSelUtil.loadWithBy(oJsOR_Reg.getString("KANRI_NUM"));
+	    EO_NUM = oSelUtil.loadWithBy(oJsOR_Reg.getString("EO_NUM"));
+	    SEARCH_FIELD = oSelUtil.loadWithBy(oJsOR_Reg.getString("SEARCH_FIELD"));
+	    SEARCH_BUTTON = oSelUtil.loadWithBy(oJsOR_Reg.getString("SEARCH_BUTTON"));
+	    NEW_SHIKEISHO = oSelUtil.loadWithBy(oJsOR_Reg.getString("NEW_SHIKEISHO"));
+	    CHANGED_SHIKEISHO = oSelUtil.loadWithBy(oJsOR_Reg.getString("CHANGED_SHIKEISHO"));
+	    SHIKEISHO_ID = oSelUtil.loadWithBy(oJsOR_Reg.getString("SHIKEISHO_ID"));
+	    PART_ID = oSelUtil.loadWithBy(oJsOR_Reg.getString("PART_ID"));
+	    KANRI_ID = oSelUtil.loadWithBy(oJsOR_Reg.getString("KANRI_ID"));
+	    EO_ID = oSelUtil.loadWithBy(oJsOR_Reg.getString("EO_ID"));
+	    APPROVE = oSelUtil.loadWithBy(oJsOR_Reg.getString("APPROVE"));
+	    REJECT = oSelUtil.loadWithBy(oJsOR_Reg.getString("REJECT"));
+	    FUNDING_LINK = oSelUtil.loadWithBy(oJsOR_Reg.getString("FUNDING_LINK"));
+	    FUNDING_CLOSE = oSelUtil.loadWithBy(oJsOR_Reg.getString("FUNDING_CLOSE"));
+	    LOCATION = oSelUtil.loadWithBy(oJsOR_Reg.getString("LOCATION"));
+	    DELIVERY_DATE = oSelUtil.loadWithBy(oJsOR_Reg.getString("DELIVERY_DATE"));
+	    DIGIT = oSelUtil.loadWithBy(oJsOR_Reg.getString("DIGIT"));
+	    QUANTITY = oSelUtil.loadWithBy(oJsOR_Reg.getString("QUANTITY"));
+	    SUBMIT_BUTTON = oSelUtil.loadWithBy(oJsOR_Reg.getString("SUBMIT_BUTTON"));
+	    ADD_NEW_USER = oSelUtil.loadWithBy(oJsOR_Reg.getString("ADD_NEW_USER"));
+	    NEW_USER_BUTTON = oSelUtil.loadWithBy(oJsOR_Reg.getString("NEW_USER_BUTTON"));
+	    USER_NAME = oSelUtil.loadWithBy(oJsOR_Reg.getString("USER_NAME"));
+	    CONTACT_NUMBER = oSelUtil.loadWithBy(oJsOR_Reg.getString("CONTACT_NUMBER"));
+	    DAIMLER_DAIMLER = oSelUtil.loadWithBy(oJsOR_Reg.getString("DAIMLER_DAIMLER"));
+	    DEPARTMENT =oSelUtil.loadWithBy(oJsOR_Reg.getString("DEPARTMENT"));
+	    ROLE_ROLE =oSelUtil.loadWithBy(oJsOR_Reg.getString("ROLE_ROLE"));
+	    SUBMIT_AND_ADDUSER =oSelUtil.loadWithBy(oJsOR_Reg.getString("SUBMIT_AND_ADDUSER"));
 	}
 	public boolean RgstrLMUsr() throws Exception
 	{
@@ -142,14 +176,13 @@ public class LMrqstAprvByAdmnPO extends TestBase
 			oSelUtil.ufClick(driver, ClkUsr);
 			Thread.sleep(2000);
 			oSelUtil.ufClick(driver, Aprv);
-			Alert al = driver.switchTo().alert();
-			al.accept();
 			Thread.sleep(2000);
-			oSelUtil.ufClick(driver, Usr_pro);
+			Alert alt = driver.switchTo().alert();
+			alt.accept();
+			Thread.sleep(2000);
+			oSelUtil.ufClick(driver, Admn_Pro);
 			Thread.sleep(2000);
 			oSelUtil.ufClick(driver, signout);
-			
-			
 			
 		}
 		catch(Exception ep)
@@ -159,6 +192,188 @@ public class LMrqstAprvByAdmnPO extends TestBase
 		}
 		return adm_log;
 	}
+	
+	public boolean ApproveShikeishoID() throws Exception
+	{
+		boolean aprv_shi=false;
+		try
+		{
+			oSelUtil.ufClick(driver, SEARCH_BY);
+			oSelUtil.ufClick(driver, SHIKEISHO_NUM);
+			oSelUtil.ufSendKeys(driver, SEARCH_FIELD, oJsTD_Reg.getString("SHIKEISHO_ID"));
+			oSelUtil.ufClick(driver, SEARCH_BUTTON);
+			oSelUtil.ufClick(driver, NEW_SHIKEISHO);
+			oSelUtil.ufIsDisplayed(driver, SHIKEISHO_ID);
+			oSelUtil.ufClick(driver, SHIKEISHO_ID);
+			oSelUtil.ufClick(driver, APPROVE);
+			oSelUtil.ufClick(driver, FUNDING_LINK);
+			oSelUtil.ufClick(driver, FUNDING_CLOSE);
+			oSelUtil.ufClick(driver, CHANGED_SHIKEISHO);
+			oSelUtil.ufIsDisplayed(driver, SHIKEISHO_ID);
+			oSelUtil.ufClick(driver, SHIKEISHO_ID);
+			oSelUtil.ufClick(driver, APPROVE);
+			oSelUtil.ufClick(driver, FUNDING_LINK);
+			oSelUtil.ufClick(driver, FUNDING_CLOSE);
+			
+		}
+		catch(Exception m)
+		{
+			log.info("Shikeisho not found in User landing screen"+m.getMessage());
+			aprv_shi=false;
+		}
+		return aprv_shi;
+	}
+	public boolean ApprovePartID() throws Exception
+	{
+		boolean aprv_part=false;
+		try
+		{
+			oSelUtil.ufClick(driver, SEARCH_BY);
+			oSelUtil.ufClick(driver, PART_NUM);
+			oSelUtil.ufSendKeys(driver, SEARCH_FIELD, oJsTD_Reg.getString("PART_NUM"));
+			oSelUtil.ufClick(driver, SEARCH_BUTTON);
+			oSelUtil.ufClick(driver, NEW_SHIKEISHO);
+			oSelUtil.ufIsDisplayed(driver, PART_ID);
+			oSelUtil.ufClick(driver, PART_ID);
+			oSelUtil.ufClick(driver, APPROVE);
+			oSelUtil.ufClick(driver, FUNDING_LINK);
+			oSelUtil.ufClick(driver, FUNDING_CLOSE);
+			oSelUtil.ufClick(driver, CHANGED_SHIKEISHO);
+			oSelUtil.ufIsDisplayed(driver, PART_ID);
+			oSelUtil.ufClick(driver, PART_ID);
+			oSelUtil.ufClick(driver, APPROVE);
+			oSelUtil.ufClick(driver, FUNDING_LINK);
+			oSelUtil.ufClick(driver, FUNDING_CLOSE);
+			
+		}
+		catch(Exception pr)
+		{
+			log.info("Shikeisho not found in User landing screen"+pr.getMessage());
+			aprv_part=false;
+		}
+		return aprv_part;
+	}
 
+	public boolean ApproveKanriID() throws Exception
+	{
+		boolean aprv_kanri=false;
+		try
+		{
+			oSelUtil.ufClick(driver, SEARCH_BY);
+			oSelUtil.ufClick(driver, KANRI_NUM);
+			oSelUtil.ufSendKeys(driver, SEARCH_FIELD, oJsTD_Reg.getString("KANRI_NUM"));
+			oSelUtil.ufClick(driver, SEARCH_BUTTON);
+			oSelUtil.ufClick(driver, NEW_SHIKEISHO);
+			oSelUtil.ufIsDisplayed(driver, KANRI_ID);
+			oSelUtil.ufClick(driver, KANRI_ID);
+			oSelUtil.ufClick(driver, APPROVE);
+			oSelUtil.ufClick(driver, FUNDING_LINK);
+			oSelUtil.ufClick(driver, FUNDING_CLOSE);
+			oSelUtil.ufClick(driver, CHANGED_SHIKEISHO);
+			oSelUtil.ufIsDisplayed(driver, KANRI_ID);
+			oSelUtil.ufClick(driver, KANRI_ID);
+			oSelUtil.ufClick(driver, APPROVE);
+			oSelUtil.ufClick(driver, FUNDING_LINK);
+			oSelUtil.ufClick(driver, FUNDING_CLOSE);
+			
+		}
+		catch(Exception kn)
+		{
+			log.info("Shikeisho not found in User landing screen"+kn.getMessage());
+			aprv_kanri=false;
+		}
+		return aprv_kanri;
+	}
+
+	public boolean ApproveEoID() throws Exception
+	{
+		boolean aprv_eo=false;
+		try
+		{
+			oSelUtil.ufClick(driver, SEARCH_BY);
+			oSelUtil.ufClick(driver, EO_NUM);
+			oSelUtil.ufSendKeys(driver, SEARCH_FIELD, oJsTD_Reg.getString("EO_NUM"));
+			oSelUtil.ufClick(driver, SEARCH_BUTTON);
+			oSelUtil.ufClick(driver, NEW_SHIKEISHO);
+			oSelUtil.ufIsDisplayed(driver, EO_ID);
+			oSelUtil.ufClick(driver, EO_ID);
+			oSelUtil.ufClick(driver, APPROVE);
+			oSelUtil.ufClick(driver, FUNDING_LINK);
+			oSelUtil.ufClick(driver, FUNDING_CLOSE);
+			oSelUtil.ufClick(driver, CHANGED_SHIKEISHO);
+			oSelUtil.ufIsDisplayed(driver, EO_ID);
+			oSelUtil.ufClick(driver, EO_ID);
+			oSelUtil.ufClick(driver, APPROVE);
+			oSelUtil.ufClick(driver, FUNDING_LINK);
+			oSelUtil.ufClick(driver, FUNDING_CLOSE);
+			
+		}
+		catch(Exception eo)
+		{
+			log.info("Shikeisho not found in User landing screen"+eo.getMessage());
+			aprv_eo=false;
+		}
+		return aprv_eo;
+	}
+	
+	public boolean UpdtVlues() throws Exception
+	{ 
+	
+		boolean updt_values=false;
+		try
+		{
+			oSelUtil.ufClick(driver, SEARCH_BY);
+			oSelUtil.ufClick(driver, SHIKEISHO_NUM);
+			oSelUtil.ufSendKeys(driver, SEARCH_FIELD, oJsTD_Reg.getString("SHIKEISHO_ID"));
+			oSelUtil.ufClick(driver, SEARCH_BUTTON);
+			
+			oSelUtil.ufClear(driver, LOCATION);
+			oSelUtil.ufSendKeys(driver, LOCATION, oJsTD_Reg.getString("LOCATION"));
+			oSelUtil.ufClear(driver, DELIVERY_DATE);
+			oSelUtil.ufSendKeys(driver, DELIVERY_DATE, oJsTD_Reg.getString("DELIVERY_DATE"));
+			oSelUtil.ufClear(driver, DIGIT);
+			oSelUtil.ufSendKeys(driver, DIGIT, oJsTD_Reg.getString("DIGIT"));
+			oSelUtil.ufClear(driver, QUANTITY);
+			oSelUtil.ufSendKeys(driver, QUANTITY, oJsTD_Reg.getString("QUANTITY"));
+			oSelUtil.ufClick(driver, SUBMIT_BUTTON);
+			
+		}
+		catch(Exception uv)
+		{
+			log.info("Error in updating the kanri "+uv.getMessage());
+	         updt_values=false;
+		}
+		return updt_values;
+	}
+	
+	public boolean UserRgstrByAdmn() throws Exception
+	{
+		boolean UserByAdmn=false;
+		try
+		{
+			oSelUtil.ufClick(driver, ADD_NEW_USER);	
+			oSelUtil.ufClick(driver, NEW_USER_BUTTON);
+			oSelUtil.ufClear(driver, USER_NAME);
+			oSelUtil.ufSendKeys(driver, USER_NAME, oJsTD_Reg.getString("USER_NAME"));
+			oSelUtil.ufClear(driver, CONTACT_NUMBER);
+			oSelUtil.ufSendKeys(driver, CONTACT_NUMBER, oJsTD_Reg.getString("CONTACT_NUMBER"));
+			oSelUtil.ufClear(driver, DAIMLER_DAIMLER);
+			oSelUtil.ufSendKeys(driver, DAIMLER_DAIMLER,oJsTD_Reg.getString("DAIMLER_DAIMLER"));
+			oSelUtil.ufClear(driver, DEPARTMENT);
+			oSelUtil.ufSendKeys(driver, DEPARTMENT, oJsTD_Reg.getString("DEPARTMENT"));
+			Select slt =new Select(driver.findElement(ROLE_ROLE));
+			slt.deselectByVisibleText(" User");
+			oSelUtil.ufClick(driver, SUBMIT_AND_ADDUSER);
+			
+			
+		}
+		catch(Exception ua)
+		{
+			log.info("Error in registering the user by Admin"+ua.getMessage());
+			UserByAdmn=false;
+		}
+		return UserByAdmn;
+	}
+	
 
 }

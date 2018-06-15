@@ -13,7 +13,7 @@ public class LMShiAprvPndgPO extends TestBase
 {
 	By 
 	USER_NAME,PASSWRD,SIGN_IN,Search_by,Shi_,EO_,Prt_,Knri_,
-	SrhFld,Clk_Srh,Nw_Shi,Chng_Shi,Prg_Shi,PrtRcvd_Shi;
+	SrhFld,Clk_Srh,Nw_Shi,Chng_Shi,Prg_Shi,PrtRcvd_Shi,Value;
 
 	final Logger log = LoggerFactory.getLogger(getClass().getSimpleName());
 	public static JSONObject oJsOR_Reg1 = new JSONObject();
@@ -45,7 +45,7 @@ public class LMShiAprvPndgPO extends TestBase
 		Chng_Shi= oSelUtil.loadWithBy(oJsOR_Reg1.getString("Chng_Shi"));
 		Prg_Shi= oSelUtil.loadWithBy(oJsOR_Reg1.getString("Prg_Shi"));
 		PrtRcvd_Shi= oSelUtil.loadWithBy(oJsOR_Reg1.getString("PrtRcvd_Shi"));
-		
+		Value = oSelUtil.loadWithBy(oJsOR_Reg1.getString("Value"));
 }
 	public boolean LoginLM_flow() throws Exception
 	{
@@ -72,7 +72,12 @@ public class LMShiAprvPndgPO extends TestBase
 		}
 		
 		return lmlogin_flag;
-
-
-}
+		}
+	
+    public void NewShikesho()
+    {
+    	oSelUtil.ufClick(driver, Nw_Shi);
+    	oSelUtil.ufIsDisplayed(driver, Value);
+    	oSelUtil.ufClick(driver, Value);
+    }
 }
