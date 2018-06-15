@@ -1,0 +1,34 @@
+{
+ "New_Register":"::",
+ "fname":"::",
+ "lname":"::",
+ "contact":"::",
+ "email":"::",
+ "role":"::",
+ "PJAUsr":"::",
+ "PJAdmn":"::",
+ "Rgstr":"::",
+ 
+ "Usr_Scr":"::",
+ "search_Scr":"::",
+ "Overseas":"::",
+ "domestic":"::",
+ 
+  "SrhBy_Shi":"::",
+  "SrhBy_Prt":"::",
+  "SrhBy_EO":"::",
+  "SrhBy_Kanri":"::",
+  "SrhBy_suplyCode":"::",
+  "SrhBy_PO":"::",
+  "SEARCH":"::",
+  
+  "Usr_Pro":"::",
+  "Swt_Admn":"::",
+  
+  "Over_seas":"::",
+  "New":"::",
+  "PO_Sent":"::",
+  "Part_Arrived":"::",
+  "Dashboard":"::",
+  "Domestic":"::",
+}
