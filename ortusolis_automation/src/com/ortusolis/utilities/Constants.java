@@ -14,6 +14,7 @@ public class Constants {
 	public static String sExtentReportFormatSuite = "suite";
 	public static String sExtentReportFormatMethod = "method";
 	public static String sRDRole = "RD";
+	public static String sSuperUser = "Super User";
 	public static String sRDAdRole = "RDAdmin";
 	public static String sLMRole = "LM";
 	public static String sLMAdRole = "LMAdmin";

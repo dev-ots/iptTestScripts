@@ -22,7 +22,7 @@ public class RDAdminPO extends TestBase
 			Request_Contact_Number,Request_User_Role,Request_Department,
 			Approve_Request,Update_Daimler_Id,Daimler_Id_Details,Get_Details_Button,
 			Update_User_Name,Update_Contact_Number,Update_Email,Update_UserRole,
-			Update_UserRole_Dropdown,Submit_Button;
+			Update_UserRole_Dropdown,Submit_Button, Enter_Details_Back , User_Search_Back;
 			
 			public static JSONObject oJsOR_Reg = new JSONObject();
 			public static JSONObject oJsTD_Reg = new JSONObject();
@@ -62,6 +62,8 @@ public class RDAdminPO extends TestBase
 				Update_UserRole =  oSelUtil.loadWithBy(oJsOR_Reg.getString("Update_UserRole"));
 				Update_UserRole_Dropdown =  oSelUtil.loadWithBy(oJsOR_Reg.getString("Update_UserRole_Dropdown"));
 				Submit_Button =  oSelUtil.loadWithBy(oJsOR_Reg.getString("Submit_Button"));
+				Enter_Details_Back = oSelUtil.loadWithBy(oJsOR_Reg.getString("Enter_Details_Back"));
+				User_Search_Back = oSelUtil.loadWithBy(oJsOR_Reg.getString("User_Search_Back"));
 				
 				
 		}
@@ -70,21 +72,25 @@ public class RDAdminPO extends TestBase
 				
 				try {
 
-					ngWebDriver.waitForAngularRequestsToFinish();
+					//ngWebDriver.waitForAngularRequestsToFinish();
 				
 					lrd_flag = addNewRDUser();
 					if(lrd_flag)
 					{
-						log.info("The user has been successfully added into IPT system");
+						log.info(
+								"The user has been successfully added into IPT system");
 						
 						lrd_flag=false;
+						//return lrd_flag;
 					}
 					
-										
-			
+					driver.navigate().to(oJsConfig.getString("IPT_RD_ADMIN").toString());					
+					//Thread.sleep(3000);
 					lrd_flag = approvePendingRequests();
 					
-					//lrd_flag = updateUserRole();
+					Thread.sleep(2000);
+					
+				//	lrd_flag = updateUserRole();
 					
 						
 				log.info("Text validation welcome page "+lrd_flag);
@@ -113,6 +119,12 @@ public class RDAdminPO extends TestBase
 					oSelUtil.ufSendKeys(driver, Daimler_Id_Details, "SRRAMAK");
 					oSelUtil.ufClick(driver, Get_Details_Button);
 					
+					Thread.sleep(2000);
+					oSelUtil.ufClick(driver, Enter_Details_Back);
+					Thread.sleep(2000);
+					oSelUtil.ufClick(driver, User_Search_Back);
+					
+					
 					
 				}catch(Exception e)
 				{
@@ -126,11 +138,11 @@ public class RDAdminPO extends TestBase
 			private boolean addNewRDUser()
 			{
 				try {
-				Thread.sleep(5000);
+				Thread.sleep(3000);
 				
 				oSelUtil.ufClick(driver, Add_User);
 				
-					Thread.sleep(5000);
+					Thread.sleep(3000);
 			
 				oSelUtil.ufClick(driver, Add_User_Button);
 				ngWebDriver.waitForAngularRequestsToFinish();
@@ -155,13 +167,11 @@ public class RDAdminPO extends TestBase
 				
 				if(oSelect.getFirstSelectedOption().getText().equalsIgnoreCase("admin"))
 				{
-					System.out.println("Admin");
 					lrd_flag=true;
 				}
+
 				oSelUtil.ufClick(driver, Submit_Add_User_Button);
-				driver.navigate().to(oJsConfig.getString("IPT_RD_ADMIN").toString());
-				
-				
+								
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -176,9 +186,10 @@ public class RDAdminPO extends TestBase
 			{
 				boolean bRes_flag=false;
 				try {
+					Thread.sleep(3000);
 				oSelUtil.ufClick(driver, Pending_Requests);
 				Thread.sleep(2000);
-				oSelUtil.ufClick(driver, Pending_Requests_For_Admin);
+				oSelUtil.ufClick(driver, Request_User_Name);
 				Thread.sleep(2000);
 				oSelUtil.ufClick(driver, Approve_Request);
 				Thread.sleep(4000);

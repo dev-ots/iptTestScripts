@@ -5,18 +5,29 @@
     "iptEmail_email":"ortusolis.ramakrishna@daimler.com",
     "iptID_id":"SRRAM",
     
-    "iptFirst_Name1":"Hemanth",
-    "iptlast_Name1":"M",
+    "iptFirst_Name1":"Hemant",
+    "iptlast_Name1":"MA",
     "iptEmail_email1":"ortusolis.MS@daimler.com",
-    "iptID_id1":"HEMAN",
+    "iptID_id1":"HEMANS",
     
-    "iptFirst_Name2":"Vidya",
+    "iptFirst_Name2":"VidyaR",
     "iptlast_Name2":"R",
     "iptEmail_email2":"ortusolis.R@daimler.com",
-    "iptID_id2":"VIDYA",
+    "iptID_id2":"VIDYAR",
+    
+     "iptFirst_Name3":"Shach",
+    "iptlast_Name3":"R",
+    "iptEmail_email3":"ortusolis.R@daimler.com",
+    "iptID_id3":"SHAC",
     
     "USER_NAME":"BCHINTA",
     "PASS_WORD":"abc453",
+    
+    "USER_NAME_RUSER":"MANIS",
+    "PASS_WORD_RUSER":"ghtir",
+    
+    "USER_NAME_LUSER":"SHCHI",
+    "PASS_WORD_LUSER":"sdfjsdf",
     
     "USER_NAME_RD":"SRRAMAK",
     "PASS_WORD_RD":"abc123",
@@ -26,10 +37,6 @@
     
     "USER_NAME_USER":"VIDYA",
     "PASS_WORD_USER":"abb23"
-    
-    
-    
-    
-    
+ 
     
 }
