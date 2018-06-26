@@ -85,4 +85,90 @@ public class PROCUREMENTPO extends TestBase
 		}
 		return check_url;
 	}
+	/*public boolean SelectsupplierGroupWithCode() throws Exception
+	{
+		boolean select_supplier=false;
+		try
+		{
+			
+				
+			List<WebElement> allDropdowns = oSelUtil.ufGetWebElements(driver, ALLDROPDOWNS);
+			int count=allDropdowns.size();
+			for(int i=0;i<allDropdowns.size();i++)
+			{
+			
+			if(i==0)
+			{	
+			 allDropdowns.get(i).click();
+			 {
+				 List<WebElement> allCheckboxes= oSelUtil.ufGetWebElements(driver, ALLCHECKBOXES);
+				 int count2=allCheckboxes.size();
+				 log.info("number of checkboxes are"+count2);
+				 for(int j=0;j<allCheckboxes.size();j++)
+				 {
+				
+					 allCheckboxes.get(i).click();
+				 }
+			 }
+			}
+			else if(i==1)
+			{
+				allDropdowns.get(i).click();
+				 {
+					 List<WebElement> allCheckboxes= oSelUtil.ufGetWebElements(driver, ALLCHECKBOXES);
+					 int count2=allCheckboxes.size();
+					 log.info("number of checkboxes are"+count2);
+					 for(int j=0;j<allCheckboxes.size();j++)
+					 {
+						 for(int k=2;k>=j;k++)
+						 allCheckboxes.get(j).click();
+					 }
+				 }
+		
+			}
+			else if(i==2)
+			{
+				allDropdowns.get(i).click();
+				 {
+					 List<WebElement> allCheckboxes= oSelUtil.ufGetWebElements(driver, ALLCHECKBOXES);
+					 int count2=allCheckboxes.size();
+					 log.info("number of checkboxes are"+count2);
+					 for(int j=0;j<allCheckboxes.size();j++)
+					 {
+						 for(int k=2;k>=j;j++)
+						 allCheckboxes.get(j).click();
+					 }
+				 }
+
+				
+			}
+				
+			}
+			oSelUtil.ufClick(driver, SAVE_BUTTON);
+		//Select based on supplier code to send RFQ.
+			List<WebElement> allRadios= oSelUtil.ufGetWebElements(driver, ALLRADIO_BUTTON);
+			log.info("Number of supplier group code are"+allRadios.size());
+			for(int i=0;i<allRadios.size();i++)
+			{
+				if(i==0)
+				{		
+					boolean bvalue;
+					bvalue=allRadios.get(i).isSelected();
+				
+					if(bvalue=false)
+					{
+						allRadios.get(i).click();
+					}
+				}
+			}
+		
+		}
+		catch(Exception sg)
+		{
+			log.info("Fails in selecting the supplier for each part and grouping them"+sg.getMessage());
+			select_supplier=false;
+		}
+		return select_supplier;
+	}*/
+			
 }
