@@ -1,0 +1,17 @@
+{
+  "USER_REGISTER":"Registration Successfull",
+ "REGISTRATION_FAILS":"",
+ "LM_LOGIN":"",
+ "LM_LOGIN_FAILS":"",
+ "LM_LOGOUT":"",
+ "ADMIN_PAGE":"",
+ "LM_ADMIN_LOGOUT":"",
+ "NEW_USER_BYADMIN":"",
+"USER_ROLE_UPDATE":"",
+"APPROVE_USER":"",
+ "REJECT_USER":"",
+ "VAL_UPDATED":""
+
+
+
+}

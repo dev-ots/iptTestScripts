@@ -6,19 +6,17 @@
  "Daimlr":"id::daimlerIdSignUp",
  "role":"id::selectRole",
  "Rgstr_Usr":"id::registerNewUser", 
- 
  "Usr":"id::userName",
  "Pwd":"id::password",
  "signup":"id::login",
- 
  "Usr_pro":"id::lmHomePopverButton",
  "swtcadmn":"id::rdTeamSwitchToAdminId",
  "Pndg":"id::approvedStausContent2",
- "ClkUsr":"id::rdAdminHomeAccordionOpenCardContactNumber",
+"ClkUsr":"xpath:://rdAdminHomeAccordionOpenCardContactNumber",
  "Aprv":"id::rdAdminHomeAccordionModalApprove",
  "Admn_Pro":"id::rdAdminHomeNavBarId",
  "signout":"id::rdAdminHomeLogout",
- 
+ "AdminLogout":"id::adminHomeLogout",
  "SEARCH_BY":"id::lmHomeDropDownBasic",
 "SHIKEISHO_NUM":"id::lmTeamsearcShikeshoNumber",
  "PART_NUM":"id::lmTeamSearchPartNumber",
@@ -28,19 +26,18 @@
   "SEARCH_BUTTON":"id::lmHomeSearch",
   "NEW_SHIKEISHO":"id::approvedStausContent",
   "CHANGED_SHIKEISHO":"id::approvedStausContent1",
-  "SHIKEISHO_ID":"id::rdHomeGoToNewShiekshoDetailsID",
-  "PART_ID":"::",
-  "KANRI_ID":"::",
-  "EO_ID":"::",
+  "SHIKEISHO_ID":"xpath:://div[@id='rdHomeGoToNewShiekshoDetailsID']'",
+  "PART_ID":"id::hemanth",
+  "KANRI_ID":"id::hemanth",
+  "EO_ID":"id::hemanth",
   "APPROVE":"id::rdAdminHomeAccordionModalApprove",
   "REJECT":"id::rdAdminHomeAccordionModalReject",
   "FUNDING_LINK":"id::rdHomeFundingLinkPopUp",
   "FUNDING_CLOSE":"id::rdHomeFundingLinkCloseButton",
-  
   "LOCATION":"id::lmDetailsDesiredLocation",
   "DELIVERY_DATE":"id::lmDetailsLmApprovedDate",
   "DIGIT":"id::lmDetailsKanriSixthDigit",
-  "QUANTITY":"::",
+  "QUANTITY":"id::",
   "SUBMIT_BUTTON":"id::lmDetailsSubmitData",
   "ADD_NEW_USER":"id::approvedStausContent1",
   "CONTACT_NUMBER":"id::addNewUserContactNumber",
@@ -49,5 +46,13 @@
   "USER_NAME":"id::addNewUserUserNAme",
   "DEPARTMENT":"id::addNewUserDepartment",
   "ROLE_ROLE":"id::addNewUserSelectDesignerId",
-  "SUBMIT_AND_ADDUSER":"id::addNewUserSubmitButton"
-}
+  "SUBMIT_AND_ADDUSER":"id::addNewUserSubmitButton",
+  
+   "UPDATE_USER_ROLE_SECTION":"id::approvedStausContent",
+ "UPDATE_BUTTON":"id::adminHomeUpdateButtonId",
+ "DAIMLER_SEARCH_FIELD":"id::rdUpdateRoleSearchField",
+ "GET_DETAILS":"id::rdUpdateRoleSearchButton",
+ "SELECT_ROLE":"id::rdupdateRoleTableSelectRole",
+ "UPDATE_ROLE_BUTTON":"id::rdupdateRoleTableUpdateUser"
+  
+  }

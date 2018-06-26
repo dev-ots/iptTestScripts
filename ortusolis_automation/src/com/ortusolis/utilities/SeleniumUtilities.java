@@ -1,9 +1,12 @@
 package com.ortusolis.utilities;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.By.ByClassName;
 import org.openqa.selenium.By.ByCssSelector;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,7 +16,7 @@ import com.paulhammant.ngwebdriver.NgWebDriver;
 public class SeleniumUtilities extends TestBase{
 	final Logger log = LoggerFactory.getLogger(getClass().getSimpleName());
 	
-	public By loadWithBy(String sReqlocator) {
+ public By loadWithBy(String sReqlocator) {
 		By objBy = null;
 		String[] sArrLocaVal = oComUtil.ufSplitMe(sReqlocator);
 		sArrLocaVal[0] = sArrLocaVal[0].toLowerCase();
@@ -120,8 +123,34 @@ public class SeleniumUtilities extends TestBase{
 		return ((WebDriver) driver).findElement(SelPageObj).isEnabled();
 	}
 
-	public boolean ufGetTextValidation(NgWebDriver driver, By byPageObject, String sExpectedVal) {
+	public boolean ufGetTextValidation(NgWebDriver driver, By byPageObject, String sExpectedVal) 
+	{
 		log.info("Actual : "+oSelUtil.ufGetText(driver, byPageObject)+"\nExpected: "+sExpectedVal);
 		return oSelUtil.ufGetText(driver, byPageObject).contains(sExpectedVal);
 	}
-}
+	
+	public WebElement ufGetWebElement(NgWebDriver driver, By SelPageObj)
+	{
+		return ((WebDriver)driver).findElement(SelPageObj);
+	}
+	public List<WebElement> ufGetWebElements(NgWebDriver driver,By SelPageObj)
+	{
+		return (List<WebElement>) ((WebDriver) driver).findElements(SelPageObj);	
+	}
+	public List<WebElement> ufGetWebElements(WebDriver driver,By SelPageObj)
+	{
+		return (List<WebElement>) driver.findElements(SelPageObj);
+	}
+
+
+	public int getIndexOfMatchingTextWebElements(List<WebElement> eleList, String strTextMatching) {
+		
+		for(int i=0;i<eleList.size();i++)
+		{
+			if(eleList.get(i).getText().contains(strTextMatching))
+				return i;
+		}
+		return 0;
+	}
+	
+ }

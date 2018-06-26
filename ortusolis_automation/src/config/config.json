@@ -9,6 +9,8 @@
 "IPT_LM_LANDING":"http://53.87.137.65/lmHome",
 "IPT_LM_ADMIN":"http://53.87.137.65/lmAdminHome",
 "IPT_RD_DETAILS":"http://53.87.137.65/rdDetails",
+"IPT_PROC_ADMIN":"http://53.87.137.65/proc_admin_home",
+"IPT_PROC_DETAILS":"http://53.87.137.65/proc_team_details",
 
 "RestAPI":{
 "Rest_URL":"http://53.87.132.60:8080",
