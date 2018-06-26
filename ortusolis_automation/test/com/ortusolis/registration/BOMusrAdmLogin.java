@@ -1,10 +1,14 @@
-package com.ortusolis.registration;
+/*package com.ortusolis.registration;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.Test;
 
 import com.ortusolis.pageobjectsPO.BOMusrAdmnScrPO;
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/dev-ots/iptTestScripts.git
 import com.ortusolis.utilities.TestBase;
 
 public class BOMusrAdmLogin extends TestBase
@@ -23,3 +27,4 @@ public class BOMusrAdmLogin extends TestBase
 	
 
 }
+*/

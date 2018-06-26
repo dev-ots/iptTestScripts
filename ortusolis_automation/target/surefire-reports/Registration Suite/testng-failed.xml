@@ -7,53 +7,57 @@
   <test name="Registration Flow On Customized(failed)">
     <parameter name="URL_Type" value="Registration_coldStone"/>
     <classes>
-      <class name="com.ortusolis.registration.IPTUserLogin">
+      <class name="com.ortusolis.registration.CCA_003">
         <methods>
+          <include name="getURLSettingEnvironment"/>
           <include name="tearDown"/>
           <include name="BeforeSuiteDependencyTrigger"/>
           <include name="zzzUfRepotFormatSet"/>
-          <include name="IPT_User_Login"/>
+          <include name="CCA_003_Registration_On_AllPages"/>
         </methods>
-      </class> <!-- com.ortusolis.registration.IPTUserLogin -->
+      </class> <!-- com.ortusolis.registration.CCA_003 -->
     </classes>
   </test> <!-- Registration Flow On Customized(failed) -->
   <test name="Registration Flow On Templeted(failed)">
     <parameter name="URL_Type" value="Registration_blimpie"/>
     <classes>
-      <class name="com.ortusolis.registration.IPTUserLogin">
+      <class name="com.ortusolis.registration.CCA_003">
         <methods>
+          <include name="getURLSettingEnvironment"/>
           <include name="tearDown"/>
           <include name="BeforeSuiteDependencyTrigger"/>
           <include name="zzzUfRepotFormatSet"/>
-          <include name="IPT_User_Login"/>
+          <include name="CCA_003_Registration_On_AllPages"/>
         </methods>
-      </class> <!-- com.ortusolis.registration.IPTUserLogin -->
+      </class> <!-- com.ortusolis.registration.CCA_003 -->
     </classes>
   </test> <!-- Registration Flow On Templeted(failed) -->
   <test name="Registration Flow On Generic(failed)">
     <parameter name="URL_Type" value="Registration_jamesconey"/>
     <classes>
-      <class name="com.ortusolis.registration.IPTUserLogin">
+      <class name="com.ortusolis.registration.CCA_003">
         <methods>
+          <include name="getURLSettingEnvironment"/>
           <include name="tearDown"/>
           <include name="BeforeSuiteDependencyTrigger"/>
           <include name="zzzUfRepotFormatSet"/>
-          <include name="IPT_User_Login"/>
+          <include name="CCA_003_Registration_On_AllPages"/>
         </methods>
-      </class> <!-- com.ortusolis.registration.IPTUserLogin -->
+      </class> <!-- com.ortusolis.registration.CCA_003 -->
     </classes>
   </test> <!-- Registration Flow On Generic(failed) -->
   <test name="Registration Flow - Phone number, email and password error check(failed)">
     <parameter name="URL_Type" value="Registration_coldStone"/>
     <classes>
-      <class name="com.ortusolis.registration.IPTUserLogin">
+      <class name="com.ortusolis.registration.CCA_003">
         <methods>
+          <include name="getURLSettingEnvironment"/>
           <include name="tearDown"/>
           <include name="BeforeSuiteDependencyTrigger"/>
           <include name="zzzUfRepotFormatSet"/>
-          <include name="IPT_User_Login"/>
+          <include name="CCA_003_Registration_On_AllPages"/>
         </methods>
-      </class> <!-- com.ortusolis.registration.IPTUserLogin -->
+      </class> <!-- com.ortusolis.registration.CCA_003 -->
     </classes>
   </test> <!-- Registration Flow - Phone number, email and password error check(failed) -->
 </suite> <!-- Failed suite [Registration Suite] -->
