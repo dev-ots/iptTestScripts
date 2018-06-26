@@ -164,7 +164,7 @@ RestAPIUtilities oRes = new RestAPIUtilities();
 		try {
 		
 			HashMap<String, String> param = new HashMap();
-			param.put("user_id", "bchinta");
+			param.put("user_id", "heman");
 			HashMap <String,String> dummy = new HashMap();
 			String sRes = oRes.ufGet("http://d575aapyh039.jpadc.corpintra.net:8080/api/ipt-user/user_sign_in?", param);
 			
