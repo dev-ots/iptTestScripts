@@ -70,6 +70,7 @@ public boolean Register_flow(String strFlowName) throws Exception{
 			
 			oSelect = new Select(driver.findElement(Register_UserRole));
 			oSelect.selectByValue("R02");
+			rGst_flag=true;
 		}
 		else if(strFlowName == "RD Admin")
 		{
@@ -85,6 +86,7 @@ public boolean Register_flow(String strFlowName) throws Exception{
 			
 			oSelect = new Select(driver.findElement(Register_UserRole));
 			oSelect.selectByValue("R01");
+			rGst_flag=true;
 		}
 		else if(strFlowName == "LM Admin")
 		{
@@ -100,6 +102,7 @@ public boolean Register_flow(String strFlowName) throws Exception{
 			
 			oSelect = new Select(driver.findElement(Register_UserRole));
 			oSelect.selectByValue("R03");
+			rGst_flag=true;
 		}
 		else if(strFlowName == "LM User")
 		{
@@ -115,6 +118,7 @@ public boolean Register_flow(String strFlowName) throws Exception{
 			
 			oSelect = new Select(driver.findElement(Register_UserRole));
 			oSelect.selectByValue("R04");
+			rGst_flag=true;
 		}
 	oSelUtil.ufClick(driver, Register_button);
 	
@@ -126,7 +130,7 @@ public boolean Register_flow(String strFlowName) throws Exception{
 	/*Alert alert = driver.switchTo().alert();
 	alert.accept();*/
 
-	if(oSelect.getFirstSelectedOption().getText().equalsIgnoreCase("RD Designer"))
+	/*if(oSelect.getFirstSelectedOption().getText().equalsIgnoreCase("RD Designer"))
 	{
 		rGst_flag=true;
 		//driver.navigate().to(oJsConfig.getString("IPT_RD_LANDING").toString());
@@ -143,13 +147,14 @@ public boolean Register_flow(String strFlowName) throws Exception{
 	}
 	else if(oSelect.getFirstSelectedOption().getText().equalsIgnoreCase("LM User"))
 	{
+		System.out.println("Inside the If of LM User");
 		//driver.navigate().to(oJsConfig.getString("IPT_LM_LANDING").toString());
 		rGst_flag=true;
 	}
 	else {
 		rGst_flag=false;
 		throw new Exception("Invalid user");
-	}
+	}*/
 	
 	}catch(Exception ea) {
 		log.info("Exception in Register_flow : "+ea);
