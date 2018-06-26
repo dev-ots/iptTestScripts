@@ -17,7 +17,6 @@ public class LMrqstAprvByAd extends TestBase
 	public void LM_AdmnLog() throws Exception
 
 	{
-		log.info(oJsConfig.getString("URL_IPT_APP"));
 		driver.get("http://53.87.137.65/login");
 		lml. RqstAprvLocators();
 		lml.RgstrLMUsr();
@@ -31,7 +30,7 @@ public class LMrqstAprvByAd extends TestBase
 	public void LM_AprvShikesho() throws Exception
 
 	{
-		log.info(oJsConfig.getString("URL_IPT_APP"));
+		log.info("Open the Login page");
 		driver.get("http://53.87.137.65/login");
 		//lml. RqstAprvLocators();
 		lml.RgstrLMUsr();
@@ -42,7 +41,7 @@ public class LMrqstAprvByAd extends TestBase
 	public void LM_UpdateValues() throws Exception
 
 	{
-		log.info(oJsConfig.getString("URL_IPT_APP"));
+		log.info("Inside the Update Values function");
 		driver.get("http://53.87.137.65/login");
 		lml. RqstAprvLocators();
 		//lml.RgstrLMUsr();

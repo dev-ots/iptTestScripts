@@ -3,14 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.ortusolis.registration.RegisterNewUser">
+      <class name="com.ortusolis.registration.ProcAdmn">
         <methods>
+          <include name="PrAdScr"/>
           <include name="tearDown"/>
           <include name="BeforeSuiteDependencyTrigger"/>
           <include name="zzzUfRepotFormatSet"/>
-          <include name="User_Story_1_Register"/>
         </methods>
-      </class> <!-- com.ortusolis.registration.RegisterNewUser -->
+      </class> <!-- com.ortusolis.registration.ProcAdmn -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

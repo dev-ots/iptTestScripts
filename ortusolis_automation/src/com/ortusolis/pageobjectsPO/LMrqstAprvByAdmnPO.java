@@ -32,7 +32,7 @@ public class LMrqstAprvByAdmnPO extends TestBase
 		log.info("login as LM user");
 		oJsOR_Reg = oComUtil.ReadJsonFileGetJsonObject(System.getProperty("user.dir") + "/src/objectRepo/locators_LMrqstAprvByAdmn.json");
 		oJsTD_Reg = oComUtil.ReadJsonFileGetJsonObject(System.getProperty("user.dir") + "/src/TestData/TestData_LMrqstAprvByAdmn.json");
-	    oJsDataVal = oComUtil.ReadJsonFileGetJsonObject(System.getProperty("user.dir")+"/src/dataValidation/dataValidationShiAprvPdnLM.json");
+	    //oJsDataVal = oComUtil.ReadJsonFileGetJsonObject(System.getProperty("user.dir")+"/src/dataValidation/dataValidationShiAprvPdnLM.json");
 	    
 	    RqstAprvPage(oJsOR_Reg);
 	}
