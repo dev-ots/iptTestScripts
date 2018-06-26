@@ -8,12 +8,11 @@
  "Rgstr_Usr":"id::registerNewUser", 
  "Usr":"id::userName",
  "Pwd":"id::password",
- 
  "signup":"id::login",
  "Usr_pro":"id::lmHomePopverButton",
  "swtcadmn":"id::rdTeamSwitchToAdminId",
  "Pndg":"id::approvedStausContent2",
- "ClkUsr":"xpath:://rdAdminHomeAccordionOpenCardContactNumber",
+"ClkUsr":"xpath:://rdAdminHomeAccordionOpenCardContactNumber",
  "Aprv":"id::rdAdminHomeAccordionModalApprove",
  "Admn_Pro":"id::rdAdminHomeNavBarId",
  "signout":"id::rdAdminHomeLogout",

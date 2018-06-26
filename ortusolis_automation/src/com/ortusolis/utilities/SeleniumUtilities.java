@@ -16,7 +16,7 @@ import com.paulhammant.ngwebdriver.NgWebDriver;
 public class SeleniumUtilities extends TestBase{
 	final Logger log = LoggerFactory.getLogger(getClass().getSimpleName());
 	
-	public By loadWithBy(String sReqlocator) {
+ public By loadWithBy(String sReqlocator) {
 		By objBy = null;
 		String[] sArrLocaVal = oComUtil.ufSplitMe(sReqlocator);
 		sArrLocaVal[0] = sArrLocaVal[0].toLowerCase();

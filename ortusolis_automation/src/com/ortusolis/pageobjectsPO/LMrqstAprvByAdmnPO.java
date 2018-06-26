@@ -18,7 +18,7 @@ import com.paulhammant.ngwebdriver.NgWebDriver;
 
 public class LMrqstAprvByAdmnPO extends TestBase 
 {
-	By New_Rgstr, fname, lname, email, Daimlr, role, Rgstr_Usr, Usr,
+  By New_Rgstr, fname, lname, email, Daimlr, role, Rgstr_Usr, Usr,
   Pwd, signup, Usr_pro, swtcadmn, Pndg, ClkUsr, Aprv,Admn_Pro, signout,AdminLogout, SEARCH_BY,SHIKEISHO_NUM,
   PART_NUM,KANRI_NUM,EO_NUM,SEARCH_FIELD,SEARCH_BUTTON,NEW_SHIKEISHO,CHANGED_SHIKEISHO,SHIKEISHO_ID,
   PART_ID,KANRI_ID,EO_ID,APPROVE,REJECT,FUNDING_LINK,FUNDING_CLOSE,LOCATION,DELIVERY_DATE,DIGIT,QUANTITY,

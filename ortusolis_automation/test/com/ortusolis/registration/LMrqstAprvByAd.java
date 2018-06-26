@@ -10,21 +10,19 @@ import com.ortusolis.utilities.TestBase;
 
 public class LMrqstAprvByAd extends TestBase
 {
-	final Logger log =LoggerFactory.getLogger(getClass().getName()) ;
+final Logger log =LoggerFactory.getLogger(getClass().getName()) ;
 	LMrqstAprvByAdmnPO lml= new LMrqstAprvByAdmnPO();
 	String sTestCaseName_1="LM User Registration failure test case";
 	String sTestCaseName_2="LM User Login failure";
 	String sTestCaseName_3="Admin login failure test case";
-	String sTestCaseName_4= "User login failure test case"
-			+ "Launch IPT URL in chrome and Enter the LM Admin details to register in IPT system";
-	
+	String sTestCaseName_4= "User login failure test case";
+			
 	
 	@Test
 	public void LM_AdmnLog() throws Exception
 
 	{
 		SoftAssert sa = new SoftAssert();
-		
 		log.info(oJsConfig.getString("IPT_Login_URL"));
 		driver.get(oJsConfig.getString("IPT_Login_URL"));
 		lml. RqstAprvLocators();

@@ -1,5 +1,5 @@
 {
- "USER_REGISTER":"Registration Successfull",
+  "USER_REGISTER":"Registration Successfull",
  "REGISTRATION_FAILS":"",
  "LM_LOGIN":"",
  "LM_LOGIN_FAILS":"",
@@ -9,8 +9,8 @@
  "NEW_USER_BYADMIN":"",
 "USER_ROLE_UPDATE":"",
 "APPROVE_USER":"",
-"REJECT_USER":"",
-"VAL_UPDATED":""
+ "REJECT_USER":"",
+ "VAL_UPDATED":""
 
 
 

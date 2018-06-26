@@ -12,7 +12,7 @@ import com.ortusolis.utilities.TestBase;
 
 public class PROCUREMENTPO extends TestBase
 {
-	By  SEARCH_BY,SHIKEISHO_NUM,PART_NUM,KANRI_NUM,EO_NUM,SEARCH_FIELD,SEARCH_BUTTON,NEW_SHIKEISHO,CHANGED_SHIKEISHO,SHIKEISHO_ID,URL,PART_CLASSIFICATION,SAVE_URL;
+	By SEARCH_BY,SHIKEISHO_NUM,PART_NUM,KANRI_NUM,EO_NUM,SEARCH_FIELD,SEARCH_BUTTON,NEW_SHIKEISHO,CHANGED_SHIKEISHO,SHIKEISHO_ID,URL,PART_CLASSIFICATION,SAVE_URL;
 	
 	final Logger log = LoggerFactory.getLogger(getClass().getSimpleName());
 	public static JSONObject oJsOR_Reg = new JSONObject();
@@ -73,7 +73,7 @@ public class PROCUREMENTPO extends TestBase
 		boolean check_url=false;
 		try
 		{
-				oSelUtil.ufIsDisplayed(driver, URL);
+			oSelUtil.ufIsDisplayed(driver, URL);
 			oSelUtil.ufIsDisplayed(driver, PART_CLASSIFICATION);
 			oSelUtil.ufClick(driver, SAVE_URL);
 			

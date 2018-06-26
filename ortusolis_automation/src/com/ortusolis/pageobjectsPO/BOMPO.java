@@ -58,7 +58,7 @@ public class BOMPO extends TestBase
 		swtcadmn =oSelUtil.loadWithBy(oJsOR_Reg.getString("swtcadmn"));
 		Pndg = oSelUtil.loadWithBy(oJsOR_Reg.getString("Pndg"));
 		ClkUsr =oSelUtil.loadWithBy(oJsOR_Reg.getString("ClkUsr"));
-	     ADMIN_LOGOUT = oSelUtil.loadWithBy(oJsOR_Reg.getString("ADMIN_LOGOUT"));
+	    ADMIN_LOGOUT = oSelUtil.loadWithBy(oJsOR_Reg.getString("ADMIN_LOGOUT"));
 	    ADMIN2TEAM = oSelUtil.loadWithBy(oJsOR_Reg.getString("ADMIN2TEAM"));
 	    SEARCH_BY = oSelUtil.loadWithBy(oJsOR_Reg.getString("SEARCH_BY"));
 	    SHIKEISHO_NUM = oSelUtil.loadWithBy(oJsOR_Reg.getString("SHIKEISHO_NUM"));
