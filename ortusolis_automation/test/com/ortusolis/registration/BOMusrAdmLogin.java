@@ -1,4 +1,4 @@
-package com.ortusolis.registration;
+/*package com.ortusolis.registration;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,3 +24,4 @@ public class BOMusrAdmLogin extends TestBase
 	
 
 }
+*/

@@ -2,28 +2,51 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
+<<<<<<< HEAD
+  <suite name="Default suite" duration-ms="18154" started-at="2018-06-26T04:44:06Z" finished-at="2018-06-26T04:44:24Z">
+=======
   <suite name="Default suite" duration-ms="17939" started-at="2018-06-26T04:42:46Z" finished-at="2018-06-26T04:43:04Z">
+>>>>>>> refs/remotes/origin/master
     <groups>
     </groups>
+<<<<<<< HEAD
+    <test name="Default test" duration-ms="18154" started-at="2018-06-26T04:44:06Z" finished-at="2018-06-26T04:44:24Z">
+      <class name="com.ortusolis.registration.LMrqstAprvByAd">
+        <test-method status="PASS" signature="BeforeSuiteDependencyTrigger()[pri:0, instance:com.ortusolis.registration.LMrqstAprvByAd@3f49dace]" name="BeforeSuiteDependencyTrigger" is-config="true" duration-ms="9930" started-at="2018-06-26T10:13:56Z" finished-at="2018-06-26T10:14:06Z">
+=======
     <test name="Default test" duration-ms="17939" started-at="2018-06-26T04:42:46Z" finished-at="2018-06-26T04:43:04Z">
       <class name="com.ortusolis.registration.IPTDemo1LM">
         <test-method status="PASS" signature="BeforeSuiteDependencyTrigger()[pri:0, instance:com.ortusolis.registration.IPTDemo1LM@3f49dace]" name="BeforeSuiteDependencyTrigger" is-config="true" duration-ms="15028" started-at="2018-06-26T10:12:31Z" finished-at="2018-06-26T10:12:46Z">
+>>>>>>> refs/remotes/origin/master
           <reporter-output>
           </reporter-output>
         </test-method> <!-- BeforeSuiteDependencyTrigger -->
+<<<<<<< HEAD
+        <test-method status="PASS" signature="LM_AdmnLog()[pri:0, instance:com.ortusolis.registration.LMrqstAprvByAd@3f49dace]" name="LM_AdmnLog" duration-ms="18095" started-at="2018-06-26T10:14:06Z" finished-at="2018-06-26T10:14:24Z">
+=======
         <test-method status="PASS" signature="IPT_User_Demo()[pri:0, instance:com.ortusolis.registration.IPTDemo1LM@3f49dace]" name="IPT_User_Demo" duration-ms="17920" started-at="2018-06-26T10:12:46Z" finished-at="2018-06-26T10:13:04Z">
+>>>>>>> refs/remotes/origin/master
           <reporter-output>
           </reporter-output>
+<<<<<<< HEAD
+        </test-method> <!-- LM_AdmnLog -->
+        <test-method status="PASS" signature="zzzUfRepotFormatSet()[pri:0, instance:com.ortusolis.registration.LMrqstAprvByAd@3f49dace]" name="zzzUfRepotFormatSet" is-config="true" duration-ms="0" started-at="2018-06-26T10:14:24Z" finished-at="2018-06-26T10:14:24Z">
+=======
         </test-method> <!-- IPT_User_Demo -->
         <test-method status="PASS" signature="zzzUfRepotFormatSet()[pri:0, instance:com.ortusolis.registration.IPTDemo1LM@3f49dace]" name="zzzUfRepotFormatSet" is-config="true" duration-ms="0" started-at="2018-06-26T10:13:04Z" finished-at="2018-06-26T10:13:04Z">
+>>>>>>> refs/remotes/origin/master
           <reporter-output>
           </reporter-output>
         </test-method> <!-- zzzUfRepotFormatSet -->
+<<<<<<< HEAD
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.ortusolis.registration.LMrqstAprvByAd@3f49dace]" name="tearDown" is-config="true" duration-ms="2381" started-at="2018-06-26T10:14:25Z" finished-at="2018-06-26T10:14:27Z">
+=======
         <test-method status="PASS" signature="tearDown()[pri:0, instance:com.ortusolis.registration.IPTDemo1LM@3f49dace]" name="tearDown" is-config="true" duration-ms="4182" started-at="2018-06-26T10:13:04Z" finished-at="2018-06-26T10:13:08Z">
+>>>>>>> refs/remotes/origin/master
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.ortusolis.registration.IPTDemo1LM -->
+      </class> <!-- com.ortusolis.registration.LMrqstAprvByAd -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
