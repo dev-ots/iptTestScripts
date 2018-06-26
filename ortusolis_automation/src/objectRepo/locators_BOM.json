@@ -7,6 +7,7 @@
  "role":"id::selectRole",
  "Rgstr_Usr":"id::registerNewUser", 
  
+ 
  "Usr":"id::userName",
  "Pwd":"id::password",
  "signup":"id::login",

@@ -8,6 +8,7 @@
  "Rgstr_Usr":"id::registerNewUser", 
  "Usr":"id::userName",
  "Pwd":"id::password",
+ 
  "signup":"id::login",
  "Usr_pro":"id::lmHomePopverButton",
  "swtcadmn":"id::rdTeamSwitchToAdminId",

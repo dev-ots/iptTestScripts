@@ -73,7 +73,7 @@ public class PROCUREMENTPO extends TestBase
 		boolean check_url=false;
 		try
 		{
-			oSelUtil.ufIsDisplayed(driver, URL);
+				oSelUtil.ufIsDisplayed(driver, URL);
 			oSelUtil.ufIsDisplayed(driver, PART_CLASSIFICATION);
 			oSelUtil.ufClick(driver, SAVE_URL);
 			

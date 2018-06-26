@@ -23,7 +23,8 @@ public class LMrqstAprvByAd extends TestBase
 	public void LM_AdmnLog() throws Exception
 
 	{
-		SoftAssert sa = new SoftAssert();		
+		SoftAssert sa = new SoftAssert();
+		
 		log.info(oJsConfig.getString("IPT_Login_URL"));
 		driver.get(oJsConfig.getString("IPT_Login_URL"));
 		lml. RqstAprvLocators();

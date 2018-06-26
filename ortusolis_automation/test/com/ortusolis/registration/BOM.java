@@ -10,6 +10,7 @@ import com.ortusolis.utilities.TestBase;
 
 public class BOM  extends TestBase
 {
+	
 	final Logger log =LoggerFactory.getLogger(getClass().getName()) ;
     BOMPO bp = new BOMPO();
     String sTestCaseName_1="User Registration failure test case";
