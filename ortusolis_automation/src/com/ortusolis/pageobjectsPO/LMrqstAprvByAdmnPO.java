@@ -2,6 +2,7 @@ package com.ortusolis.pageobjectsPO;
 
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+import java.util.List;
 
 import org.json.JSONObject;
 import org.openqa.selenium.Alert;
@@ -10,6 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.testng.asserts.SoftAssert;
 
 import com.ortusolis.utilities.TestBase;
 import com.paulhammant.ngwebdriver.NgWebDriver;
@@ -17,11 +19,12 @@ import com.paulhammant.ngwebdriver.NgWebDriver;
 public class LMrqstAprvByAdmnPO extends TestBase 
 {
   By New_Rgstr, fname, lname, email, Daimlr, role, Rgstr_Usr, Usr,
-  Pwd, signup, Usr_pro, swtcadmn, Pndg, ClkUsr, Aprv,Admn_Pro, signout, SEARCH_BY,SHIKEISHO_NUM,
+  Pwd, signup, Usr_pro, swtcadmn, Pndg, ClkUsr, Aprv,Admn_Pro, signout,AdminLogout, SEARCH_BY,SHIKEISHO_NUM,
   PART_NUM,KANRI_NUM,EO_NUM,SEARCH_FIELD,SEARCH_BUTTON,NEW_SHIKEISHO,CHANGED_SHIKEISHO,SHIKEISHO_ID,
   PART_ID,KANRI_ID,EO_ID,APPROVE,REJECT,FUNDING_LINK,FUNDING_CLOSE,LOCATION,DELIVERY_DATE,DIGIT,QUANTITY,
-  SUBMIT_BUTTON,ADD_NEW_USER,CONTACT_NUMBER,DAIMLER_DAIMLER,NEW_USER_BUTTON,USER_NAME,DEPARTMENT,ROLE_ROLE,SUBMIT_AND_ADDUSER;
- 
+  SUBMIT_BUTTON,ADD_NEW_USER,CONTACT_NUMBER,DAIMLER_DAIMLER,NEW_USER_BUTTON,USER_NAME,DEPARTMENT,ROLE_ROLE,SUBMIT_AND_ADDUSER,
+  UPDATE_USER_ROLE_SECTION, UPDATE_BUTTON, DAIMLER_SEARCH_FIELD,
+	 GET_DETAILS, SELECT_ROLE, UPDATE_ROLE_BUTTON;
   final Logger log = LoggerFactory.getLogger(getClass().getSimpleName());
 	public static JSONObject oJsOR_Reg = new JSONObject();
 	public static JSONObject oJsTD_Reg = new JSONObject();
@@ -29,15 +32,15 @@ public class LMrqstAprvByAdmnPO extends TestBase
 	
 	public void  RqstAprvLocators() throws Exception
 	{
-		log.info("login as LM user");
+		
 		oJsOR_Reg = oComUtil.ReadJsonFileGetJsonObject(System.getProperty("user.dir") + "/src/objectRepo/locators_LMrqstAprvByAdmn.json");
 		oJsTD_Reg = oComUtil.ReadJsonFileGetJsonObject(System.getProperty("user.dir") + "/src/TestData/TestData_LMrqstAprvByAdmn.json");
-	    oJsDataVal = oComUtil.ReadJsonFileGetJsonObject(System.getProperty("user.dir")+"/src/dataValidation/dataValidationShiAprvPdnLM.json");
+	  //  oJsDataVal = oComUtil.ReadJsonFileGetJsonObject(System.getProperty("user.dir")+"/src/dataValidation/dataValidation_LM.json");
 	    
 	    RqstAprvPage(oJsOR_Reg);
 	}
 
-	private void RqstAprvPage(JSONObject oJsOR_Reg2)
+	private void RqstAprvPage(JSONObject oJsOR_Reg)
 	{
 		
 		New_Rgstr =oSelUtil.loadWithBy(oJsOR_Reg.getString("New_Rgstr"));
@@ -57,6 +60,7 @@ public class LMrqstAprvByAdmnPO extends TestBase
 		ClkUsr =oSelUtil.loadWithBy(oJsOR_Reg.getString("ClkUsr"));
 	    Aprv =oSelUtil.loadWithBy(oJsOR_Reg.getString("Aprv"));
 	    signout = oSelUtil.loadWithBy(oJsOR_Reg.getString("signout"));
+	    AdminLogout = oSelUtil.loadWithBy(oJsOR_Reg.getString("AdminLogout"));
 	    Admn_Pro = oSelUtil.loadWithBy(oJsOR_Reg.getString("Admn_Pro"));
 	    SEARCH_BY = oSelUtil.loadWithBy(oJsOR_Reg.getString("SEARCH_BY"));
 	    SHIKEISHO_NUM = oSelUtil.loadWithBy(oJsOR_Reg.getString("SHIKEISHO_NUM"));
@@ -78,7 +82,7 @@ public class LMrqstAprvByAdmnPO extends TestBase
 	    LOCATION = oSelUtil.loadWithBy(oJsOR_Reg.getString("LOCATION"));
 	    DELIVERY_DATE = oSelUtil.loadWithBy(oJsOR_Reg.getString("DELIVERY_DATE"));
 	    DIGIT = oSelUtil.loadWithBy(oJsOR_Reg.getString("DIGIT"));
-	    QUANTITY = oSelUtil.loadWithBy(oJsOR_Reg.getString("QUANTITY"));
+	    //QUANTITY = oSelUtil.loadWithBy(oJsOR_Reg.getString("QUANTITY"));
 	    SUBMIT_BUTTON = oSelUtil.loadWithBy(oJsOR_Reg.getString("SUBMIT_BUTTON"));
 	    ADD_NEW_USER = oSelUtil.loadWithBy(oJsOR_Reg.getString("ADD_NEW_USER"));
 	    NEW_USER_BUTTON = oSelUtil.loadWithBy(oJsOR_Reg.getString("NEW_USER_BUTTON"));
@@ -88,6 +92,13 @@ public class LMrqstAprvByAdmnPO extends TestBase
 	    DEPARTMENT =oSelUtil.loadWithBy(oJsOR_Reg.getString("DEPARTMENT"));
 	    ROLE_ROLE =oSelUtil.loadWithBy(oJsOR_Reg.getString("ROLE_ROLE"));
 	    SUBMIT_AND_ADDUSER =oSelUtil.loadWithBy(oJsOR_Reg.getString("SUBMIT_AND_ADDUSER"));
+	    UPDATE_USER_ROLE_SECTION=oSelUtil.loadWithBy(oJsOR_Reg.getString("UPDATE_USER_ROLE_SECTION"));
+	    UPDATE_BUTTON =oSelUtil.loadWithBy(oJsOR_Reg.getString("UPDATE_BUTTON"));
+	    DAIMLER_SEARCH_FIELD= oSelUtil.loadWithBy(oJsOR_Reg.getString("DAIMLER_SEARCH_FIELD"));
+	    GET_DETAILS=oSelUtil.loadWithBy(oJsOR_Reg.getString("GET_DETAILS"));
+	    SELECT_ROLE= oSelUtil.loadWithBy(oJsOR_Reg.getString("SELECT_ROLE"));
+	    UPDATE_ROLE_BUTTON= oSelUtil.loadWithBy(oJsOR_Reg.getString("UPDATE_ROLE_BUTTON"));
+
 	}
 	public boolean RgstrLMUsr() throws Exception
 	{
@@ -112,7 +123,13 @@ public class LMrqstAprvByAdmnPO extends TestBase
 		    oSelUtil.ufClick(driver, Rgstr_Usr);
 		    Thread.sleep(2000);
 		    Alert al1=driver.switchTo().alert();
+		    String text= al1.getText();
+		    log.info("User registered success is"+text);
 		   al1.accept();
+		   SoftAssert sa = new SoftAssert();
+		   sa.assertEquals(text, oJsDataVal.getString("USER_REGISTER"));
+		   sa.assertAll();
+		   
 		    
 		   // Robot r= new Robot();
 		   // r.keyPress(KeyEvent.VK_ENTER);
@@ -163,34 +180,49 @@ public class LMrqstAprvByAdmnPO extends TestBase
 			oSelUtil.ufClear(driver,Pwd);
 			oSelUtil.ufSendKeys(driver, Pwd, oJsTD_Reg.getString("AdmnPwd"));
 			//Thread.sleep(1000);
-			System.out.println("Before signup");
 			oSelUtil.ufClick(driver, signup);
-			System.out.println("After signup");
 			Thread.sleep(2000);
 			oSelUtil.ufClick(driver, Usr_pro);
 			Thread.sleep(2000);
 			oSelUtil.ufClick(driver, swtcadmn);
 			ngWebDriver.waitForAngularRequestsToFinish();
-			oSelUtil.ufClick(driver, Pndg);
-			Thread.sleep(2000);
-			oSelUtil.ufClick(driver, ClkUsr);
-			Thread.sleep(2000);
-			oSelUtil.ufClick(driver, Aprv);
-			Thread.sleep(2000);
-			Alert alt = driver.switchTo().alert();
-			alt.accept();
-			Thread.sleep(2000);
-			oSelUtil.ufClick(driver, Admn_Pro);
-			Thread.sleep(2000);
-			oSelUtil.ufClick(driver, signout);
-			
-		}
+					}
 		catch(Exception ep)
 		{
 			log.info("Unable to login by Admin"+ep.getMessage());
 			adm_log=false;
 		}
 		return adm_log;
+	}
+	public boolean LMUserApprovalByLMAdmin() throws Exception
+	{
+		boolean user_approve=false;
+		try
+		{
+            oSelUtil.ufClick(driver, Pndg);
+			List<WebElement> allusers =oSelUtil.ufGetWebElements(driver, ClkUsr);;
+			int count= allusers.size();
+			int iContainText = oSelUtil.getIndexOfMatchingTextWebElements(allusers,oJsTD_Reg.getString("UsrId"));
+			allusers.get(iContainText).click();
+			
+				oSelUtil.ufClick(driver, Aprv);
+				Thread.sleep(2000);
+				Alert alt = driver.switchTo().alert();
+				String USER_APPROVED=alt.getText();
+				alt.accept();
+				SoftAssert sa = new SoftAssert();
+				sa.assertEquals(USER_APPROVED, oJsTD_Reg.getString("USER_APPROVAL"));
+				sa.assertAll();
+				
+
+			
+		}
+		catch(Exception ua)
+		{
+			log.info("Fails to approve user by Admin"+ua.getMessage());
+			user_approve=false;
+		}
+		return user_approve;
 	}
 	
 	public boolean ApproveShikeishoID() throws Exception
@@ -204,14 +236,24 @@ public class LMrqstAprvByAdmnPO extends TestBase
 			oSelUtil.ufClick(driver, SEARCH_BUTTON);
 			oSelUtil.ufClick(driver, NEW_SHIKEISHO);
 			oSelUtil.ufIsDisplayed(driver, SHIKEISHO_ID);
-			oSelUtil.ufClick(driver, SHIKEISHO_ID);
-			oSelUtil.ufClick(driver, APPROVE);
+			List<WebElement> allshi= driver.findElements(SHIKEISHO_ID);
+			int count=allshi.size();
+			log.info("Number of elements in the new shikeisho are"+count);
+			int iContainText1=oSelUtil.getIndexOfMatchingTextWebElements(allshi, oJsTD_Reg.getString("SHIKEISHO_ID"));
+			allshi.get(iContainText1).click();
+			
+			
 			oSelUtil.ufClick(driver, FUNDING_LINK);
 			oSelUtil.ufClick(driver, FUNDING_CLOSE);
 			oSelUtil.ufClick(driver, CHANGED_SHIKEISHO);
 			oSelUtil.ufIsDisplayed(driver, SHIKEISHO_ID);
-			oSelUtil.ufClick(driver, SHIKEISHO_ID);
-			oSelUtil.ufClick(driver, APPROVE);
+			List<WebElement> allshikei= driver.findElements(SHIKEISHO_ID);
+			int count1=allshi.size();
+			log.info("Number of elements in the new shikeisho are"+count);
+			int icontainsShikeisho=oSelUtil.getIndexOfMatchingTextWebElements(allshikei, oJsTD_Reg.getString("SHIKEISHO_ID"));
+			allshikei.get(icontainsShikeisho).click();
+			
+			
 			oSelUtil.ufClick(driver, FUNDING_LINK);
 			oSelUtil.ufClick(driver, FUNDING_CLOSE);
 			
@@ -373,6 +415,71 @@ public class LMrqstAprvByAdmnPO extends TestBase
 			UserByAdmn=false;
 		}
 		return UserByAdmn;
+	}
+	
+	public boolean UpdateRoleByAdmin() throws Exception
+	{
+		boolean updt_role=false;
+		try
+		{
+			oSelUtil.ufClick(driver, UPDATE_USER_ROLE_SECTION);
+			oSelUtil.ufClick(driver, UPDATE_BUTTON);
+			oSelUtil.ufSendKeys(driver, DAIMLER_SEARCH_FIELD, oJsTD_Reg.getString("DAIMLER_ID_CHANGE_ROLE"));
+			oSelUtil.ufClick(driver, GET_DETAILS);
+			Select se=new Select((WebElement) SELECT_ROLE);
+			se.selectByVisibleText("");
+			oSelUtil.ufClick(driver, UPDATE_ROLE_BUTTON);
+			Alert aaa=driver.switchTo().alert();
+			String actualText=aaa.getText();
+			aaa.accept();
+			SoftAssert sa=new SoftAssert();
+			sa.assertEquals(actualText, oJsDataVal.getString("ROLE_CHANGEBYADMIN"));
+			sa.assertAll();
+			
+			
+		}
+		catch(Exception eu)
+		{
+			log.info("Fails to change user role by Admin"+eu);
+			updt_role=false;
+		}
+		return updt_role;
+	}
+	
+	public boolean AdminLogout() throws Exception
+	{
+		boolean admin_logout = false;
+		try
+		{
+			oSelUtil.ufClick(driver, Admn_Pro);
+			Thread.sleep(2000);
+			oSelUtil.ufClick(driver, AdminLogout);
+		
+		}
+		catch(Exception al)
+		{
+			log.info("Fails to logout as LM admin"+al.getMessage());
+			admin_logout=false;
+		}
+		return admin_logout;
+	}
+	
+	public boolean LMUserLogout() throws Exception
+	{
+		boolean lmUser_logout = false;
+		try
+		{
+			oSelUtil.ufClick(driver, Usr_pro);
+			Thread.sleep(2000);
+			oSelUtil.ufClick(driver, signout);
+		
+		}
+		catch(Exception lu)
+		{
+			log.info("Fails to logout as LM user"+lu.getMessage());
+			lmUser_logout=false;
+		}
+		return lmUser_logout;
 	}
 	
 

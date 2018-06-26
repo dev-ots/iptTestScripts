@@ -1,11 +1,11 @@
 {
- "f_name":"KING",
-"l_name":"KONG",
-"email":"kk@daimler.com",
-"Daimler":"BENGA",
+ "f_name":"",
+"l_name":"",
+"email":"",
+"Daimler":"",
 "role":"",
  
- "UsrId":"BENGA",
+ "UsrId":"BHARATH",
  "UsrPwd":"qqq",
  
  "AdmnId":"SABIN",
@@ -16,10 +16,6 @@
  "EO_ID":"",
  "KANRI_ID":"",
  
- "LOCATION":"DELHI",
-  "DELIVERY_DATE":"2018-12-18",
-  "DIGIT":"X",
-  "QUANTITY":"",
   "ADD_NEW_USER":"",
   "CONTACT_NUMBER":"",
   "DAIMLER_DAIMLER":"",
@@ -28,7 +24,8 @@
   "DEPARTMENT":"",
   "ROLE_ROLE":"",
   "SUBMIT_AND_ADDUSER":"",
+  
+  "DAIMLER_ID_CHANGE_ROLE":"",
+  "QUANTITY":""
  
-  "DAIMLER_ID_CHANGE_ROLE":""
-
 }
