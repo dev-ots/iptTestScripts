@@ -181,11 +181,10 @@ public class LMrqstAprvByAdmnPO extends TestBase
 			oSelUtil.ufSendKeys(driver, Pwd, oJsTD_Reg.getString("AdmnPwd"));
 			//Thread.sleep(1000);
 			oSelUtil.ufClick(driver, signup);
-			Alert alt =driver.switchTo().alert();
-			alt.accept();
+			Alert alt1 =driver.switchTo().alert();
+			alt1.accept();
 			Thread.sleep(2000);
 			oSelUtil.ufClick(driver, Usr_pro);
-			Thread.sleep(2000);
 			oSelUtil.ufClick(driver, swtcadmn);
 			ngWebDriver.waitForAngularRequestsToFinish();
 					}
