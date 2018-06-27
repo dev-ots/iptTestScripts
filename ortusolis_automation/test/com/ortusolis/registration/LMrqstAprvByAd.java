@@ -27,10 +27,11 @@ final Logger log =LoggerFactory.getLogger(getClass().getName()) ;
 		driver.get(oJsConfig.getString("IPT_Login_URL"));
 	
 		lml. RqstAprvLocators();
-		//lml.RgstrLMUsr();
-		//lml.UsrLogn();
+		lml.RgstrLMUsr();
+		lml.UsrLogn();
 		lml.AdmnLogn();
 		lml.LMUserApprovalByLMAdmin();
+		lml.UsrLogn();
 		/*boolean bUserRegister=lml.RgstrLMUsr();
 		sa.assertEquals(true, bUserRegister, "sTestCaseName_1");
 		lml.UsrLogn();

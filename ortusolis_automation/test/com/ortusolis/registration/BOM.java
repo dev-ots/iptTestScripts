@@ -24,11 +24,18 @@ public class BOM  extends TestBase
     @Test
     public void BOM_Login() throws Exception
     {
-    	SoftAssert sa=new SoftAssert();
+    	//SoftAssert sa=new SoftAssert();
     	log.info(oJsConfig.getString("IPT_Login_URL"));
 		driver.get(oJsConfig.getString("IPT_Login_URL"));
 		bp.BOMusrLocators();	
-		boolean bUserRegistration=bp.RgstrBOMUsr();
+		 bp.RgstrBOMUsr();
+		 bp.BOMlogin();
+		 bp.BOMADMINlogin();
+		 bp.AdminAproveUser();
+		 bp.BOMlogin();
+		
+		 bp.UserRgstrByAdmn();
+		/*boolean bUserRegistration=bp.RgstrBOMUsr();
 	    bp.RgstrBOMUsr();
 	    sa.assertEquals(true, bUserRegistration, "sTestCaseName_1");
 	    bp.BOMlogin();
@@ -79,6 +86,7 @@ public class BOM  extends TestBase
     	bp.BOMlogin();
     	bp.AfterRDLMviewConfirmQuantityByBOM();
     	bp.BOMlogout();
-    }
+    }*/
     
+}
 }
