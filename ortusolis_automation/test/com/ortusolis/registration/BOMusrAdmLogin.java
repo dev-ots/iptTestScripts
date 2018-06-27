@@ -5,7 +5,10 @@ import org.slf4j.LoggerFactory;
 import org.testng.annotations.Test;
 
 import com.ortusolis.pageobjectsPO.BOMusrAdmnScrPO;
+<<<<<<< HEAD
+=======
 
+>>>>>>> branch 'master' of https://github.com/dev-ots/iptTestScripts.git
 import com.ortusolis.utilities.TestBase;
 
 public class BOMusrAdmLogin extends TestBase
