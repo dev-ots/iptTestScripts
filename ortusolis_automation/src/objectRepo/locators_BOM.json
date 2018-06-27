@@ -16,7 +16,7 @@
  "ADD_NEW_USER":"id::approvedStausContent1",
   "CONTACT_NUMBER":"id::addNewUserContactNumber",
   "DAIMLER_DAIMLER":"id::addNewUserDaimlerId",
-  "NEW_USER_BUTTON":"id::rdAdminHomeAddNewUserButton",
+  "NEW_USER_BUTTON":"id::adminHomeAddNewUserButton",
   "USER_NAME":"id::addNewUserUserNAme",
   "DEPARTMENT":"id::addNewUserDepartment",
   "ROLE_ROLE":"id::addNewUserSelectDesignerId",
@@ -67,7 +67,8 @@
   "APPROVE_BYBOM":"::",
   "EXPORT_EXCEL":"::",
   "LOGOUT":"id::bom-team-home-user-logout",
-  "CANCEL_BUTTON":"::"
+  "CANCEL_BUTTON":"::",
+  "ADMIN_PRO":"id::adminHomeNavBarId"
  
  
  }
