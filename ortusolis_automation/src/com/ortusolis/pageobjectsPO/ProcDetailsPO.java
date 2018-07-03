@@ -92,6 +92,7 @@ public class ProcDetailsPO extends TestBase {
 			public boolean search_ShikeishoDetails() throws Exception{
 				boolean bRes_flag=false;
 				try {
+					
 				oSelUtil.ufClear(driver, Search_By_Text);
 				
 				oSelUtil.ufClick(driver, Search_By_Dropdown);
