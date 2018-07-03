@@ -98,6 +98,7 @@ public class ProcDetailsPO extends TestBase {
 				oSelUtil.ufClick(driver, Search_By_Dropdown);
 				
 				oSelUtil.ufClick(driver,Search_By_EO);
+				
 				oSelUtil.ufSendKeys(driver, Search_By_Text, oJsTD_Reg.getString("SearchBy_Value"));
 				oSelUtil.ufClick(driver, Search_Button);
 				if(oSelUtil.ufIsDisplayed(driver, New_Shikeisho_Count)) {
