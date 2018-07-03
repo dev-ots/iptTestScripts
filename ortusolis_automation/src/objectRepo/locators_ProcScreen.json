@@ -1,4 +1,26 @@
 {
+"User_Profile":"",
+"Switch_Role":"",
+"logout":"",
+"Search_By_Text":"",
+"Search_By_Dropdown":"",
+"Search_By_Shikeisho":"",
+"Search_By_EO":"",
+"Search_By_Part":"",
+"Search_By_Kanri":"",
+"New_Shikeisho_Tab":"",
+"New_Shikeisho_Count":"",
+"New_Shikeisho":"",
+"In-Progress_Tab":"",
+"In-Progress_Count":"",
+"In-Progress":"",
+"Changed_Shikeisho_Tab":"",
+"Changed_Shiekeisho_Count":"",
+"Changed_Shikeisho":"",
+"Part_Received_Tab":"",
+"Part_Received_Count":"",
+"Part_Received":"",
+
 "User_Details":"id::rdHomePopverButton",
 "Switch_User":"id::rdHomeswitchToAdminHyperlink",
 "logout_IPT":"id::rdDetailsUserLogout",
@@ -26,6 +48,8 @@
 "Part_Drawing_URL":"id::rdDetailsTableDataStatus",
 "Pagination_Page":"",
 "Previous_Page":"",
-"Next_Page":""
+"Next_Page":"",
+"Supplier_Name_Search":"id::search-input",
+""
 
 }

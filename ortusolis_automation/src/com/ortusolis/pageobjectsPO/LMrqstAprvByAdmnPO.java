@@ -183,7 +183,7 @@ public class LMrqstAprvByAdmnPO extends TestBase
 			oSelUtil.ufClick(driver, signup);
 			Alert alt1 =driver.switchTo().alert();
 			alt1.accept();
-			Thread.sleep(2000);
+			Thread.sleep(4000);
 			oSelUtil.ufClick(driver, Usr_pro);
 			oSelUtil.ufClick(driver, swtcadmn);
 			ngWebDriver.waitForAngularRequestsToFinish();

@@ -11,6 +11,7 @@
 "IPT_RD_DETAILS":"http://53.87.137.65/rdDetails",
 "IPT_PROC_ADMIN":"http://53.87.137.65/proc_admin_home",
 "IPT_PROC_DETAILS":"http://53.87.137.65/proc_team_details",
+"IPT_PROC_LANDING":"http://53.87.137.65/proc_team_home",
 
 "RestAPI":{
 "Rest_URL":"http://53.87.132.60:8080",
