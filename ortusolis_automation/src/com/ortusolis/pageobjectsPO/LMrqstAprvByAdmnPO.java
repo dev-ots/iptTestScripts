@@ -13,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.asserts.SoftAssert;
 
+import com.jayway.restassured.RestAssured;
 import com.ortusolis.utilities.TestBase;
 import com.paulhammant.ngwebdriver.NgWebDriver;
 
@@ -155,12 +156,10 @@ public class LMrqstAprvByAdmnPO extends TestBase
 			oSelUtil.ufClear(driver,Pwd);
 			oSelUtil.ufSendKeys(driver, Pwd, oJsTD_Reg.getString("UsrPwd"));
 			oSelUtil.ufClick(driver, signup);
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 			Alert all = driver.switchTo().alert();
 			all.accept();
-		
-			
-			
+					
 		}
 		catch(Exception ee)
 		{
@@ -180,10 +179,13 @@ public class LMrqstAprvByAdmnPO extends TestBase
 			oSelUtil.ufClear(driver,Pwd);
 			oSelUtil.ufSendKeys(driver, Pwd, oJsTD_Reg.getString("AdmnPwd"));
 			oSelUtil.ufClick(driver, signup);
-			Alert alert =driver.switchTo().alert();
-			alert.accept();
+			Thread.sleep(1000);
+			Alert alrt1 =driver.switchTo().alert();
+			Thread.sleep(1000);
+			alrt1.accept();
 			Thread.sleep(2000);
 			oSelUtil.ufClick(driver, Usr_pro);
+			Thread.sleep(1000);
 			oSelUtil.ufClick(driver, swtcadmn);
 			ngWebDriver.waitForAngularRequestsToFinish();
 					}
@@ -482,5 +484,4 @@ public class LMrqstAprvByAdmnPO extends TestBase
 		return lmUser_logout;
 	}
 	
-
 }

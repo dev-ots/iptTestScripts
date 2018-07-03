@@ -12,7 +12,8 @@ import com.ortusolis.utilities.TestBase;
 
 public class PROCUREMENTPO extends TestBase
 {
-	By SEARCH_BY,SHIKEISHO_NUM,PART_NUM,KANRI_NUM,EO_NUM,SEARCH_FIELD,SEARCH_BUTTON,NEW_SHIKEISHO,CHANGED_SHIKEISHO,SHIKEISHO_ID,URL,PART_CLASSIFICATION,SAVE_URL;
+	By SEARCH_BY,SHIKEISHO_NUM,PART_NUM,KANRI_NUM,EO_NUM,SEARCH_FIELD,SEARCH_BUTTON,NEW_SHIKEISHO,CHANGED_SHIKEISHO,SHIKEISHO_ID,URL,
+	PART_CLASSIFICATION,SAVE_URL,ALLSUPPLIERS,SUPPLIER_NAMES,SUPPLIER_SRH_FLD,SUPPLIER_DONE,SAVE_SUPPLIERS;
 	
 	final Logger log = LoggerFactory.getLogger(getClass().getSimpleName());
 	public static JSONObject oJsOR_Reg = new JSONObject();
@@ -42,7 +43,11 @@ public class PROCUREMENTPO extends TestBase
 		    NEW_SHIKEISHO = oSelUtil.loadWithBy(oJsOR_Reg.getString("NEW_SHIKEISHO"));
 		    CHANGED_SHIKEISHO = oSelUtil.loadWithBy(oJsOR_Reg.getString("CHANGED_SHIKEISHO"));
 		    SHIKEISHO_ID = oSelUtil.loadWithBy(oJsOR_Reg.getString("SHIKEISHO_ID"));
-		   
+		   ALLSUPPLIERS =oSelUtil.loadWithBy(oJsOR_Reg.getString("ALLSUPPLIERS"));
+		   SUPPLIER_NAMES =oSelUtil.loadWithBy(oJsOR_Reg.getString("SUPPLIER_NAMES"));
+		   SUPPLIER_SRH_FLD = oSelUtil.loadWithBy(oJsOR_Reg.getString("SUPPLIER_SRH_FLD"));
+		   SUPPLIER_DONE = oSelUtil.loadWithBy(oJsOR_Reg.getString("SUPPLIER_DONE"));
+		   SAVE_SUPPLIERS = oSelUtil.loadWithBy(oJsOR_Reg.getString("SAVE_SUPPLIERS"));
 	}
 	
 	public boolean SearchShikeisho() throws Exception
@@ -160,6 +165,18 @@ public class PROCUREMENTPO extends TestBase
 						allRadios.get(i).click();
 					}
 				}
+				else
+				{
+					boolean bvalue;
+					bvalue=allRadios.get(i).isSelected();
+				
+					if(bvalue=false)
+					{
+						allRadios.get(i).click();
+					}
+		
+					
+				}
 			}
 		
 		}
@@ -170,5 +187,82 @@ public class PROCUREMENTPO extends TestBase
 		}
 		return select_supplier;
 	}*/
+	
+	public boolean SelectSupplier() throws Exception
+	{
+		boolean select_supplier=false;
+		try
+		{
+			List<WebElement> allsuppliers=oSelUtil.ufGetWebElements(driver, ALLSUPPLIERS);
+			log.info("number of supplier fields are"+allsuppliers.size());
+			for(int i=0;i<allsuppliers.size();i++)
+			{
+				allsuppliers.get(i).click();
+				List<WebElement> supplier = oSelUtil.ufGetWebElements(driver, SUPPLIER_NAMES);
+				for(int j=0;j<supplier.size();j++)
+				{
+					if(i==0)
+					{
+						supplier.get(2).click();
+						supplier.get(3).click();
+						supplier.get(4).click();
+					}
+					else if(i==1)
+					{
+						supplier.get(5).click();
+						supplier.get(6).click();
+						supplier.get(7).click();
+			
+					}
+					else if(i==2)
+					{
+						supplier.get(8).click();
+						supplier.get(9).click();
+						supplier.get(10).click();
+				}
+					oSelUtil.ufClick(driver, SUPPLIER_DONE);
+				}
+				
+			}
+			oSelUtil.ufClick(driver, SAVE_SUPPLIERS);
+			
+		}
+		catch(Exception se)
+		{
+			log.info("Fail to select the supplier"+se);
+			select_supplier=false;
+		}
+		return select_supplier;
+		
+	}
+	
+	public boolean SendRfq() throws Exception
+	{
+		boolean send_rfq=false;
+		try
+		{
+			
+		}
+		catch(Exception sr)
+		{
+			log.info("Fails to send an RFQ"+sr.getMessage());
+			send_rfq=false;
+		}
+		return send_rfq;
+		
+	}
+	public boolean CancelOrder() throws Exception
+	{
+		boolean cancel_rfq=false;
+		try
+		{
+			
+		}
+		catch(Exception cr)
+		{
+			
+		}
+		return cancel_rfq;
+	}
 			
 }

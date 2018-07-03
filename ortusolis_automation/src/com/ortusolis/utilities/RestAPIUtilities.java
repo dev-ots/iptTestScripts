@@ -26,7 +26,6 @@ public class RestAPIUtilities extends TestBase{
 		System.out.println("Status codde is " +statusCode);
 		System.out.println(re.body().asString());
 		/*String bodyString = re.getBody().asString();
-		
 		System.out.println(re.getStatusCode());
 		System.out.println(bodyString);
 		*/

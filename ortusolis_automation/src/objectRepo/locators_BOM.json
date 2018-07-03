@@ -27,7 +27,7 @@
  "Pndg":"id::approvedStausContent2",
  "ClkUsr":"id::rdAdminHomeAccordionOpenCardContactNumber",
  "Admn_Pro":"id::adminHomeNavBarId",
- "ADMIN2TEAM":"::adminHomeSwitchToRdTeam",
+ "ADMIN2TEAM":"id::adminHomeSwitchToRdTeam",
  "ADMIN_LOGOUT":"id::adminHomeLogout",
  
   "FUNDING_LINK":"id::rdHomeFundingLinkPopUp",

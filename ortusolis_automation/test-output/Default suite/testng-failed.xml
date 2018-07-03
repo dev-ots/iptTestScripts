@@ -3,26 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-<<<<<<< HEAD
-      <class name="com.ortusolis.registration.LMrqstAprvByAd">
-=======
-      <class name="com.ortusolis.registration.ProcAdmn">
->>>>>>> refs/remotes/origin/master
+      <class name="com.ortusolis.registration.BOM">
         <methods>
-<<<<<<< HEAD
-          <include name="LM_AdmnLog"/>
-=======
-          <include name="PrAdScr"/>
->>>>>>> refs/remotes/origin/master
+          <include name="BOM_Login"/>
           <include name="tearDown"/>
           <include name="BeforeSuiteDependencyTrigger"/>
           <include name="zzzUfRepotFormatSet"/>
         </methods>
-<<<<<<< HEAD
-      </class> <!-- com.ortusolis.registration.LMrqstAprvByAd -->
-=======
-      </class> <!-- com.ortusolis.registration.ProcAdmn -->
->>>>>>> refs/remotes/origin/master
+      </class> <!-- com.ortusolis.registration.BOM -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -2,9 +2,13 @@ package com.ortusolis.registration;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import com.jayway.restassured.RestAssured;
+import com.jayway.restassured.response.Response;
+import com.jayway.restassured.specification.RequestSpecification;
 import com.ortusolis.pageobjectsPO.LMrqstAprvByAdmnPO;
 import com.ortusolis.utilities.TestBase;
 
@@ -18,7 +22,7 @@ final Logger log =LoggerFactory.getLogger(getClass().getName()) ;
 	String sTestCaseName_4= "User login failure test case";
 			
 	
-	@Test
+	@Test(priority=3)
 	public void LM_AdmnLog() throws Exception
 
 	{
@@ -27,8 +31,6 @@ final Logger log =LoggerFactory.getLogger(getClass().getName()) ;
 		driver.get(oJsConfig.getString("IPT_Login_URL"));
 	
 		lml. RqstAprvLocators();
-		lml.RgstrLMUsr();
-		lml.UsrLogn();
 		lml.AdmnLogn();
 		lml.LMUserApprovalByLMAdmin();
 		lml.UsrLogn();
@@ -45,6 +47,24 @@ final Logger log =LoggerFactory.getLogger(getClass().getName()) ;
 		sa.assertEquals(true, bUserLogin, "sTestCaseName_2");
 		sa.assertAll();*/
 	}
+	
+	@Test(priority=2)
+	public void UserLogin() throws Exception
+	{
+		log.info(oJsConfig.getString("IPT_Login_URL"));
+		driver.get(oJsConfig.getString("IPT_Login_URL"));
+		lml. RqstAprvLocators();
+		lml.UsrLogn();
+	}	
+	@Test(priority=1)
+	public void UserRegistration() throws Exception
+	{
+		log.info(oJsConfig.getString("IPT_Login_URL"));
+		driver.get(oJsConfig.getString("IPT_Login_URL"));
+		lml. RqstAprvLocators();
+		lml.RgstrLMUsr();
+	}	
+
 	/*@Test(priority=1)
 	public void LM_AprvShikesho() throws Exception
 
@@ -74,4 +94,15 @@ final Logger log =LoggerFactory.getLogger(getClass().getName()) ;
 	}*/
 
 
+	@Test
+	public void GetUserDetails()
+	{
+		RestAssured.baseURI = "";
+		RequestSpecification httprequest = RestAssured.given();
+		Response res=httprequest.get();
+		System.out.println("Response body is "+res.asString());
+		int statusCode = res.getStatusCode();
+		Assert.assertEquals(statusCode/*actual value*/, 200/* expected value*/,"Correct status code returned");
+		
+	}
 }

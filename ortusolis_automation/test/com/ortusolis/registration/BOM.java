@@ -21,20 +21,36 @@ public class BOM  extends TestBase
     String sTestCaseName_6="User Registration by Admin failure test case";
     String sTestCaseName_7="Update User Role by Admin failure test case";
     String sTestCaseName_8="";
-    @Test
-    public void BOM_Login() throws Exception
+    @Test(priority=1)
+    public void BOMRegistration() throws Exception
     {
     	//SoftAssert sa=new SoftAssert();
     	log.info(oJsConfig.getString("IPT_Login_URL"));
 		driver.get(oJsConfig.getString("IPT_Login_URL"));
 		bp.BOMusrLocators();	
 		 bp.RgstrBOMUsr();
+		
+    }
+    @Test(priority=2)
+    public void UserLogin() throws Exception
+    {
+    	log.info(oJsConfig.getString("IPT_Login_URL"));
+		driver.get(oJsConfig.getString("IPT_Login_URL"));
+		bp.BOMusrLocators();	
 		 bp.BOMlogin();
+    	
+    }
+    @Test(priority=3)
+    public void BOM_AdminLogin() throws Exception
+    {
+    	log.info(oJsConfig.getString("IPT_Login_URL"));
+		driver.get(oJsConfig.getString("IPT_Login_URL"));
+		bp.BOMusrLocators();	
 		 bp.BOMADMINlogin();
 		 bp.AdminAproveUser();
-		 bp.BOMlogin();
-		
 		 bp.UserRgstrByAdmn();
+    	
+    }
 		/*boolean bUserRegistration=bp.RgstrBOMUsr();
 	    bp.RgstrBOMUsr();
 	    sa.assertEquals(true, bUserRegistration, "sTestCaseName_1");
@@ -88,5 +104,5 @@ public class BOM  extends TestBase
     	bp.BOMlogout();
     }*/
     
-}
+
 }
