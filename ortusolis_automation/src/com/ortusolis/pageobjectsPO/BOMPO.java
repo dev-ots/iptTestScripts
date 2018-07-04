@@ -89,7 +89,7 @@ public class BOMPO extends TestBase
 	    SUBMIT_AND_ADDUSER =oSelUtil.loadWithBy(oJsOR_Reg.getString("SUBMIT_AND_ADDUSER"));
 	    UPDATE_USER_ROLE_SECTION=oSelUtil.loadWithBy(oJsOR_Reg.getString("UPDATE_USER_ROLE_SECTION"));
 	    UPDATE_BUTTON =oSelUtil.loadWithBy(oJsOR_Reg.getString("UPDATE_BUTTON"));
-	    DAIMLER_SEARCH_FIELD= oSelUtil.loadWithBy(oJsOR_Reg.getString("DAIMLER_SEARCH_FIELD"));
+	    /*DAIMLER_SEARCH_FIELD= oSelUtil.loadWithBy(oJsOR_Reg.getString("DAIMLER_SEARCH_FIELD"));
 	    GET_DETAILS=oSelUtil.loadWithBy(oJsOR_Reg.getString("GET_DETAILS"));
 	    SELECT_ROLE= oSelUtil.loadWithBy(oJsOR_Reg.getString("SELECT_ROLE"));
 	    QUANTITIES= oSelUtil.loadWithBy(oJsOR_Reg.getString("QUANTITIES"));
@@ -102,10 +102,10 @@ public class BOMPO extends TestBase
 	    PL_PART= oSelUtil.loadWithBy(oJsOR_Reg.getString("PL_PART"));
 	   UPDATE_TO_EPICS= oSelUtil.loadWithBy(oJsOR_Reg.getString("UPDATE_TO_EPICS"));
 	    APPROVE_BYBOM= oSelUtil.loadWithBy(oJsOR_Reg.getString("APPROVE_BYBOM"));
-	    EXPORT_EXCEL= oSelUtil.loadWithBy(oJsOR_Reg.getString("EXPORT_EXCEL"));
+	    EXPORT_EXCEL= oSelUtil.loadWithBy(oJsOR_Reg.getString("EXPORT_EXCEL"));*/
 	    LOGOUT = oSelUtil.loadWithBy(oJsOR_Reg.getString("LOGOUT"));
-	    CANCEL_BUTTON = oSelUtil.loadWithBy(oJsOR_Reg.getString("CANCEL_BUTTON"));
-	    IN_PROGRESS = oSelUtil.loadWithBy(oJsOR_Reg.getString("IN_PROGRESS"));
+	   // CANCEL_BUTTON = oSelUtil.loadWithBy(oJsOR_Reg.getString("CANCEL_BUTTON"));
+	   // IN_PROGRESS = oSelUtil.loadWithBy(oJsOR_Reg.getString("IN_PROGRESS"));
 	}
 	public boolean BOMlogin() throws Exception
 	{

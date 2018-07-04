@@ -35,7 +35,7 @@ public class LMrqstAprvByAdmnPO extends TestBase
 		
 		oJsOR_Reg = oComUtil.ReadJsonFileGetJsonObject(System.getProperty("user.dir") + "/src/objectRepo/locators_LMrqstAprvByAdmn.json");
 		oJsTD_Reg = oComUtil.ReadJsonFileGetJsonObject(System.getProperty("user.dir") + "/src/TestData/TestData_LMrqstAprvByAdmn.json");
-	  oJsDataVal = oComUtil.ReadJsonFileGetJsonObject(System.getProperty("user.dir")+"/src/dataValidation/dataValidation_LM.json");
+	  //oJsDataVal = oComUtil.ReadJsonFileGetJsonObject(System.getProperty("user.dir")+"/src/dataValidation/dataValidation_LM.json");
 	    
 	    RqstAprvPage(oJsOR_Reg);
 	}
@@ -83,7 +83,7 @@ public class LMrqstAprvByAdmnPO extends TestBase
 	    DELIVERY_DATE = oSelUtil.loadWithBy(oJsOR_Reg.getString("DELIVERY_DATE"));
 	    DIGIT = oSelUtil.loadWithBy(oJsOR_Reg.getString("DIGIT"));
 	    //QUANTITY = oSelUtil.loadWithBy(oJsOR_Reg.getString("QUANTITY"));
-	    SUBMIT_BUTTON = oSelUtil.loadWithBy(oJsOR_Reg.getString("SUBMIT_BUTTON"));
+	   // SUBMIT_BUTTON = oSelUtil.loadWithBy(oJsOR_Reg.getString("SUBMIT_BUTTON"));
 	    ADD_NEW_USER = oSelUtil.loadWithBy(oJsOR_Reg.getString("ADD_NEW_USER"));
 	    NEW_USER_BUTTON = oSelUtil.loadWithBy(oJsOR_Reg.getString("NEW_USER_BUTTON"));
 	    USER_NAME = oSelUtil.loadWithBy(oJsOR_Reg.getString("USER_NAME"));

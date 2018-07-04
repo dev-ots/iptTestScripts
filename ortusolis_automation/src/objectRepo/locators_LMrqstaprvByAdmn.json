@@ -37,7 +37,7 @@
   "LOCATION":"id::lmDetailsDesiredLocation",
   "DELIVERY_DATE":"id::lmDetailsLmApprovedDate",
   "DIGIT":"id::lmDetailsKanriSixthDigit",
-  "QUANTITY":"id::",
+  "QUANTITY":"id::hemanth",
   "SUBMIT_BUTTON":"id::lmDetailsSubmitData",
   "ADD_NEW_USER":"id::approvedStausContent1",
   "CONTACT_NUMBER":"id::addNewUserContactNumber",

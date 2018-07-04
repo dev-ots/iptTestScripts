@@ -18,19 +18,38 @@ final Logger log =LoggerFactory.getLogger(getClass().getName()) ;
 	String sTestCaseName_4= "User login failure test case";
 			
 	
-	@Test
+	@Test(priority=3)
 	public void LM_AdmnLog() throws Exception
 
 	{
-		//SoftAssert sa = new SoftAssert();
 		log.info(oJsConfig.getString("IPT_Login_URL"));
 		driver.get(oJsConfig.getString("IPT_Login_URL"));
-	
 		lml. RqstAprvLocators();
-		//lml.RgstrLMUsr();
-		//lml.UsrLogn();
 		lml.AdmnLogn();
 		lml.LMUserApprovalByLMAdmin();
+		lml.UsrLogn();
+	}
+	@Test(priority=1)
+	public void LM_Usr_Rgstr() throws Exception
+	{
+		log.info(oJsConfig.getString("IPT_Login_URL"));
+		driver.get(oJsConfig.getString("IPT_Login_URL"));
+		lml. RqstAprvLocators();
+		lml.RgstrLMUsr();
+		
+	}	
+	@Test(priority=2)
+	public void LM_Usr_Login() throws Exception
+	{
+		log.info(oJsConfig.getString("IPT_Login_URL"));
+		driver.get(oJsConfig.getString("IPT_Login_URL"));
+		lml. RqstAprvLocators();
+		lml.UsrLogn();
+	}
+}	
+		//lml.RgstrLMUsr();
+		//lml.UsrLogn();
+		
 		/*boolean bUserRegister=lml.RgstrLMUsr();
 		sa.assertEquals(true, bUserRegister, "sTestCaseName_1");
 		lml.UsrLogn();
@@ -43,7 +62,7 @@ final Logger log =LoggerFactory.getLogger(getClass().getName()) ;
 		lml.UsrLogn();
 		sa.assertEquals(true, bUserLogin, "sTestCaseName_2");
 		sa.assertAll();*/
-	}
+	
 	/*@Test(priority=1)
 	public void LM_AprvShikesho() throws Exception
 
@@ -73,4 +92,3 @@ final Logger log =LoggerFactory.getLogger(getClass().getName()) ;
 	}*/
 
 
-}
