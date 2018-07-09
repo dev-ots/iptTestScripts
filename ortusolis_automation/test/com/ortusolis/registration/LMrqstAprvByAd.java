@@ -18,7 +18,7 @@ final Logger log =LoggerFactory.getLogger(getClass().getName()) ;
 	String sTestCaseName_4= "User login failure test case";
 			
 	
-	//@Test(priority=3)
+	@Test(priority=3)
 	public void LM_AdmnLog() throws Exception
 
 	{
@@ -31,7 +31,7 @@ final Logger log =LoggerFactory.getLogger(getClass().getName()) ;
 		driver.get(oJsConfig.getString("IPT_Login_URL"));
 		lml.UsrLogn();
 	}
-	//@Test(priority=1)
+	@Test(priority=1)
 	public void LM_Usr_Rgstr() throws Exception
 	{
 		log.info(oJsConfig.getString("IPT_Login_URL"));
@@ -40,7 +40,7 @@ final Logger log =LoggerFactory.getLogger(getClass().getName()) ;
 		lml.RgstrLMUsr();
 		
 	}	
-	//@Test(priority=2)
+	@Test(priority=2)
 	public void LM_Usr_Login() throws Exception
 	{
 		log.info(oJsConfig.getString("IPT_Login_URL"));

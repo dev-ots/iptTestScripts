@@ -28,6 +28,6 @@ public class Constants {
 	public static String sPJAAdRole = "PJAAdmin";
 	
 	// Generating new Damler ID for LM Flow and storing this in sDamlerIDForLMFlow
-	public static String sDamlerIDForLMFlow="1134219476";
-	public static String sDaimlerIdForBOMFlow="";
+	public static String sDaimlerIDForLMFlow="";
+	public static String sDaimlerIDForBOMFlow="";
 }

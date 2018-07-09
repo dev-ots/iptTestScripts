@@ -12,6 +12,8 @@
  "Usr_pro":"id::lmHomePopverButton",
  "swtcadmn":"id::lm-team-details-switch-to-lm-manager",
  "Pndg":"id::admin-home-pending-accordion",
+ "USER_ID_POPUP":"id::admin-home-pending-modal-user-id",
+ "POP_UP_CLOSE":"id::admin-home-pending-modal-cross-button",
 "ClkUsr":"id::admin-home-pending-request-role-name",
  "Aprv":"id::admin-home-pending-modal-approve-button",
  "Admn_Pro":"id::rdAdminHomeNavBarId",

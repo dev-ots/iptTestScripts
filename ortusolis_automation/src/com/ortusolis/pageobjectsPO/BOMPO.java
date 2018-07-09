@@ -119,7 +119,7 @@ public class BOMPO extends TestBase {
 		boolean BOM_login = false;
 		try {
 			oSelUtil.ufClear(driver, Usr);
-			oSelUtil.ufSendKeys(driver, Usr, Constants.sDaimlerIdForBOMFlow);
+			oSelUtil.ufSendKeys(driver, Usr, Constants.sDaimlerIDForBOMFlow);
 			oSelUtil.ufClear(driver, Pwd);
 			oSelUtil.ufSendKeys(driver, Pwd, oJsTD_Reg.getString("UsrPwd"));
 			oSelUtil.ufClick(driver, signup);
@@ -160,7 +160,7 @@ public class BOMPO extends TestBase {
 	public boolean RgstrBOMUsr() throws Exception {
 		boolean rgstrusr = false;
 		try {
-			oCons.sDaimlerIdForBOMFlow = oComUtil.generateUnixTimeStamp();
+			oCons.sDaimlerIDForBOMFlow = oComUtil.generateUnixTimeStamp();
 
 			oSelUtil.ufClick(driver, New_Rgstr);
 			ngWebDriver.waitForAngularRequestsToFinish();
@@ -172,7 +172,7 @@ public class BOMPO extends TestBase {
 			oSelUtil.ufClear(driver, email);
 			oSelUtil.ufSendKeys(driver, email, oJsTD_Reg.getString("email"));
 			oSelUtil.ufClear(driver, Daimlr);
-			oSelUtil.ufSendKeys(driver, Daimlr, oCons.sDaimlerIdForBOMFlow);
+			oSelUtil.ufSendKeys(driver, Daimlr, oCons.sDaimlerIDForBOMFlow);
 
 			// oSelUtil.ufGetWebElement(driver, role);
 			// oSelect = new Select(driver.findElement(Register_UserRole));
@@ -210,7 +210,7 @@ public class BOMPO extends TestBase {
 			for(int i=0;i<allusers.size();i++)
 			{
 				allusers.get(i).click();
-				if(oCons.sDaimlerIdForBOMFlow.equalsIgnoreCase(oSelUtil.ufGetText(driver, USER_ID_POPUP)))
+				if(oCons.sDaimlerIDForBOMFlow.equalsIgnoreCase(oSelUtil.ufGetText(driver, USER_ID_POPUP)))
 						break;
 				else
 					oSelUtil.ufClick(driver, POP_UP_CLOSE);

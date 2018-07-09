@@ -23,7 +23,8 @@ public class LMrqstAprvByAdmnPO extends TestBase {
 			SEARCH_BUTTON, NEW_SHIKEISHO, CHANGED_SHIKEISHO, SHIKEISHO_ID, PART_ID, KANRI_ID, EO_ID, APPROVE, REJECT,
 			FUNDING_LINK, FUNDING_CLOSE, LOCATION, DELIVERY_DATE, DIGIT, QUANTITY, SUBMIT_BUTTON, ADD_NEW_USER,
 			CONTACT_NUMBER, DAIMLER_DAIMLER, NEW_USER_BUTTON, USER_NAME, DEPARTMENT, ROLE_ROLE, SUBMIT_AND_ADDUSER,
-			UPDATE_USER_ROLE_SECTION, UPDATE_BUTTON, DAIMLER_SEARCH_FIELD, GET_DETAILS, SELECT_ROLE, UPDATE_ROLE_BUTTON;
+			UPDATE_USER_ROLE_SECTION, UPDATE_BUTTON, DAIMLER_SEARCH_FIELD, GET_DETAILS, SELECT_ROLE, UPDATE_ROLE_BUTTON,
+			USER_ID_POPUP,POP_UP_CLOSE;
 	final Logger log = LoggerFactory.getLogger(getClass().getSimpleName());
 	public static JSONObject oJsOR_Reg = new JSONObject();
 	public static JSONObject oJsTD_Reg = new JSONObject();
@@ -98,20 +99,23 @@ public class LMrqstAprvByAdmnPO extends TestBase {
 		GET_DETAILS = oSelUtil.loadWithBy(oJsOR_Reg.getString("GET_DETAILS"));
 		SELECT_ROLE = oSelUtil.loadWithBy(oJsOR_Reg.getString("SELECT_ROLE"));
 		UPDATE_ROLE_BUTTON = oSelUtil.loadWithBy(oJsOR_Reg.getString("UPDATE_ROLE_BUTTON"));
+		USER_ID_POPUP = oSelUtil.loadWithBy(oJsOR_Reg.getString("USER_ID_POPUP"));
+		POP_UP_CLOSE = oSelUtil.loadWithBy(oJsOR_Reg.getString("POP_UP_CLOSE"));
+	
 
 	}
 
 	public boolean RgstrLMUsr() throws Exception {
 		boolean rgstrusr = false;
 		try {
-			oCons.sDamlerIDForLMFlow = oComUtil.generateUnixTimeStamp();
+			oCons.sDaimlerIDForLMFlow = oComUtil.generateUnixTimeStamp();
 			oSelUtil.ufClick(driver, New_Rgstr);
 			ngWebDriver.waitForAngularRequestsToFinish();
 			oSelUtil.ufSendKeys(driver, fname, oJsTD_Reg.getString("f_name"));
 			Thread.sleep(1000);
 			oSelUtil.ufSendKeys(driver, lname, oJsTD_Reg.getString("l_name"));
 			oSelUtil.ufSendKeys(driver, email, oJsTD_Reg.getString("email"));
-			oSelUtil.ufSendKeys(driver, Daimlr, oCons.sDamlerIDForLMFlow);
+			oSelUtil.ufSendKeys(driver, Daimlr, oCons.sDaimlerIDForLMFlow);
 			// oSelUtil.ufGetWebElement(driver, role);
 			Select sc = new Select(driver.findElement(role));
 			sc.selectByVisibleText("LM User");
@@ -138,8 +142,8 @@ public class LMrqstAprvByAdmnPO extends TestBase {
 	public boolean UsrLogn() throws Exception {
 		boolean usr_log = false;
 		try {
-			log.info(oCons.sDamlerIDForLMFlow);
-			oSelUtil.ufSendKeys(driver, Usr, Constants.sDamlerIDForLMFlow);
+			log.info(oCons.sDaimlerIDForLMFlow);
+			oSelUtil.ufSendKeys(driver, Usr, Constants.sDaimlerIDForLMFlow);
 			oSelUtil.ufSendKeys(driver, Pwd, oJsTD_Reg.getString("UsrPwd"));
 			oSelUtil.ufClick(driver, signup);
 			Thread.sleep(2000);
@@ -182,12 +186,24 @@ public class LMrqstAprvByAdmnPO extends TestBase {
 		try {
 			Thread.sleep(1000);
 			oSelUtil.ufClick(driver, Pndg);
+			Thread.sleep(2000);
 			List<WebElement> allusers = oSelUtil.ufGetWebElements(driver, ClkUsr);
-			
+
+			for(int i=0;i<allusers.size();i++)
+			{
+				allusers.get(i).click();
+				if(oCons.sDaimlerIDForLMFlow.equalsIgnoreCase(oSelUtil.ufGetText(driver, USER_ID_POPUP)))
+					break;
+				else {
+					oSelUtil.ufClick(driver, POP_UP_CLOSE);
+					Thread.sleep(1000);
+				}
+			}
+			/*List<WebElement> allusers = oSelUtil.ufGetWebElements(driver, ClkUsr);			
 			int count = allusers.size();
 			int iContainText = oSelUtil.getIndexOfMatchingTextWebElements(allusers, oCons.sDamlerIDForLMFlow);
 			allusers.get(iContainText).click();
-
+*/
 			oSelUtil.ufClick(driver, Aprv);
 			Thread.sleep(2000);
 			oSelUtil.AlertHandling(ngWebDriver,driver);
@@ -196,6 +212,7 @@ public class LMrqstAprvByAdmnPO extends TestBase {
 			 * SoftAssert sa = new SoftAssert(); sa.assertEquals(USER_APPROVED,
 			 * oJsTD_Reg.getString("USER_APPROVAL")); sa.assertAll();
 			 */
+			
 
 		} catch (Exception ua) {
 			log.info("Fails to approve user by Admin" + ua.getMessage());
