@@ -10,6 +10,7 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.*;
 
+import com.ortusolis.utilities.CommonUtilities;
 import com.ortusolis.utilities.RestAPIUtilities;
 import com.paulhammant.ngwebdriver.*;
 
@@ -21,6 +22,7 @@ public class Demo {
 	WebDriver driver;
 	NgWebDriver ngWebDriver;
 	RestAPIUtilities oRestUtil = new RestAPIUtilities();
+	CommonUtilities oCom = new CommonUtilities();
 	@BeforeTest
 	public void launchBrowser() {
 		/*if(sBrowser.contains("Firefox")) {
@@ -49,6 +51,7 @@ public class Demo {
 	public void executeBrowser() throws Exception {
 		System.out.println("executeBrowser");
 		String sResponse;
+		System.out.println(oCom.generateUnixTimeStamp());
 		//oJsConfig.get(key)
 		//sResponse=oRestUtil.ufGet("http://53.87.132.60:8080/api/ipt-user/user_sign_in?", "user_id=BCHINTA");
 		//System.out.println(sResponse);

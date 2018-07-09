@@ -42,10 +42,12 @@ public class BOM  extends TestBase
     {
     	log.info(oJsConfig.getString("IPT_Login_URL"));
 		driver.get(oJsConfig.getString("IPT_Login_URL"));
-		bp.BOMusrLocators();	
-		bp.BOMADMINlogin();
+		 bp.BOMusrLocators();	
+		 bp.BOMADMINlogin();
 		 bp.AdminAproveUser();
-    
+		 Thread.sleep(3000);
+		 driver.get(oJsConfig.getString("IPT_Login_URL"));
+		 bp.BOMlogin();
     }
 }
 	 /*   bp.RgstrBOMUsr();

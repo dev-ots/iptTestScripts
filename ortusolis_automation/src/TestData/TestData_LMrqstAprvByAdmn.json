@@ -1,11 +1,11 @@
 {
- "f_name":"KING",
-"l_name":"KONG",
-"email":"kk@daimler.com",
-"Daimler":"RAJAJI",
-"role":"",
- 
- "UsrId":"RAJAJI",
+ "f_name":"bang",
+"l_name":"lore",
+"email":"blr@daimler.com",
+"Daimler":"CMO_1",
+"_Daimler":"Currently this is creating using linux time stamp", 
+ "UsrId":"CMO_1",
+"_UsrId":"Currently this is creating using linux time stamp",
  "UsrPwd":"qqq",
  
 "AdmnId":"SABIN",
