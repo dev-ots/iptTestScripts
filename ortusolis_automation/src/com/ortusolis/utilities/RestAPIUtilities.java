@@ -21,7 +21,6 @@ public class RestAPIUtilities extends TestBase{
 		RestAssured.baseURI=sURL;
 		Response re = RestAssured.given().contentType("application/json").
 				parameters(hmParmaeters).get();
-	
 		int statusCode = re.getStatusCode();
 		System.out.println("Status codde is " +statusCode);
 		System.out.println(re.body().asString());
@@ -39,6 +38,7 @@ public class RestAPIUtilities extends TestBase{
 		
 		return jsObj;
 	}
+	
 	
 	
 	

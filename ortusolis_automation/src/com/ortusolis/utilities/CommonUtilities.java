@@ -169,5 +169,14 @@ public class CommonUtilities extends TestBase{
 	public String setEnvironment(String sURL) throws Exception {
 		return sURL.replace("spendgoenv", oJsConfig.getString("environment"));
 	}
+
+	public String generateUnixTimeStamp() {
+		long unixTime = System.currentTimeMillis();
+		return TrimmingToTenLetters(String.valueOf(unixTime));
+	}
+
+	private String TrimmingToTenLetters(String valueOf) {
+		return valueOf.substring((valueOf.length())-10);
+	}
 	
 }
