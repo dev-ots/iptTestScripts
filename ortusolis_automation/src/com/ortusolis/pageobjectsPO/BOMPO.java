@@ -91,6 +91,8 @@ public class BOMPO extends TestBase {
 		UPDATE_BUTTON = oSelUtil.loadWithBy(oJsOR_Reg.getString("UPDATE_BUTTON"));
 		USER_ID_POPUP = oSelUtil.loadWithBy(oJsOR_Reg.getString("USER_ID_POPUP"));
 		POP_UP_CLOSE = oSelUtil.loadWithBy(oJsOR_Reg.getString("POP_UP_CLOSE"));
+		
+		
 		/*
 		 * DAIMLER_SEARCH_FIELD=
 		 * oSelUtil.loadWithBy(oJsOR_Reg.getString("DAIMLER_SEARCH_FIELD"));
