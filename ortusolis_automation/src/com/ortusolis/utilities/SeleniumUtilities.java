@@ -1,5 +1,7 @@
 package com.ortusolis.utilities;
 
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.util.List;
 
 import org.openqa.selenium.Alert;
@@ -90,13 +92,14 @@ public class SeleniumUtilities extends TestBase {
 	}
 
 	public boolean ufIsDisplayed(WebDriver driver, By SelPageObj) {
-		boolean bRes_Flag=true;
+		boolean bRes_Flag = true;
 		try {
 			System.out.println("111111111111");
 			System.out.println(driver.findElement(SelPageObj).isDisplayed());
-			bRes_Flag=true;
-		}catch(Exception ufDisplay)
-			{bRes_Flag=false;}
+			bRes_Flag = true;
+		} catch (Exception ufDisplay) {
+			bRes_Flag = false;
+		}
 		return bRes_Flag;
 	}
 
@@ -136,42 +139,40 @@ public class SeleniumUtilities extends TestBase {
 
 	public boolean ufWaitForElementVisible(NgWebDriver driver, By byPageObject, int iSeconds) throws Exception {
 		int iSecCount = 0;
-		boolean bRes_Flag=false;
+		boolean bRes_Flag = false;
 		if (iSeconds * 2 != iSecCount) {
 			if (!ufIsDisplayed(driver, byPageObject)) {
 				Thread.sleep(500);
 				iSecCount = +1;
-			}else
-			{
-				bRes_Flag=true;
-				log.info("Element displayed in  : "+ iSecCount);
+			} else {
+				bRes_Flag = true;
+				log.info("Element displayed in  : " + iSecCount);
 				return bRes_Flag;
 			}
 		}
-		
+
 		return bRes_Flag;
 	}
-	
+
 	public boolean ufWaitForElementVisible(WebDriver driver, By byPageObject, int iSeconds) throws Exception {
 		int iSecCount = 0;
-		boolean bRes_Flag=false;
-		int expectedWait=(iSeconds*2); 
+		boolean bRes_Flag = false;
+		int expectedWait = (iSeconds * 2);
 		System.out.println(expectedWait);
-		
-		if ( expectedWait != iSecCount) {
-		System.out.println(expectedWait +"::"+iSecCount);
+
+		if (expectedWait != iSecCount) {
+			System.out.println(expectedWait + "::" + iSecCount);
 			if (!ufIsDisplayed(driver, byPageObject)) {
-				log.info("Count : "+iSecCount);
+				log.info("Count : " + iSecCount);
 				Thread.sleep(500);
-				iSecCount = iSecCount+1;
-			}else
-			{
-				bRes_Flag=true;
-				log.info("Element displayed in  : "+ iSecCount);
+				iSecCount = iSecCount + 1;
+			} else {
+				bRes_Flag = true;
+				log.info("Element displayed in  : " + iSecCount);
 				return bRes_Flag;
 			}
 		}
-		
+
 		return bRes_Flag;
 	}
 
@@ -196,11 +197,30 @@ public class SeleniumUtilities extends TestBase {
 		return 0;
 	}
 
-	public void AlertHandling(NgWebDriver ngWebDriver) {
-		Alert alt = driver.switchTo().alert();
-		//String USER_APPROVED = alt.getText();
-		alt.accept();
-		ngWebDriver.waitForAngularRequestsToFinish();
+	public void AlertHandling(NgWebDriver ngWebDriver, WebDriver driver) throws Exception {
+		/*
+		 * Alert alt = driver.switchTo().alert(); log.info(alt.getText()); alt.accept();
+		 */
+		boolean bFlag=false;
+		try {
+			log.info(driver.switchTo().alert().getText());
+			driver.switchTo().alert().accept();
+			bFlag=true;
+		} catch (Exception ea) {
+			try {
+				log.info("Trying using ROBO");
+				Thread.sleep(2000);
+				Robot r = new Robot();
+				r.keyPress(KeyEvent.VK_ENTER);
+				bFlag=true;
+			} catch (Exception eb) {
+				log.error("Alert not handled and sleeping");
+				Thread.sleep(10000);
+			}
+		}
+		log.info("1111");
+		if(bFlag)
+			ngWebDriver.waitForAngularRequestsToFinish();
 	}
 
 }

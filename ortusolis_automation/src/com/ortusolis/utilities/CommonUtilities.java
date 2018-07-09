@@ -176,7 +176,9 @@ public class CommonUtilities extends TestBase{
 	}
 
 	private String TrimmingToTenLetters(String valueOf) {
-		return valueOf.substring((valueOf.length())-10);
+		String sReadyToUse =valueOf.substring((valueOf.length())-10);
+		log.info("Actual Time Stamp: "+valueOf+"\nConverted Time Stamp: "+sReadyToUse);
+		return sReadyToUse;
 	}
 	
 }

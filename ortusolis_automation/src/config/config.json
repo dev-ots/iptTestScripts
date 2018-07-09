@@ -15,6 +15,7 @@
 
 "RestAPI":{
 "Rest_URL":"http://53.87.132.60:8080",
-"Rest_User_Signin":"/api/ipt-user/user_sign_in?"
+"Rest_User_Signin":"/api/ipt-user/user_sign_in?",
+"Rest_User_URI1":"/ipt/api/v18_1/users/user-Authenication?"
 }
 }
