@@ -286,10 +286,7 @@ public class BOMPO extends TestBase {
 			Select se = new Select(driver.findElement(SELECT_ROLE));
 			se.selectByVisibleText("");
 			oSelUtil.ufClick(driver, UPDATE_ROLE_BUTTON);
-			Alert aaa = driver.switchTo().alert();
-			String actualText = aaa.getText();
-			aaa.accept();
-			SoftAssert sa = new SoftAssert();
+			oSelUtil.AlertHandling(ngWebDriver, driver);
 			// sa.assertEquals(actualText, oJsDataVal.getString("ROLE_CHANGEBYADMIN"));
 			// sa.assertAll();
 
@@ -307,11 +304,11 @@ public class BOMPO extends TestBase {
 			oSelUtil.ufClick(driver, SHIKEISHO_NUM);
 			oSelUtil.ufSendKeys(driver, SEARCH_FIELD, oJsTD_Reg.getString("SHIKEISHO ID"));
 			oSelUtil.ufClick(driver, NEW_SHIKEISHO);
-			List<WebElement> allusers = oSelUtil.ufGetWebElements(driver, SHIKEISHO_ID);
-			int count = allusers.size();
-			int iContainText = oSelUtil.getIndexOfMatchingTextWebElements(allusers,
+			List<WebElement> allShikeisho = oSelUtil.ufGetWebElements(driver, SHIKEISHO_ID);
+			int count = allShikeisho.size();
+			int iContainText = oSelUtil.getIndexOfMatchingTextWebElements(allShikeisho,
 					oJsTD_Reg.getString("SHIKEISHO_ID"));
-			allusers.get(iContainText).click();
+			allShikeisho.get(iContainText).click();
 
 		} catch (Exception ss) {
 			log.info("Fails in searching shikeisho" + ss.getMessage());
@@ -332,10 +329,7 @@ public class BOMPO extends TestBase {
 			}
 			// oSelUtil.ufSendKeys(driver, QUANTITY, oJsTD_Reg.getString("QUANTITY"));
 			oSelUtil.ufClick(driver, VERIFY);
-			Alert ala = driver.switchTo().alert();
-			String txt = ala.getText();
-			ala.accept();
-			SoftAssert saa = new SoftAssert();
+			oSelUtil.AlertHandling(ngWebDriver, driver);
 			// saa.assertEquals(txt, oJsDataVal.getString("VERIFFY_MSG"));
 			// saa.assertAll();
 
@@ -411,10 +405,7 @@ public class BOMPO extends TestBase {
 		try {
 			oSelUtil.ufClick(driver, Usr_pro);
 			oSelUtil.ufClick(driver, LOGOUT);
-			Alert aller = driver.switchTo().alert();
-			String logoutText = aller.getText();
-			aller.accept();
-			SoftAssert saa = new SoftAssert();
+			oSelUtil.AlertHandling(ngWebDriver, driver);
 			// saa.assertEquals(logoutText, oJsDataVal.getString("LOGOUT"));
 			// saa.assertAll();
 		} catch (Exception lo) {

@@ -14,8 +14,10 @@
 "IPT_PROC_LANDING":"http://53.87.137.65/proc_team_home",
 
 "RestAPI":{
-"Rest_URL":"http://53.87.132.60:8080",
+"Rest_URL":"http://53.87.137.65:8080",
 "Rest_User_Signin":"/api/ipt-user/user_sign_in?",
-"Rest_User_URI1":"/ipt/api/v18_1/users/user-Authenication?"
+"Rest_User_URI1":"/ipt/api/v18_1/users/user-Authenication?",
+"Rest_User_Registration":"/ipt/api/v18_1/users/addUser"
+
 }
 }
