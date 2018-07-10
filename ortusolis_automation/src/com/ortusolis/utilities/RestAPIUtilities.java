@@ -39,6 +39,22 @@ public class RestAPIUtilities extends TestBase{
 		return jsObj;
 	}
 	
+	public String ufGetEle(String sURL, HashMap<String, String> hmParm)  throws Exception{
+		 
+		RestAssured.baseURI=sURL;
+		Response re = RestAssured.given().contentType("application/json").
+				parameters(hmParm).post();
+		int statusCode = re.getStatusCode();
+		System.out.println("Status codde is " +statusCode);
+		System.out.println(re.body().asString());
+		/*String bodyString = re.getBody().asString();
+		
+		System.out.println(re.getStatusCode());
+		System.out.println(bodyString);
+		*/
+		return re.body().asString();
+	}
+
 	
 	
 	

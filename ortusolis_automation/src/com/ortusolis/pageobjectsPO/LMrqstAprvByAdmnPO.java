@@ -147,9 +147,7 @@ public class LMrqstAprvByAdmnPO extends TestBase {
 			oSelUtil.ufSendKeys(driver, Pwd, oJsTD_Reg.getString("UsrPwd"));
 			oSelUtil.ufClick(driver, signup);
 			Thread.sleep(2000);
-			Alert all = driver.switchTo().alert();
-			all.accept();
-
+			oSelUtil.AlertHandling(ngWebDriver, driver);
 		} catch (Exception ee) {
 			log.info("Unable to login" + ee.getMessage());
 			usr_log = false;
@@ -166,9 +164,7 @@ public class LMrqstAprvByAdmnPO extends TestBase {
 			Thread.sleep(1000);
 			oSelUtil.ufClick(driver, signup);
 			Thread.sleep(2000);
-			Alert allt = driver.switchTo().alert();
-			Thread.sleep(1000);
-			allt.accept();
+			oSelUtil.AlertHandling(ngWebDriver, driver);
 			ngWebDriver.waitForAngularRequestsToFinish();
 			// oSelUtil.ufWaitForElementVisible(driver, Usr_pro, 10);
 			oSelUtil.ufClick(driver, Usr_pro);
@@ -227,21 +223,32 @@ public class LMrqstAprvByAdmnPO extends TestBase {
 			/*oSelUtil.ufClick(driver, SEARCH_BY);
 			oSelUtil.ufClick(driver, SHIKEISHO_NUM);
 			oSelUtil.ufSendKeys(driver, SEARCH_FIELD, oJsTD_Reg.getString("SHIKEISHO_ID"));
-			oSelUtil.ufClick(driver, SEARCH_BUTTON);
-			*/
+			oSelUtil.ufClick(driver, SEARCH_BUTTON);*/
 			
+			ngWebDriver.waitForAngularRequestsToFinish();
 			oSelUtil.ufClick(driver, NEW_SHIKEISHO);
-			/*oSelUtil.ufIsDisplayed(driver, SHIKEISHO_ID);
-			
-			*/
-			List<WebElement> allshi = driver.findElements(SHIKEISHO_ID);
+			ngWebDriver.waitForAngularRequestsToFinish();
+			oSelUtil.ufIsDisplayed(driver, SHIKEISHO_ID);
+			oSelUtil.ufClick(driver, SHIKEISHO_ID);
+			System.out.println("SHikeisho");	
+			ngWebDriver.waitForAngularRequestsToFinish();
+			/*List<WebElement> allshi = oSelUtil.ufGetWebElements(driver, SHIKEISHO_ID);
 			int count = allshi.size();
+			ngWebDriver.waitForAngularRequestsToFinish();
+			for(int i=0;i<allshi.size();i++)
+			{
 			allshi.get(0).click();
-			/*log.info("Number of elements in the new shikeisho are" + count);
-			int iContainText1 = oSelUtil.getIndexOfMatchingTextWebElements(allshi, oJsTD_Reg.getString("SHIKEISHO_ID"));
-			allshi.get(iContainText1).click();*/
+			}			
+			
 			oSelUtil.ufClick(driver, FUNDING_LINK);
+			Thread.sleep(1000);
 			oSelUtil.ufClick(driver, FUNDING_CLOSE);
+			ngWebDriver.waitForAngularRequestsToFinish();
+			log.info("Number of elements in the new shikeisho are" + count);
+			int iContainText1 = oSelUtil.getIndexOfMatchingTextWebElements(allshi, oJsTD_Reg.getString("SHIKEISHO_ID"));
+			allshi.get(iContainText1).click();
+			oSelUtil.ufClick(driver, FUNDING_LINK);
+			oSelUtil.ufClick(driver, FUNDING_CLOSE);*/
 		} catch (Exception m) {
 			log.info("Shikeisho not found in User landing screen" + m.getMessage());
 			aprv_shi = false;
@@ -339,6 +346,7 @@ public class LMrqstAprvByAdmnPO extends TestBase {
 			oSelUtil.ufSendKeys(driver, SEARCH_FIELD, oJsTD_Reg.getString("SHIKEISHO_ID"));
 			oSelUtil.ufClick(driver, SEARCH_BUTTON);
 */
+			ngWebDriver.waitForAngularRequestsToFinish();
 			oSelUtil.ufClear(driver, LOCATION);
 			oSelUtil.ufSendKeys(driver, LOCATION, oJsTD_Reg.getString("LOCATION"));
 			oSelUtil.ufClear(driver, DELIVERY_DATE);
@@ -389,12 +397,10 @@ public class LMrqstAprvByAdmnPO extends TestBase {
 			Select se = new Select((WebElement) SELECT_ROLE);
 			se.selectByVisibleText("");
 			oSelUtil.ufClick(driver, UPDATE_ROLE_BUTTON);
-			Alert aaa = driver.switchTo().alert();
-			String actualText = aaa.getText();
-			aaa.accept();
-			SoftAssert sa = new SoftAssert();
+			oSelUtil.AlertHandling(ngWebDriver, driver);
+			/*SoftAssert sa = new SoftAssert();
 			sa.assertEquals(actualText, oJsDataVal.getString("ROLE_CHANGEBYADMIN"));
-			sa.assertAll();
+			sa.assertAll();*/
 
 		} catch (Exception eu) {
 			log.info("Fails to change user role by Admin" + eu);
@@ -409,6 +415,7 @@ public class LMrqstAprvByAdmnPO extends TestBase {
 			oSelUtil.ufClick(driver, Admn_Pro);
 			Thread.sleep(2000);
 			oSelUtil.ufClick(driver, AdminLogout);
+			oSelUtil.AlertHandling(ngWebDriver, driver);
 
 		} catch (Exception al) {
 			log.info("Fails to logout as LM admin" + al.getMessage());
@@ -423,6 +430,7 @@ public class LMrqstAprvByAdmnPO extends TestBase {
 			oSelUtil.ufClick(driver, Usr_pro);
 			Thread.sleep(2000);
 			oSelUtil.ufClick(driver, signout);
+			oSelUtil.AlertHandling(ngWebDriver, driver);
 
 		} catch (Exception lu) {
 			log.info("Fails to logout as LM user" + lu.getMessage());
