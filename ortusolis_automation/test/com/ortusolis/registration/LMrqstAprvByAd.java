@@ -55,6 +55,7 @@ final Logger log =LoggerFactory.getLogger(getClass().getName()) ;
 		driver.get(oJsConfig.getString("IPT_Login_URL"));
 		lml.UsrLogn();
 		lml.ApproveShikeishoID();
+		Thread.sleep(2000);
 		lml.UpdateVlues();
 	}
 	

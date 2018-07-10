@@ -37,21 +37,22 @@ public class LoginAPI
 	@Test
 	public void RegisterUser() throws Exception
 	{
-		RestAssured.baseURI ="http://53.87.137.65:8080/ipt/api/v18_1/users/addUser";
-		RequestSpecification request=RestAssured.given();
-		HashMap<String, String> parameters= new HashMap();
-		parameters.put("firstname", "hem");
-		parameters.put("lastname", "lask");
-		parameters.put("emailId", "auto@ortusolis.com");
-		parameters.put("userid",oComm.generateUnixTimeStamp());
-		parameters.put("roleId","R04");
-		parameters.put("mode","S");
-		request.body(parameters.toString());
-		Response res = RestAssured.given().contentType("application/json").parameters(parameters).post();
-		int StatusCode = res.getStatusCode();
+		//RestAssured.baseURI ="http://53.87.137.65:8080/ipt/api/v18_1/users/addUser";
+		//RequestSpecification request=RestAssured.given();
+		HashMap<String, String> hmparam= new HashMap();
+		hmparam.put("firstname", "hem");
+		hmparam.put("lastname", "lask");
+		hmparam.put("emailId", "auto@ortusolis.com");
+		hmparam.put("userid",oComm.generateUnixTimeStamp());
+		hmparam.put("roleId","R04");
+		hmparam.put("mode","S");
+		//request.body(hmparam.toString());
+		String  res = rest.ufGetEle("http://53.87.137.65:8080/ipt/api/v18_1/users/addUser", hmparam);
+		//JSONObject jsonobj=(JSONObject) jsonobj.get(res);
+		/*int StatusCode = res.getStatusCode();
 		System.out.println("The status code recieved"+StatusCode);
 		System.out.println("The status code recieved"+res.body().asString());
-		//Assert.assertEquals("StatusCode","201");
+		//Assert.assertEquals("StatusCode","201");*/
 	}	
 	//@Test
 	public void UserRgstrByAdmin() throws Exception

@@ -1,5 +1,5 @@
 {
- "New_Rgstr":"id::registerForNewUser",
+ "NEW_REGISER":"id::registerForNewUser",
  "fname":"id::firstNameSignUp",
  "lname":"id::lastNameSignUp",
  "email":"id::emailSignUp",

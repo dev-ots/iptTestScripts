@@ -15,7 +15,7 @@ import com.ortusolis.utilities.Constants;
 import com.ortusolis.utilities.TestBase;
 
 public class BOMPO extends TestBase {
-	By New_Rgstr, fname, lname, email, Daimlr, role, Rgstr_Usr, Usr, Pwd, signup, Usr_pro, swtcadmn, Pndg, ClkUsr,
+	By NEW_REGISER, fname, lname, email, Daimlr, role, Rgstr_Usr, Usr, Pwd, signup, Usr_pro, swtcadmn, Pndg, ClkUsr,
 			ADMIN2TEAM, ADMIN_LOGOUT, SEARCH_BY, SHIKEISHO_NUM, PART_NUM, KANRI_NUM, EO_NUM, SEARCH_FIELD,
 			SEARCH_BUTTON, NEW_SHIKEISHO, CHANGED_SHIKEISHO, SHIKEISHO_ID, PART_ID, KANRI_ID, EO_ID, APPROVE, REJECT,
 			FUNDING_LINK, FUNDING_CLOSE, ADD_NEW_USER, CONTACT_NUMBER, DAIMLER_DAIMLER, NEW_USER_BUTTON, USER_NAME,
@@ -43,7 +43,7 @@ public class BOMPO extends TestBase {
 	}
 
 	private void BOMloginpageobjects(JSONObject oJsOR_Reg) {
-		New_Rgstr = oSelUtil.loadWithBy(oJsOR_Reg.getString("New_Rgstr"));
+		NEW_REGISER = oSelUtil.loadWithBy(oJsOR_Reg.getString("NEW_REGISER"));
 		fname = oSelUtil.loadWithBy(oJsOR_Reg.getString("fname"));
 		lname = oSelUtil.loadWithBy(oJsOR_Reg.getString("lname"));
 		email = oSelUtil.loadWithBy(oJsOR_Reg.getString("email"));
@@ -123,10 +123,7 @@ public class BOMPO extends TestBase {
 			oSelUtil.ufClear(driver, Pwd);
 			oSelUtil.ufSendKeys(driver, Pwd, oJsTD_Reg.getString("UsrPwd"));
 			oSelUtil.ufClick(driver, signup);
-			Thread.sleep(2000);
-			Alert all = driver.switchTo().alert();
-			all.accept();
-
+			oSelUtil.AlertHandling(ngWebDriver, driver);
 		} catch (Exception ex) {
 			log.info("Login error in BOM page" + ex.getMessage());
 			BOM_login = false;
@@ -162,7 +159,7 @@ public class BOMPO extends TestBase {
 		try {
 			oCons.sDaimlerIDForBOMFlow = oComUtil.generateUnixTimeStamp();
 
-			oSelUtil.ufClick(driver, New_Rgstr);
+			oSelUtil.ufClick(driver, NEW_REGISER);
 			ngWebDriver.waitForAngularRequestsToFinish();
 			oSelUtil.ufClear(driver, fname);
 			oSelUtil.ufSendKeys(driver, fname, oJsTD_Reg.getString("f_name"));
