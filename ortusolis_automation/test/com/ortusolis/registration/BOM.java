@@ -49,6 +49,14 @@ public class BOM  extends TestBase
 		 driver.get(oJsConfig.getString("IPT_Login_URL"));
 		 bp.BOMlogin();
     }
+    @Test(priority=4)
+    public void AssignBOMUser() throws Exception
+    {
+    	log.info(oJsConfig.getString("IPT_Login_URL"));
+		driver.get(oJsConfig.getString("IPT_Login_URL"));
+		bp.BOMlogin();
+		bp.AssignBOMUserforLMAprvShi();
+    }
 }
 	 /*   bp.RgstrBOMUsr();
 	    sa.assertEquals(true, bUserRegistration, "sTestCaseName_1");

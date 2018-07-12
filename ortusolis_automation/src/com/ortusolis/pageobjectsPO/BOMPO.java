@@ -31,12 +31,9 @@ public class BOMPO extends TestBase {
 
 	public void BOMusrLocators() throws Exception {
 
-		oJsOR_Reg = oComUtil
-				.ReadJsonFileGetJsonObject(System.getProperty("user.dir") + "/src/objectRepo/locators_BOM.json");
-		oJsTD_Reg = oComUtil
-				.ReadJsonFileGetJsonObject(System.getProperty("user.dir") + "/src/TestData/TestData_BOM.json");
-		// oJsDataVal =
-		// oComUtil.ReadJsonFileGetJsonObject(System.getProperty("user.dir") +
+		oJsOR_Reg = oComUtil.ReadJsonFileGetJsonObject(System.getProperty("user.dir") + "/src/objectRepo/locators_BOM.json");
+		oJsTD_Reg = oComUtil.ReadJsonFileGetJsonObject(System.getProperty("user.dir") + "/src/TestData/TestData_BOM.json");
+		// oJsDataVal = oComUtil.ReadJsonFileGetJsonObject(System.getProperty("user.dir") +
 		// "/src/TestData/dataValidationBOM.json");
 
 		BOMloginpageobjects(oJsOR_Reg);
@@ -94,21 +91,20 @@ public class BOMPO extends TestBase {
 		
 		
 		/*
-		 * DAIMLER_SEARCH_FIELD=
-		 * oSelUtil.loadWithBy(oJsOR_Reg.getString("DAIMLER_SEARCH_FIELD"));
-		 * GET_DETAILS=oSelUtil.loadWithBy(oJsOR_Reg.getString("GET_DETAILS"));
-		 * SELECT_ROLE= oSelUtil.loadWithBy(oJsOR_Reg.getString("SELECT_ROLE"));
-		 * QUANTITIES= oSelUtil.loadWithBy(oJsOR_Reg.getString("QUANTITIES")); VERIFY=
-		 * oSelUtil.loadWithBy(oJsOR_Reg.getString("VERIFY")); YES_BUTTON=
-		 * oSelUtil.loadWithBy(oJsOR_Reg.getString("YES_BUTTON")); SAVE_BUTTON=
-		 * oSelUtil.loadWithBy(oJsOR_Reg.getString("SAVE_BUTTON")); ASSIGN_BOM=
-		 * oSelUtil.loadWithBy(oJsOR_Reg.getString("ASSIGN_BOM")); SAVE_BOMUSER=
-		 * oSelUtil.loadWithBy(oJsOR_Reg.getString("SAVE_BOMUSER")); ASSIGN_BUYERCODE=
-		 * oSelUtil.loadWithBy(oJsOR_Reg.getString("ASSIGN_BUYERCODE")); PL_PART=
-		 * oSelUtil.loadWithBy(oJsOR_Reg.getString("PL_PART")); UPDATE_TO_EPICS=
-		 * oSelUtil.loadWithBy(oJsOR_Reg.getString("UPDATE_TO_EPICS")); APPROVE_BYBOM=
-		 * oSelUtil.loadWithBy(oJsOR_Reg.getString("APPROVE_BYBOM")); EXPORT_EXCEL=
-		 * oSelUtil.loadWithBy(oJsOR_Reg.getString("EXPORT_EXCEL"));
+		  DAIMLER_SEARCH_FIELD=oSelUtil.loadWithBy(oJsOR_Reg.getString("DAIMLER_SEARCH_FIELD"));
+		  GET_DETAILS=oSelUtil.loadWithBy(oJsOR_Reg.getString("GET_DETAILS"));
+		  SELECT_ROLE= oSelUtil.loadWithBy(oJsOR_Reg.getString("SELECT_ROLE"));
+		  QUANTITIES= oSelUtil.loadWithBy(oJsOR_Reg.getString("QUANTITIES"));
+		   VERIFY= oSelUtil.loadWithBy(oJsOR_Reg.getString("VERIFY")); 
+		   YES_BUTTON=oSelUtil.loadWithBy(oJsOR_Reg.getString("YES_BUTTON")); 
+		   SAVE_BUTTON=oSelUtil.loadWithBy(oJsOR_Reg.getString("SAVE_BUTTON")); 
+		   ASSIGN_BOM=oSelUtil.loadWithBy(oJsOR_Reg.getString("ASSIGN_BOM")); 
+		   SAVE_BOMUSER=oSelUtil.loadWithBy(oJsOR_Reg.getString("SAVE_BOMUSER")); 
+		   ASSIGN_BUYERCODE= oSelUtil.loadWithBy(oJsOR_Reg.getString("ASSIGN_BUYERCODE")); 
+		   PL_PART=oSelUtil.loadWithBy(oJsOR_Reg.getString("PL_PART")); 
+		   UPDATE_TO_EPICS=oSelUtil.loadWithBy(oJsOR_Reg.getString("UPDATE_TO_EPICS"));
+		    APPROVE_BYBOM=oSelUtil.loadWithBy(oJsOR_Reg.getString("APPROVE_BYBOM")); 
+		  EXPORT_EXCEL=oSelUtil.loadWithBy(oJsOR_Reg.getString("EXPORT_EXCEL"));
 		 */
 		LOGOUT = oSelUtil.loadWithBy(oJsOR_Reg.getString("LOGOUT"));
 		// CANCEL_BUTTON = oSelUtil.loadWithBy(oJsOR_Reg.getString("CANCEL_BUTTON"));
@@ -353,20 +349,39 @@ public class BOMPO extends TestBase {
 		try {
 
 			Select sll = new Select(driver.findElement(ASSIGN_BOM));
-			sll.selectByVisibleText("");
+			sll.selectByIndex(0);
 			oSelUtil.ufClick(driver, SAVE_BOMUSER);
-			Select sls = new Select(driver.findElement(ASSIGN_BUYERCODE));
-			sll.selectByValue("");
-			oSelUtil.ufClick(driver, PL_PART);
-			SearchShikeisho();
-			oSelUtil.ufClick(driver, UPDATE_TO_EPICS);
-
-		} catch (Exception ab) {
+			BOMPO bo = new BOMPO();
+			bo.SearchShikeisho();
+			
+		}
+		catch (Exception ab)
+		{
 			log.info("Cant able to assign the bom user " + ab.getMessage());
 			assgn_bomuser = false;
 
 		}
 		return assgn_bomuser;
+	}
+	public boolean AssignBuyerCode() throws Exception
+	{
+		boolean buyer_code=false;
+		try
+		{
+			Select sls = new Select(driver.findElement(ASSIGN_BUYERCODE));
+			sls.selectByIndex(2);
+			oSelUtil.ufClick(driver, PL_PART);
+				BOMPO bo = new BOMPO();
+			bo.SearchShikeisho();
+			
+			
+		}
+		catch(Exception bc)
+		{
+			log.info("Fails in assigning the buyer code"+bc.getMessage());
+			buyer_code=false;
+		}
+		return buyer_code;
 	}
 
 	public boolean AfterRDLMviewConfirmQuantityByBOM() throws Exception {
@@ -375,7 +390,9 @@ public class BOMPO extends TestBase {
 			BOMPO bp = new BOMPO();
 			bp.SearchShikeisho();
 			oSelUtil.ufClick(driver, APPROVE_BYBOM);
-		} catch (Exception ard) {
+		}
+		catch (Exception ard) 
+		{
 			log.info("BOM user unable to confirm the quantity of shikeisho which are approved by RD and LM" + ard);
 			after_RDLM = false;
 		}
