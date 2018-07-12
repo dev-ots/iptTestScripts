@@ -22,7 +22,7 @@ public class PROCUREMENTPO extends TestBase
 	ASSIGN_GROUP,SUBMIT_ADD_NEW_BUYER,NEW_BUYER__GROUP_SECTION,NEW_BUYER_GROUP_BUTTON,SUBMIT_ADD_NEW_BUYER_GROUP,
 	GROUP_NAME_FIELD,ADD_BUYER_IN_BUYER_GROUP_SECTION,SELECT_BUYER_POPUP,ADD_BUYER_POPUP_DONE,NEW_ASSISTANT_SECTION,
 	NEW_ASSISTANT_BUTTON,ASSISTANT_USER_ID,ASSISTANT_NAME,ASSISTANT_ID,PENDING_SECTION,USER_DETAIL,APPROVE,SELECT_SUPPLIER_CLASS,
-	
+	AFTER_SUPPLIER_DONE,
 	SEARCH_BY,SHIKEISHO_NUM,PART_NUM,KANRI_NUM,EO_NUM,SEARCH_FIELD,SEARCH_BUTTON,NEW_SHIKEISHO,CHANGED_SHIKEISHO,SHIKEISHO_ID,URL,
 	PART_CLASSIFICATION,SAVE_URL,SUPPLIER_SEARCH_FIELD,ALL_SUPPLIERS,SUPPLIER_DONE,SAVE_SELECTED_SUPPLIERS,RFQ_SECTION,
 	SEND_RFQ,SELECT_LANGUAGE,GET_RFQ_BUTTON,SUPPLIER_HEADINGS,LANGUAGE_CLASS,LANGUAGE_DONE,CANCEL_ORDER,COMMENTS_ON_CANCELORDER,
@@ -82,7 +82,7 @@ public class PROCUREMENTPO extends TestBase
 		    LANGUAGE_CLASS = oSelUtil.loadWithBy(oJsOR_Reg.getString("LANGUAGE_CLASS"));
 		    LANGUAGE_DONE = oSelUtil.loadWithBy(oJsOR_Reg.getString("LANGUAGE_DONE"));
 		    SELECT_SUPPLIER_CLASS =  oSelUtil.loadWithBy(oJsOR_Reg.getString("SELECT_SUPPLIER_CLASS"));
-		    
+		    AFTER_SUPPLIER_DONE = oSelUtil.loadWithBy(oJsOR_Reg.getString("AFTER_SUPPLIER_DONE"));
 		   /* CANCEL_ORDER = oSelUtil.loadWithBy(oJsOR_Reg.getString("CANCEL_ORDER"));
 		    COMMENTS_ON_CANCELORDER = oSelUtil.loadWithBy(oJsOR_Reg.getString("COMMENTS_ON_CANCELORDER"));
 		    CANCEL_ORDER_DONE = oSelUtil.loadWithBy(oJsOR_Reg.getString("CANCEL_ORDER_DONE"));
@@ -329,14 +329,12 @@ public class PROCUREMENTPO extends TestBase
 			//oSelUtil.ufClick(driver, NEW_SHIKEISHO);
 			ngWebDriver.waitForAngularRequestsToFinish();
 			List<WebElement> ShiRfq= oSelUtil.ufGetWebElements(driver, NEW_SHIKEISHO);
-			for(int i=0;i<ShiRfq.size();i++)
-			{
 					Thread.sleep(1000);
 					ShiRfq.get(1).click();
 					ngWebDriver.waitForAngularRequestsToFinish();
 					oSelUtil.ufClick(driver, SHIKEISHO_ID);
 				
-			}
+			
 				ngWebDriver.waitForAngularRequestsToFinish();
 			/*List<WebElement> allShikeisho =oSelUtil.ufGetWebElements(driver, SHIKEISHO_ID);
 			int count= allShikeisho.size();
@@ -473,8 +471,11 @@ public class PROCUREMENTPO extends TestBase
 						SelectSuppliers.get(1).click();
 						SelectSuppliers.get(2).click();
 						SelectSuppliers.get(3).click();
-						ngWebDriver.waitForAngularRequestsToFinish();
+						//ngWebDriver.waitForAngularRequestsToFinish();
 						oSelUtil.ufClick(driver, SUPPLIER_DONE);
+						ngWebDriver.waitForAngularRequestsToFinish();
+						break;
+						
 						
 						
 					}
@@ -484,22 +485,31 @@ public class PROCUREMENTPO extends TestBase
 						SelectSuppliers.get(5).click();
 						SelectSuppliers.get(6).click();
 						oSelUtil.ufClick(driver, SUPPLIER_DONE);
-						
-					}
+						ngWebDriver.waitForAngularRequestsToFinish();
+						break;
+					}						
 					else if(i==2)
 					{
 						SelectSuppliers.get(7).click();
 						SelectSuppliers.get(8).click();
 						SelectSuppliers.get(9).click();
 						oSelUtil.ufClick(driver, SUPPLIER_DONE);
-						
+						ngWebDriver.waitForAngularRequestsToFinish();
+						break;	
 					}
 				}
 				
 			}
+			ngWebDriver.waitForAngularRequestsToFinish();
+			
 			oSelUtil.ufClick(driver, SAVE_SELECTED_SUPPLIERS);
-			/*ngWebDriver.waitForAngularRequestsToFinish();
-			oSelUtil.ufClick(driver, SELECT_SUPPLIER);
+
+			ngWebDriver.waitForAngularRequestsToFinish();
+			oSelUtil.AlertHandling(ngWebDriver, driver);
+			
+			oSelUtil.ufClick(driver, AFTER_SUPPLIER_DONE);
+			ngWebDriver.waitForAngularRequestsToFinish();
+			/*oSelUtil.ufClick(driver, SELECT_SUPPLIER);
 			ngWebDriver.waitForAngularRequestsToFinish();
 			oSelUtil.ufClick(driver, ALL_SUPPLIERS);
 			oSelUtil.ufClick(driver, SUPPLIER_DONE);
@@ -519,8 +529,6 @@ public class PROCUREMENTPO extends TestBase
 		{
 			ngWebDriver.waitForAngularRequestsToFinish();
 			List<WebElement> rfq= oSelUtil.ufGetWebElements(driver, NEW_SHIKEISHO);
-				for(int i=0;i<rfq.size();i++)
-				{
 						Thread.sleep(1000);
 						rfq.get(0).click();
 						ngWebDriver.waitForAngularRequestsToFinish();
@@ -530,22 +538,19 @@ public class PROCUREMENTPO extends TestBase
 					List<WebElement> SupplierHeadingToShow=oSelUtil.ufGetWebElements(driver, SUPPLIER_HEADINGS);
 					int count1=SupplierHeadingToShow.size();
 					log.info("Number supplier based on group is"+count1);
-					for(int m=0;m<SupplierHeadingToShow.size();m++)
-					{
+					
 						String supplierNames= SupplierHeadingToShow.get(0).getText();
 						log.info("supplier names are"+supplierNames);
 						ngWebDriver.waitForAngularRequestsToFinish();
 						List<WebElement> AllCheckmark =oSelUtil.ufGetWebElements(driver, CHECK_MARKS);
-						for(int k=0;k<AllCheckmark.size();k++)
-						{
 							
 					    	AllCheckmark.get(0).click();
 					    	AllCheckmark.get(1).click();
 				        ngWebDriver.waitForAngularRequestsToFinish();
-						}
-					}
+						
+					
 				
-				}	
+					
 			
 			/*oSelUtil.ufClick(driver, RFQ_SECTION);
 			Thread.sleep(1000);
@@ -578,45 +583,23 @@ public class PROCUREMENTPO extends TestBase
 			ngWebDriver.waitForAngularRequestsToFinish();
 			List<WebElement> AllSendRFQ = oSelUtil.ufGetWebElements(driver, SEND_RFQ);
 			
-			for(int i=0;i<AllSendRFQ.size();i++)
-			{
-				String ParentWindow =driver.getWindowHandle();
 				
 				AllSendRFQ.get(0).click();
 				ngWebDriver.waitForAngularRequestsToFinish();
-				/*Thread.sleep(2000);
-				System.out.println("Before click of language");
-				oSelUtil.ufClick(driver, SELECT_LANGUAGE);*/
-				System.out.println("Current window is "+ParentWindow);
-				String subwindow=null;
-				
-				
-			/*	Set<String> allwindows= driver.getWindowHandles();
-				Iterator<String> itr=allwindows.iterator();
-				while(itr.hasNext())
-				{
-					subwindow=itr.next();
-				
-					driver.switchTo().window(subwindow);
-				
-				
-					oSelUtil.ufClick(driver, SELECT_LANGUAGE);*/
+				oSelUtil.ufClick(driver, SELECT_LANGUAGE);
+					
 					ngWebDriver.waitForAngularRequestsToFinish();
 					List<WebElement>Language = oSelUtil.ufGetWebElements(driver,LANGUAGE_CLASS);
-					for(int l=0;l<Language.size();l++)
-					{
-						if(Language.get(0).getText().contains(oJsTD_Reg.getString("ENG")))
-						{
-						Language.get(l).click();
+						Language.get(0).click();
 
 						ngWebDriver.waitForAngularRequestsToFinish();
 						
 						oSelUtil.ufClick(driver, LANGUAGE_DONE);
             		
-						}
-					}
-				//}
-			}
+						
+					
+				
+			
        	}
 		catch(Exception sl)
 		{
