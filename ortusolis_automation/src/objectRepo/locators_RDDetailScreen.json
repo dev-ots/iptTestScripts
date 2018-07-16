@@ -25,7 +25,10 @@
 "Part_Status":"id::rdDetailsTableDataStatus",
 "Pagination_Page":"",
 "Previous_Page":"",
-"Next_Page":""
+"Next_Page":"",
+"SHIKEISHO_ACTION_SECTION":"xpath:://div[@id='approvedStausContent2']",
+"CHANGED_SHIKEISHO_ID":"xpath:://h4[@id='rdHomeReceivedGoToNewShiekshoDetailsID']",
+"APPROVE_BOM_CHANGE_SHIKEISHO":"id::rdDetailsApproveData"
 
 
 }

@@ -4,10 +4,7 @@ import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.util.List;
 
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.By.ByClassName;
-import org.openqa.selenium.By.ByCssSelector;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
@@ -176,7 +173,7 @@ public class SeleniumUtilities extends TestBase {
 		return bRes_Flag;
 	}
 
-	public WebElement ufGetWebElement(NgWebDriver driver, By SelPageObj) {
+	public WebElement ufGetWebElement(WebDriver driver, By SelPageObj) {
 		return ((WebDriver) driver).findElement(SelPageObj);
 	}
 
@@ -201,25 +198,25 @@ public class SeleniumUtilities extends TestBase {
 		/*
 		 * Alert alt = driver.switchTo().alert(); log.info(alt.getText()); alt.accept();
 		 */
-		boolean bFlag=false;
+		boolean bFlag = false;
 		try {
 			log.info(driver.switchTo().alert().getText());
 			driver.switchTo().alert().accept();
-			bFlag=true;
+			bFlag = true;
 		} catch (Exception ea) {
 			try {
 				log.info("Trying using ROBO");
 				Thread.sleep(2000);
 				Robot r = new Robot();
 				r.keyPress(KeyEvent.VK_ENTER);
-				bFlag=true;
+				bFlag = true;
 			} catch (Exception eb) {
 				log.error("Alert not handled and sleeping");
 				Thread.sleep(10000);
 			}
 		}
 		log.info("1111");
-		if(bFlag)
+		if (bFlag)
 			ngWebDriver.waitForAngularRequestsToFinish();
 	}
 
