@@ -21,31 +21,43 @@ public class BOM extends TestBase {
 	String sTestCaseName_7 = "Update User Role by Admin failure test case";
 	String sTestCaseName_8 = "";
 
-	/*
-	 * @Test(priority = 1) public void BOM_RGSTR() throws Exception {
-	 * log.info(oJsConfig.getString("IPT_Login_URL"));
-	 * driver.get(oJsConfig.getString("IPT_Login_URL")); bp.BOMusrLocators();
-	 * bp.RgstrBOMUsr(); }
-	 * 
-	 * @Test(priority = 2) public void BOM_USR_LOG() throws Exception {
-	 * log.info(oJsConfig.getString("IPT_Login_URL"));
-	 * driver.get(oJsConfig.getString("IPT_Login_URL")); bp.BOMusrLocators();
-	 * bp.BOMlogin(); }
-	 * 
-	 * @Test(priority = 3) public void BOM_AD_LOG() throws Exception {
-	 * log.info(oJsConfig.getString("IPT_Login_URL"));
-	 * driver.get(oJsConfig.getString("IPT_Login_URL")); bp.BOMusrLocators();
-	 * bp.BOMADMINlogin(); bp.AdminAproveUser(); Thread.sleep(3000);
-	 * driver.get(oJsConfig.getString("IPT_Login_URL")); bp.BOMlogin(); }
-	 */
+	@Test(priority = 1)
+	public void BOM_RGSTR() throws Exception {
+		log.info(oJsConfig.getString("IPT_Login_URL"));
+		driver.get(oJsConfig.getString("IPT_Login_URL"));
+		bp.BOMusrLocators();
+		bp.RgstrBOMUsr();
+	}
 
-	/*
-	 * @Test(priority = 4) public void AssignBOMUser() throws Exception {
-	 * log.info(oJsConfig.getString("IPT_Login_URL"));
-	 * driver.get(oJsConfig.getString("IPT_Login_URL")); bp.BOMusrLocators();
-	 * bp.BOMADMINlogin(); bp.SearchShikeisho(); // bp.AssignBOMUserforLMAprvShi();
-	 * bp.VerifyChangedVAlues(); }
-	 */
+	@Test(priority = 2)
+	public void BOM_USR_LOG() throws Exception {
+		log.info(oJsConfig.getString("IPT_Login_URL"));
+		driver.get(oJsConfig.getString("IPT_Login_URL"));
+		bp.BOMusrLocators();
+		bp.BOMlogin();
+	}
+
+	@Test(priority = 3)
+	public void BOM_AD_LOG() throws Exception {
+		log.info(oJsConfig.getString("IPT_Login_URL"));
+		driver.get(oJsConfig.getString("IPT_Login_URL"));
+		bp.BOMusrLocators();
+		bp.BOMADMINlogin();
+		bp.AdminAproveUser();
+		Thread.sleep(3000);
+		driver.get(oJsConfig.getString("IPT_Login_URL"));
+		bp.BOMlogin();
+	}
+
+	@Test(priority = 4)
+	public void AssignBOMUser() throws Exception {
+		log.info(oJsConfig.getString("IPT_Login_URL"));
+		driver.get(oJsConfig.getString("IPT_Login_URL"));
+		bp.BOMusrLocators();
+		bp.BOMADMINlogin();
+		bp.SearchShikeisho(); // bp.AssignBOMUserforLMAprvShi();
+		bp.VerifyChangedVAlues();
+	}
 
 	@Test(priority = 5)
 	public void LMviewAfterBOMChangedShikeisho() throws Exception {

@@ -5,31 +5,28 @@
 </listeners>
 <!--  Test --> 
     <!--  -->
-  <test name="Registration Flow On Customized">
-  <parameter name="URL_Type" value="Registration_coldStone"/>
-    <classes>
-      <class name="com.ortusolis.registration.CCA_003"/>
+  <test name="BOM Details">
+     <classes>
+      <class name="com.ortusolis.registration.BOM"/>
     </classes>
   </test> 
 
-   <test name="Registration Flow On Templeted">
-  <parameter name="URL_Type" value="Registration_blimpie"/>
-    <classes>
-      <class name="com.ortusolis.registration.CCA_003"/>
+   <test name="LM Details">
+      <classes>
+      <class name="com.ortusolis.registration.LMrqstAprvByAd"/>
     </classes>
   </test>
- <test name="Registration Flow On Generic">
-  <parameter name="URL_Type" value="Registration_jamesconey"/>
-    <classes>
-      <class name="com.ortusolis.registration.CCA_003"/>
+ <test name="Procurement Details">
+     <classes>
+      <class name="com.ortusolis.registration.PROCUREMENT"/>
     </classes>
   </test> 
   
 
-<test name="Registration Flow - Phone number, email and password error check">
-  <parameter name="URL_Type" value="Registration_coldStone"/>
+<test name="RD Details">
+  
     <classes>
-      <class name="com.ortusolis.registration.CCA_003"/>
+      <class name="com.ortusolis.registration.RDDetailsValidation"/>
     </classes>
   </test>
    
