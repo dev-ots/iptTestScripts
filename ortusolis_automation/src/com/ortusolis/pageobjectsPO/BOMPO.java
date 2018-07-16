@@ -3,7 +3,6 @@ package com.ortusolis.pageobjectsPO;
 import java.util.List;
 
 import org.json.JSONObject;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -21,8 +20,8 @@ public class BOMPO extends TestBase {
 			FUNDING_LINK, FUNDING_CLOSE, ADD_NEW_USER, CONTACT_NUMBER, DAIMLER_DAIMLER, NEW_USER_BUTTON, USER_NAME,
 			DEPARTMENT, ROLE_ROLE, SUBMIT_AND_ADDUSER, UPDATE_USER_ROLE_SECTION, UPDATE_BUTTON, DAIMLER_SEARCH_FIELD,
 			GET_DETAILS, SELECT_ROLE, UPDATE_ROLE_BUTTON, Admn_Pro, PART_RECIEVED, IN_PROGRESS, QUANTITIES, VERIFY,
-			YES_BUTTON, SAVE_BUTTON, ASSIGN_BOM, SAVE_BOMUSER, ASSIGN_BUYERCODE, PL_PART, UPDATE_TO_EPICS,
-			APPROVE_BYBOM, EXPORT_EXCEL, LOGOUT, CANCEL_BUTTON,USER_ID_POPUP,POP_UP_CLOSE;
+			SAVE_BUTTON, ASSIGN_BOM, SAVE_BOMUSER, ASSIGN_BUYERGROUP, PL_PART, APPROVE_BYBOM, LOGOUT, USER_ID_POPUP,
+			POP_UP_CLOSE, BOM_DLIVERY_DATE, PART_DETAILS, SELECT_BUYER_GROUP, VERIFY_YES_BUTTON;
 
 	final Logger log = LoggerFactory.getLogger(getClass().getSimpleName());
 	public static JSONObject oJsOR_Reg = new JSONObject();
@@ -31,10 +30,13 @@ public class BOMPO extends TestBase {
 
 	public void BOMusrLocators() throws Exception {
 
-		oJsOR_Reg = oComUtil.ReadJsonFileGetJsonObject(System.getProperty("user.dir") + "/src/objectRepo/locators_BOM.json");
-		oJsTD_Reg = oComUtil.ReadJsonFileGetJsonObject(System.getProperty("user.dir") + "/src/TestData/TestData_BOM.json");
-		// oJsDataVal = oComUtil.ReadJsonFileGetJsonObject(System.getProperty("user.dir") +
-		// "/src/TestData/dataValidationBOM.json");
+		oJsOR_Reg = oComUtil
+				.ReadJsonFileGetJsonObject(System.getProperty("user.dir") + "/src/objectRepo/locators_BOM.json");
+
+		oJsTD_Reg = oComUtil
+				.ReadJsonFileGetJsonObject(System.getProperty("user.dir") + "/src/TestData/TestData_BOM.json");
+		// oJsDataVal =oComUtil.ReadJsonFileGetJsonObject(System.getProperty("user.dir")
+		// +"/src/TestData/dataValidationBOM.json");
 
 		BOMloginpageobjects(oJsOR_Reg);
 	}
@@ -47,7 +49,6 @@ public class BOMPO extends TestBase {
 		Daimlr = oSelUtil.loadWithBy(oJsOR_Reg.getString("Daimlr"));
 		role = oSelUtil.loadWithBy(oJsOR_Reg.getString("role"));
 		Rgstr_Usr = oSelUtil.loadWithBy(oJsOR_Reg.getString("Rgstr_Usr"));
-		// Rgstr_Sucess =oSelUtil.loadWithBy(oJsOR_Reg.getString("Rgstr_Sucess"));
 		Usr = oSelUtil.loadWithBy(oJsOR_Reg.getString("Usr"));
 		Pwd = oSelUtil.loadWithBy(oJsOR_Reg.getString("Pwd"));
 		signup = oSelUtil.loadWithBy(oJsOR_Reg.getString("signup"));
@@ -88,27 +89,24 @@ public class BOMPO extends TestBase {
 		UPDATE_BUTTON = oSelUtil.loadWithBy(oJsOR_Reg.getString("UPDATE_BUTTON"));
 		USER_ID_POPUP = oSelUtil.loadWithBy(oJsOR_Reg.getString("USER_ID_POPUP"));
 		POP_UP_CLOSE = oSelUtil.loadWithBy(oJsOR_Reg.getString("POP_UP_CLOSE"));
-		
-		
-		/*
-		  DAIMLER_SEARCH_FIELD=oSelUtil.loadWithBy(oJsOR_Reg.getString("DAIMLER_SEARCH_FIELD"));
-		  GET_DETAILS=oSelUtil.loadWithBy(oJsOR_Reg.getString("GET_DETAILS"));
-		  SELECT_ROLE= oSelUtil.loadWithBy(oJsOR_Reg.getString("SELECT_ROLE"));
-		  QUANTITIES= oSelUtil.loadWithBy(oJsOR_Reg.getString("QUANTITIES"));
-		   VERIFY= oSelUtil.loadWithBy(oJsOR_Reg.getString("VERIFY")); 
-		   YES_BUTTON=oSelUtil.loadWithBy(oJsOR_Reg.getString("YES_BUTTON")); 
-		   SAVE_BUTTON=oSelUtil.loadWithBy(oJsOR_Reg.getString("SAVE_BUTTON")); 
-		   ASSIGN_BOM=oSelUtil.loadWithBy(oJsOR_Reg.getString("ASSIGN_BOM")); 
-		   SAVE_BOMUSER=oSelUtil.loadWithBy(oJsOR_Reg.getString("SAVE_BOMUSER")); 
-		   ASSIGN_BUYERCODE= oSelUtil.loadWithBy(oJsOR_Reg.getString("ASSIGN_BUYERCODE")); 
-		   PL_PART=oSelUtil.loadWithBy(oJsOR_Reg.getString("PL_PART")); 
-		   UPDATE_TO_EPICS=oSelUtil.loadWithBy(oJsOR_Reg.getString("UPDATE_TO_EPICS"));
-		    APPROVE_BYBOM=oSelUtil.loadWithBy(oJsOR_Reg.getString("APPROVE_BYBOM")); 
-		  EXPORT_EXCEL=oSelUtil.loadWithBy(oJsOR_Reg.getString("EXPORT_EXCEL"));
-		 */
+		ASSIGN_BUYERGROUP = oSelUtil.loadWithBy(oJsOR_Reg.getString("ASSIGN_BUYERGROUP"));
+		QUANTITIES = oSelUtil.loadWithBy(oJsOR_Reg.getString("QUANTITIES"));
+		DAIMLER_SEARCH_FIELD = oSelUtil.loadWithBy(oJsOR_Reg.getString("DAIMLER_SEARCH_FIELD"));
+		GET_DETAILS = oSelUtil.loadWithBy(oJsOR_Reg.getString("GET_DETAILS"));
+		SELECT_ROLE = oSelUtil.loadWithBy(oJsOR_Reg.getString("SELECT_ROLE"));
+		VERIFY = oSelUtil.loadWithBy(oJsOR_Reg.getString("VERIFY"));
+		// SAVE_BUTTON = oSelUtil.loadWithBy(oJsOR_Reg.getString("SAVE_BUTTON"));
+		ASSIGN_BOM = oSelUtil.loadWithBy(oJsOR_Reg.getString("ASSIGN_BOM"));
+		SAVE_BOMUSER = oSelUtil.loadWithBy(oJsOR_Reg.getString("SAVE_BOMUSER"));
+		// PL_PART = oSelUtil.loadWithBy(oJsOR_Reg.getString("PL_PART"));
+		// APPROVE_BYBOM = oSelUtil.loadWithBy(oJsOR_Reg.getString("APPROVE_BYBOM"));
 		LOGOUT = oSelUtil.loadWithBy(oJsOR_Reg.getString("LOGOUT"));
-		// CANCEL_BUTTON = oSelUtil.loadWithBy(oJsOR_Reg.getString("CANCEL_BUTTON"));
-		// IN_PROGRESS = oSelUtil.loadWithBy(oJsOR_Reg.getString("IN_PROGRESS"));
+		IN_PROGRESS = oSelUtil.loadWithBy(oJsOR_Reg.getString("IN_PROGRESS"));
+		UPDATE_ROLE_BUTTON = oSelUtil.loadWithBy(oJsOR_Reg.getString("UPDATE_ROLE_BUTTON"));
+		BOM_DLIVERY_DATE = oSelUtil.loadWithBy(oJsOR_Reg.getString("BOM_DLIVERY_DATE"));
+		PART_DETAILS = oSelUtil.loadWithBy(oJsOR_Reg.getString("PART_DETAILS"));
+		SELECT_BUYER_GROUP = oSelUtil.loadWithBy(oJsOR_Reg.getString("SELECT_BUYER_GROUP"));
+		VERIFY_YES_BUTTON = oSelUtil.loadWithBy(oJsOR_Reg.getString("VERIFY_YES_BUTTON"));
 	}
 
 	public boolean BOMlogin() throws Exception {
@@ -135,12 +133,12 @@ public class BOMPO extends TestBase {
 			oSelUtil.ufSendKeys(driver, Pwd, oJsTD_Reg.getString("AdmnPwd"));
 			oSelUtil.ufClick(driver, signup);
 			oSelUtil.AlertHandling(ngWebDriver, driver);
-			if(!oSelUtil.ufIsDisplayed(driver, Usr_pro))
-				oSelUtil.AlertHandling(ngWebDriver, driver);
-			oSelUtil.ufClick(driver, Usr_pro);
-			Thread.sleep(2000);
-			oSelUtil.ufClick(driver, swtcadmn);
-			ngWebDriver.waitForAngularRequestsToFinish();
+			/*
+			 * if (!oSelUtil.ufIsDisplayed(driver, Usr_pro))
+			 * oSelUtil.AlertHandling(ngWebDriver, driver); oSelUtil.ufClick(driver,
+			 * Usr_pro); Thread.sleep(2000); oSelUtil.ufClick(driver, swtcadmn);
+			 * ngWebDriver.waitForAngularRequestsToFinish();
+			 */
 
 		} catch (Exception ex) {
 			log.info("Login error in BOM page" + ex);
@@ -200,23 +198,23 @@ public class BOMPO extends TestBase {
 			Thread.sleep(2000);
 			List<WebElement> allusers = oSelUtil.ufGetWebElements(driver, ClkUsr);
 
-			for(int i=0;i<allusers.size();i++)
-			{
+			for (int i = 0; i < allusers.size(); i++) {
 				allusers.get(i).click();
-				if(oCons.sDaimlerIDForBOMFlow.equalsIgnoreCase(oSelUtil.ufGetText(driver, USER_ID_POPUP)))
-						break;
+				if (oCons.sDaimlerIDForBOMFlow.equalsIgnoreCase(oSelUtil.ufGetText(driver, USER_ID_POPUP)))
+					break;
 				else
 					oSelUtil.ufClick(driver, POP_UP_CLOSE);
-				
+
 				Thread.sleep(1000);
 			}
-			/*int count = allusers.size();
-			int iContainText = oSelUtil.getIndexOfMatchingTextWebElements(allusers, oCons.sDaimlerIdForBOMFlow);
-			allusers.get(iContainText).click();
-*/
+			/*
+			 * int count = allusers.size(); int iContainText =
+			 * oSelUtil.getIndexOfMatchingTextWebElements(allusers,
+			 * oCons.sDaimlerIdForBOMFlow); allusers.get(iContainText).click();
+			 */
 			oSelUtil.ufClick(driver, APPROVE);
 			oSelUtil.AlertHandling(ngWebDriver, driver);
-			
+
 			// List<WebElement> allusers =oSelUtil.ufGetWebElements(driver, ClkUsr);
 			// int count= allusers.size();
 			/*
@@ -231,13 +229,11 @@ public class BOMPO extends TestBase {
 				// SoftAssert sa = new SoftAssert();
 				// sa.assertEquals(USER_APPROVED, oJsTD_Reg.getString("USER_APPROVAL"));
 				// sa.assertAll();
-			/*adm_aprvUser = true;
-			oSelUtil.ufClick(driver, Admn_Pro);
-			Thread.sleep(2000);
-			// oSelUtil.ufClick(driver, ADMIN2TEAM);
-			// Thread.sleep(2000);
-			oSelUtil.ufClick(driver, ADMIN_LOGOUT);
-*/
+			/*
+			 * adm_aprvUser = true; oSelUtil.ufClick(driver, Admn_Pro); Thread.sleep(2000);
+			 * // oSelUtil.ufClick(driver, ADMIN2TEAM); // Thread.sleep(2000);
+			 * oSelUtil.ufClick(driver, ADMIN_LOGOUT);
+			 */
 		} catch (Exception ep) {
 			log.info("Unable to login by Admin" + ep.getMessage());
 			adm_aprvUser = false;
@@ -293,16 +289,20 @@ public class BOMPO extends TestBase {
 	public boolean SearchShikeisho() throws Exception {
 		boolean srh_shi = false;
 		try {
-			oSelUtil.ufClick(driver, SEARCH_BY);
-			oSelUtil.ufClick(driver, SHIKEISHO_NUM);
-			oSelUtil.ufSendKeys(driver, SEARCH_FIELD, oJsTD_Reg.getString("SHIKEISHO ID"));
+			/*
+			 * oSelUtil.ufClick(driver, SEARCH_BY); oSelUtil.ufClick(driver, SHIKEISHO_NUM);
+			 * oSelUtil.ufSendKeys(driver, SEARCH_FIELD,
+			 * oJsTD_Reg.getString("SHIKEISHO ID"));
+			 */
 			oSelUtil.ufClick(driver, NEW_SHIKEISHO);
+			ngWebDriver.waitForAngularRequestsToFinish();
 			List<WebElement> allShikeisho = oSelUtil.ufGetWebElements(driver, SHIKEISHO_ID);
 			int count = allShikeisho.size();
+			log.info("Number of shikeisho are" + count);
 			int iContainText = oSelUtil.getIndexOfMatchingTextWebElements(allShikeisho,
 					oJsTD_Reg.getString("SHIKEISHO_ID"));
 			allShikeisho.get(iContainText).click();
-
+			ngWebDriver.waitForAngularRequestsToFinish();
 		} catch (Exception ss) {
 			log.info("Fails in searching shikeisho" + ss.getMessage());
 			srh_shi = false;
@@ -313,18 +313,33 @@ public class BOMPO extends TestBase {
 	public boolean VerifyChangedVAlues() throws Exception {
 		boolean verify_values = false;
 		try {
-			int qqq = oJsTD_Reg.getInt("QUANTITY");
-			List<WebElement> allquan = oSelUtil.ufGetWebElements(driver, QUANTITIES);
-			int count2 = allquan.size();
+			System.out.println("Verify the changes");
+			List<WebElement> allparts = oSelUtil.ufGetWebElements(driver, PART_DETAILS);
+			List<WebElement> Parts_QUANTITIES = oSelUtil.ufGetWebElements(driver, QUANTITIES);
+			List<WebElement> Parts_DELIVERY_DATE = oSelUtil.ufGetWebElements(driver, BOM_DLIVERY_DATE);
+			List<WebElement> Parts_SELECT_BUYER_GROUP = oSelUtil.ufGetWebElements(driver, SELECT_BUYER_GROUP);
+			int count2 = allparts.size();
 			log.info("Number of quantities in field are" + count2);
-			for (int i = 0; i < allquan.size(); i++) {
-				allquan.get(i).sendKeys("QQQ");
+			for (int i = 0; i < allparts.size(); i++) {
+
+				allparts.get(i).click();
+				Parts_QUANTITIES.get(i).clear();
+
+				Parts_QUANTITIES.get(i).sendKeys(oJsTD_Reg.getString("QUANTITY"));
+				Parts_DELIVERY_DATE.get(i).clear();
+
+				Parts_DELIVERY_DATE.get(i).sendKeys(oJsTD_Reg.getString("DELIVERY_DATE"));
+				Select selectBuyerGroup = new Select(Parts_SELECT_BUYER_GROUP.get(i));
+				// Select selectBuyerGroup = new Select(driver.findElement(SELECT_BUYER_GROUP));
+				selectBuyerGroup.selectByIndex(2);
+				ngWebDriver.waitForAngularRequestsToFinish();
+
 			}
-			// oSelUtil.ufSendKeys(driver, QUANTITY, oJsTD_Reg.getString("QUANTITY"));
+
 			oSelUtil.ufClick(driver, VERIFY);
+			ngWebDriver.waitForAngularRequestsToFinish();
+			oSelUtil.ufClick(driver, VERIFY_YES_BUTTON);
 			oSelUtil.AlertHandling(ngWebDriver, driver);
-			// saa.assertEquals(txt, oJsDataVal.getString("VERIFFY_MSG"));
-			// saa.assertAll();
 
 		} catch (Exception vrf) {
 			log.info("Quantity of parts of Shikeisho not changed" + vrf.getMessage());
@@ -333,53 +348,49 @@ public class BOMPO extends TestBase {
 		return verify_values;
 	}
 
-	public void ChangesApproving() throws Exception {
-		oSelUtil.ufClick(driver, YES_BUTTON);
-		oSelUtil.ufClick(driver, SAVE_BUTTON);
-	}
-
-	public void ChangesNotApproved() throws Exception {
-		oSelUtil.ufClick(driver, CANCEL_BUTTON);
-		oSelUtil.ufClick(driver, SAVE_BUTTON);
-
+	public boolean ChangesApproving() throws Exception {
+		boolean changes_approve = false;
+		try {
+			oSelUtil.ufClick(driver, SAVE_BUTTON);
+		} catch (Exception ca) {
+			log.info("Fails to save the changes" + ca.getMessage());
+			changes_approve = false;
+		}
+		return changes_approve;
 	}
 
 	public boolean AssignBOMUserforLMAprvShi() throws Exception {
 		boolean assgn_bomuser = false;
 		try {
-
+			ngWebDriver.waitForAngularRequestsToFinish();
 			Select sll = new Select(driver.findElement(ASSIGN_BOM));
-			sll.selectByIndex(0);
+			System.out.println("BOM USER");
+
+			sll.selectByValue("SUGAWARA");
+			System.out.println("BOM USER");
 			oSelUtil.ufClick(driver, SAVE_BOMUSER);
-			BOMPO bo = new BOMPO();
-			bo.SearchShikeisho();
-			
-		}
-		catch (Exception ab)
-		{
-			log.info("Cant able to assign the bom user " + ab.getMessage());
+			oSelUtil.AlertHandling(ngWebDriver, driver);
+
+		} catch (Exception ab) {
+			log.info("Fail to assign the bom user " + ab.getMessage());
 			assgn_bomuser = false;
 
 		}
 		return assgn_bomuser;
 	}
-	public boolean AssignBuyerCode() throws Exception
-	{
-		boolean buyer_code=false;
-		try
-		{
-			Select sls = new Select(driver.findElement(ASSIGN_BUYERCODE));
+
+	public boolean AssignBuyerCode() throws Exception {
+		boolean buyer_code = false;
+		try {
+			Select sls = new Select(driver.findElement(ASSIGN_BUYERGROUP));
 			sls.selectByIndex(2);
 			oSelUtil.ufClick(driver, PL_PART);
-				BOMPO bo = new BOMPO();
+			BOMPO bo = new BOMPO();
 			bo.SearchShikeisho();
-			
-			
-		}
-		catch(Exception bc)
-		{
-			log.info("Fails in assigning the buyer code"+bc.getMessage());
-			buyer_code=false;
+
+		} catch (Exception bc) {
+			log.info("Fails in assigning the buyer code" + bc.getMessage());
+			buyer_code = false;
 		}
 		return buyer_code;
 	}
@@ -387,31 +398,12 @@ public class BOMPO extends TestBase {
 	public boolean AfterRDLMviewConfirmQuantityByBOM() throws Exception {
 		boolean after_RDLM = false;
 		try {
-			BOMPO bp = new BOMPO();
-			bp.SearchShikeisho();
 			oSelUtil.ufClick(driver, APPROVE_BYBOM);
-		}
-		catch (Exception ard) 
-		{
+		} catch (Exception ard) {
 			log.info("BOM user unable to confirm the quantity of shikeisho which are approved by RD and LM" + ard);
 			after_RDLM = false;
 		}
 		return after_RDLM;
-	}
-
-	public boolean ExportToExcel() throws Exception {
-		boolean export_excel = false;
-		try {
-			BOMPO bp = new BOMPO();
-			bp.SearchShikeisho();
-			oSelUtil.ufClick(driver, PL_PART);
-			oSelUtil.ufClick(driver, EXPORT_EXCEL);
-
-		} catch (Exception exe) {
-			log.info(" Shikeisho information is fail in export to excel" + exe.getMessage());
-			export_excel = false;
-		}
-		return export_excel;
 	}
 
 	public boolean BOMlogout() throws Exception {

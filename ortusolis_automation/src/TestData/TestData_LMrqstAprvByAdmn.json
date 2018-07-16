@@ -1,23 +1,22 @@
 {
- "f_name":"bang",
-"l_name":"lore",
-"email":"blr@daimler.com",
-"Daimler":"CMO_1",
+ "f_name":"MITSU",
+"l_name":"BISHI",
+"email":"mbr@daimler.com",
+"Daimler":"FUSO",
 "_Daimler":"Currently this is creating using linux time stamp", 
  "UsrId":"CMO_1",
 "_UsrId":"Currently this is creating using linux time stamp",
- "UsrPwd":"qqq",
+ "UsrPwd":"qqq", 
  
-"AdmnId":"SABIN",
- "AdmnPwd":"aaaaa",
+ "AdmnId":"FUNAMOTO",
+ "AdmnPwd":"aaaaa", 
  
- "SHIKEISHO_ID":"",
+ "SHIKEISHO_ID":"Shikeicho Number #TP996677",
  "PART_ID":"",
  "EO_ID":"",
- "KANRI_ID":"",
- 
+ "KANRI_ID":"", 
  "LOCATION":"DELHI",
-  "DELIVERY_DATE":"2018-12-18",
+  "DELIVERY_DATE":"2019-12-18",
   "DIGIT":"A",
   "QUANTITY":"",
   "ADD_NEW_USER":"",
@@ -29,6 +28,7 @@
   "ROLE_ROLE":"",
   "SUBMIT_AND_ADDUSER":"",
  
-  "DAIMLER_ID_CHANGE_ROLE":""
+  "DAIMLER_ID_CHANGE_ROLE":"",
+  "BOM_CHANGE_SHIKEISHO_ID":"Shikeicho Number #TP996677"
 
 }

@@ -1,19 +1,19 @@
 {
-"f_name":"SUDEEP",
-"l_name":"KICHA",
-"email":"ski@daimler.com",
-"Daimler":"SKI",
+"f_name":"BOM",
+"l_name":"USER",
+"email":"bu@daimler.com",
+"Daimler":"BOMUSER1",
 "_Daimler":"currently creating under linux timestamp ",
 "role":"R06",
  
- "UsrId":"SKI",
+ "UsrId":"BOMUSER1",
  "_UsrId":"currently creating under linux timestamp",
  "UsrPwd":"qqq",
  
- "AdmnId":"POWER",
+ "AdmnId":"SUGAWARA",
  "AdmnPwd":"aaaaa",
  
- "SHIKEISHO_ID":"",
+ "SHIKEISHO_ID":"Shikeicho Number #TP996677",
  "PART_ID":"",
  "EO_ID":"",
  "KANRI_ID":"",
@@ -28,6 +28,7 @@
   "SUBMIT_AND_ADDUSER":"",
   
   "DAIMLER_ID_CHANGE_ROLE":"",
-  "QUANTITY":""
+  "QUANTITY":"12",
+  "DELIVERY_DATE":"01/26/2019"
  
 }

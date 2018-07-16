@@ -1,11 +1,8 @@
 package com.ortusolis.pageobjectsPO;
 
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
 import java.util.List;
 
 import org.json.JSONObject;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -15,7 +12,6 @@ import org.testng.asserts.SoftAssert;
 
 import com.ortusolis.utilities.Constants;
 import com.ortusolis.utilities.TestBase;
-import com.paulhammant.ngwebdriver.NgWebDriver;
 
 public class LMrqstAprvByAdmnPO extends TestBase {
 	By New_Rgstr, fname, lname, email, Daimlr, role, Rgstr_Usr, Usr, Pwd, signup, Usr_pro, swtcadmn, Pndg, ClkUsr, Aprv,
@@ -24,21 +20,19 @@ public class LMrqstAprvByAdmnPO extends TestBase {
 			FUNDING_LINK, FUNDING_CLOSE, LOCATION, DELIVERY_DATE, DIGIT, QUANTITY, SUBMIT_BUTTON, ADD_NEW_USER,
 			CONTACT_NUMBER, DAIMLER_DAIMLER, NEW_USER_BUTTON, USER_NAME, DEPARTMENT, ROLE_ROLE, SUBMIT_AND_ADDUSER,
 			UPDATE_USER_ROLE_SECTION, UPDATE_BUTTON, DAIMLER_SEARCH_FIELD, GET_DETAILS, SELECT_ROLE, UPDATE_ROLE_BUTTON,
-			USER_ID_POPUP,POP_UP_CLOSE;
+			USER_ID_POPUP, POP_UP_CLOSE, SHIKEISHO_ACTION_SECTION, CHANGED_SHIKEISHO_ID, APPROVE_BOM_CHANGE_SHIKEISHO;
 	final Logger log = LoggerFactory.getLogger(getClass().getSimpleName());
 	public static JSONObject oJsOR_Reg = new JSONObject();
 	public static JSONObject oJsTD_Reg = new JSONObject();
 	public static JSONObject oJsDataVal = new JSONObject();
 
 	public void RqstAprvLocators() throws Exception {
-
 		oJsOR_Reg = oComUtil.ReadJsonFileGetJsonObject(
 				System.getProperty("user.dir") + "/src/objectRepo/locators_LMrqstAprvByAdmn.json");
 		oJsTD_Reg = oComUtil.ReadJsonFileGetJsonObject(
 				System.getProperty("user.dir") + "/src/TestData/TestData_LMrqstAprvByAdmn.json");
 		// oJsDataVal =
 		// oComUtil.ReadJsonFileGetJsonObject(System.getProperty("user.dir")+"/src/dataValidation/dataValidation_LM.json");
-
 		RqstAprvPage(oJsOR_Reg);
 	}
 
@@ -101,8 +95,9 @@ public class LMrqstAprvByAdmnPO extends TestBase {
 		UPDATE_ROLE_BUTTON = oSelUtil.loadWithBy(oJsOR_Reg.getString("UPDATE_ROLE_BUTTON"));
 		USER_ID_POPUP = oSelUtil.loadWithBy(oJsOR_Reg.getString("USER_ID_POPUP"));
 		POP_UP_CLOSE = oSelUtil.loadWithBy(oJsOR_Reg.getString("POP_UP_CLOSE"));
-	
-
+		SHIKEISHO_ACTION_SECTION = oSelUtil.loadWithBy(oJsOR_Reg.getString("SHIKEISHO_ACTION_SECTION"));
+		CHANGED_SHIKEISHO_ID = oSelUtil.loadWithBy(oJsOR_Reg.getString("CHANGED_SHIKEISHO_ID"));
+		APPROVE_BOM_CHANGE_SHIKEISHO = oSelUtil.loadWithBy(oJsOR_Reg.getString("APPROVE_BOM_CHANGE_SHIKEISHO"));
 	}
 
 	public boolean RgstrLMUsr() throws Exception {
@@ -158,7 +153,7 @@ public class LMrqstAprvByAdmnPO extends TestBase {
 	public boolean AdmnLogn() throws Exception {
 		boolean adm_log = false;
 		try {
-
+			ngWebDriver.waitForAngularRequestsToFinish();
 			oSelUtil.ufSendKeys(driver, Usr, oJsTD_Reg.getString("AdmnId"));
 			oSelUtil.ufSendKeys(driver, Pwd, oJsTD_Reg.getString("AdmnPwd"));
 			Thread.sleep(1000);
@@ -166,10 +161,13 @@ public class LMrqstAprvByAdmnPO extends TestBase {
 			Thread.sleep(2000);
 			oSelUtil.AlertHandling(ngWebDriver, driver);
 			ngWebDriver.waitForAngularRequestsToFinish();
-			// oSelUtil.ufWaitForElementVisible(driver, Usr_pro, 10);
-			oSelUtil.ufClick(driver, Usr_pro);
-			oSelUtil.ufClick(driver, swtcadmn);
-			ngWebDriver.waitForAngularRequestsToFinish();
+
+			/*
+			 * oSelUtil.ufWaitForElementVisible(driver, Usr_pro, 10);
+			 * oSelUtil.ufClick(driver, Usr_pro); oSelUtil.ufClick(driver, swtcadmn);
+			 * ngWebDriver.waitForAngularRequestsToFinish();
+			 */
+
 		} catch (Exception ep) {
 			log.info("Unable to login by Admin" + ep.getMessage());
 			adm_log = false;
@@ -185,30 +183,29 @@ public class LMrqstAprvByAdmnPO extends TestBase {
 			Thread.sleep(2000);
 			List<WebElement> allusers = oSelUtil.ufGetWebElements(driver, ClkUsr);
 
-			for(int i=0;i<allusers.size();i++)
-			{
+			for (int i = 0; i < allusers.size(); i++) {
 				allusers.get(i).click();
-				if(oCons.sDaimlerIDForLMFlow.equalsIgnoreCase(oSelUtil.ufGetText(driver, USER_ID_POPUP)))
+				if (oCons.sDaimlerIDForLMFlow.equalsIgnoreCase(oSelUtil.ufGetText(driver, USER_ID_POPUP)))
 					break;
 				else {
 					oSelUtil.ufClick(driver, POP_UP_CLOSE);
 					Thread.sleep(1000);
 				}
 			}
-			/*List<WebElement> allusers = oSelUtil.ufGetWebElements(driver, ClkUsr);			
-			int count = allusers.size();
-			int iContainText = oSelUtil.getIndexOfMatchingTextWebElements(allusers, oCons.sDamlerIDForLMFlow);
-			allusers.get(iContainText).click();
-*/
+			/*
+			 * List<WebElement> allusers = oSelUtil.ufGetWebElements(driver, ClkUsr); int
+			 * count = allusers.size(); int iContainText =
+			 * oSelUtil.getIndexOfMatchingTextWebElements(allusers,
+			 * oCons.sDamlerIDForLMFlow); allusers.get(iContainText).click();
+			 */
 			oSelUtil.ufClick(driver, Aprv);
 			Thread.sleep(2000);
-			oSelUtil.AlertHandling(ngWebDriver,driver);
-			
+			oSelUtil.AlertHandling(ngWebDriver, driver);
+
 			/*
 			 * SoftAssert sa = new SoftAssert(); sa.assertEquals(USER_APPROVED,
 			 * oJsTD_Reg.getString("USER_APPROVAL")); sa.assertAll();
 			 */
-			
 
 		} catch (Exception ua) {
 			log.info("Fails to approve user by Admin" + ua.getMessage());
@@ -220,35 +217,32 @@ public class LMrqstAprvByAdmnPO extends TestBase {
 	public boolean ApproveShikeishoID() throws Exception {
 		boolean aprv_shi = false;
 		try {
-			/*oSelUtil.ufClick(driver, SEARCH_BY);
-			oSelUtil.ufClick(driver, SHIKEISHO_NUM);
-			oSelUtil.ufSendKeys(driver, SEARCH_FIELD, oJsTD_Reg.getString("SHIKEISHO_ID"));
-			oSelUtil.ufClick(driver, SEARCH_BUTTON);*/
-			
-			ngWebDriver.waitForAngularRequestsToFinish();
+			/*
+			 * oSelUtil.ufClick(driver, SEARCH_BY); oSelUtil.ufClick(driver, SHIKEISHO_NUM);
+			 * oSelUtil.ufSendKeys(driver, SEARCH_FIELD,
+			 * oJsTD_Reg.getString("SHIKEISHO_ID")); oSelUtil.ufClick(driver,
+			 * SEARCH_BUTTON);
+			 * 
+			 * ngWebDriver.waitForAngularRequestsToFinish(); oSelUtil.ufClick(driver,
+			 * NEW_SHIKEISHO); ngWebDriver.waitForAngularRequestsToFinish();
+			 * oSelUtil.ufIsDisplayed(driver, SHIKEISHO_ID); oSelUtil.ufClick(driver,
+			 * SHIKEISHO_ID); System.out.println("SHikeisho");
+			 * ngWebDriver.waitForAngularRequestsToFinish();
+			 */
 			oSelUtil.ufClick(driver, NEW_SHIKEISHO);
-			ngWebDriver.waitForAngularRequestsToFinish();
-			oSelUtil.ufIsDisplayed(driver, SHIKEISHO_ID);
-			oSelUtil.ufClick(driver, SHIKEISHO_ID);
-			System.out.println("SHikeisho");	
-			ngWebDriver.waitForAngularRequestsToFinish();
-			/*List<WebElement> allshi = oSelUtil.ufGetWebElements(driver, SHIKEISHO_ID);
+			List<WebElement> allshi = oSelUtil.ufGetWebElements(driver, SHIKEISHO_ID);
 			int count = allshi.size();
+			log.info("Number of elements in the new shikeisho are" + count);
+			for (int i = 0; i < allshi.size(); i++) {
+				int iContainText1 = oSelUtil.getIndexOfMatchingTextWebElements(allshi,
+						oJsTD_Reg.getString("SHIKEISHO_ID"));
+				allshi.get(iContainText1).click();
+			}
 			ngWebDriver.waitForAngularRequestsToFinish();
-			for(int i=0;i<allshi.size();i++)
-			{
-			allshi.get(0).click();
-			}			
-			
 			oSelUtil.ufClick(driver, FUNDING_LINK);
 			Thread.sleep(1000);
 			oSelUtil.ufClick(driver, FUNDING_CLOSE);
 			ngWebDriver.waitForAngularRequestsToFinish();
-			log.info("Number of elements in the new shikeisho are" + count);
-			int iContainText1 = oSelUtil.getIndexOfMatchingTextWebElements(allshi, oJsTD_Reg.getString("SHIKEISHO_ID"));
-			allshi.get(iContainText1).click();
-			oSelUtil.ufClick(driver, FUNDING_LINK);
-			oSelUtil.ufClick(driver, FUNDING_CLOSE);*/
 		} catch (Exception m) {
 			log.info("Shikeisho not found in User landing screen" + m.getMessage());
 			aprv_shi = false;
@@ -341,11 +335,12 @@ public class LMrqstAprvByAdmnPO extends TestBase {
 
 		boolean updt_values = false;
 		try {
-			/*oSelUtil.ufClick(driver, SEARCH_BY);
-			oSelUtil.ufClick(driver, SHIKEISHO_NUM);
-			oSelUtil.ufSendKeys(driver, SEARCH_FIELD, oJsTD_Reg.getString("SHIKEISHO_ID"));
-			oSelUtil.ufClick(driver, SEARCH_BUTTON);
-*/
+			/*
+			 * oSelUtil.ufClick(driver, SEARCH_BY); oSelUtil.ufClick(driver, SHIKEISHO_NUM);
+			 * oSelUtil.ufSendKeys(driver, SEARCH_FIELD,
+			 * oJsTD_Reg.getString("SHIKEISHO_ID")); oSelUtil.ufClick(driver,
+			 * SEARCH_BUTTON);
+			 */
 			ngWebDriver.waitForAngularRequestsToFinish();
 			oSelUtil.ufClear(driver, LOCATION);
 			oSelUtil.ufSendKeys(driver, LOCATION, oJsTD_Reg.getString("LOCATION"));
@@ -353,6 +348,7 @@ public class LMrqstAprvByAdmnPO extends TestBase {
 			oSelUtil.ufSendKeys(driver, DELIVERY_DATE, oJsTD_Reg.getString("DELIVERY_DATE"));
 			oSelUtil.ufClear(driver, DIGIT);
 			oSelUtil.ufSendKeys(driver, DIGIT, oJsTD_Reg.getString("DIGIT"));
+			ngWebDriver.waitForAngularRequestsToFinish();
 			oSelUtil.ufClick(driver, SUBMIT_BUTTON);
 			oSelUtil.AlertHandling(ngWebDriver, driver);
 
@@ -398,9 +394,10 @@ public class LMrqstAprvByAdmnPO extends TestBase {
 			se.selectByVisibleText("");
 			oSelUtil.ufClick(driver, UPDATE_ROLE_BUTTON);
 			oSelUtil.AlertHandling(ngWebDriver, driver);
-			/*SoftAssert sa = new SoftAssert();
-			sa.assertEquals(actualText, oJsDataVal.getString("ROLE_CHANGEBYADMIN"));
-			sa.assertAll();*/
+			/*
+			 * SoftAssert sa = new SoftAssert(); sa.assertEquals(actualText,
+			 * oJsDataVal.getString("ROLE_CHANGEBYADMIN")); sa.assertAll();
+			 */
 
 		} catch (Exception eu) {
 			log.info("Fails to change user role by Admin" + eu);
@@ -437,6 +434,27 @@ public class LMrqstAprvByAdmnPO extends TestBase {
 			lmUser_logout = false;
 		}
 		return lmUser_logout;
+	}
+
+	public boolean ViewvingBOMChangedShikeishoByLM() throws Exception {
+		boolean bom_change_shikeisho = false;
+		try {
+
+			List<WebElement> Action_Shikeisho = oSelUtil.ufGetWebElements(driver, SHIKEISHO_ACTION_SECTION);
+			Action_Shikeisho.get(2).click();
+			List<WebElement> allShikeisho = oSelUtil.ufGetWebElements(driver, CHANGED_SHIKEISHO_ID);
+			for (int i = 0; i < allShikeisho.size(); i++) {
+				int iContainText1 = oSelUtil.getIndexOfMatchingTextWebElements(allShikeisho,
+						oJsTD_Reg.getString("BOM_CHANGE_SHIKEISHO_ID"));
+				allShikeisho.get(iContainText1).click();
+			}
+			oSelUtil.ufClick(driver, APPROVE_BOM_CHANGE_SHIKEISHO);
+
+		} catch (Exception bcs) {
+			log.info("Fails to approve the Shikeisho Quantity changed by the BOM" + bcs.getMessage());
+			bom_change_shikeisho = false;
+		}
+		return bom_change_shikeisho;
 	}
 
 }

@@ -11,7 +11,7 @@
  "signup":"id::login",
  "Usr_pro":"id::lmHomePopverButton",
  "swtcadmn":"id::lm-team-details-switch-to-lm-manager",
- "Pndg":"id::admin-home-pending-accordion",
+ "Pndg":"id::approvedStausContent2",
  "USER_ID_POPUP":"id::admin-home-pending-modal-user-id",
  "POP_UP_CLOSE":"id::admin-home-pending-modal-cross-button",
 "ClkUsr":"id::admin-home-pending-request-role-name",
@@ -26,10 +26,10 @@
   "EO_NUM":"id::lmTeamsearchEONumber",
   "SEARCH_FIELD":"id::lmHomesearchInputValue",
   "SEARCH_BUTTON":"id::lmHomeSearch",
-  "NEW_SHIKEISHO":"id::approvedStausContent",
+  "NEW_SHIKEISHO":"id::rdHomeNewshikeishoExpand",
   "CHANGED_SHIKEISHO":"id::approvedStausContent1",
-  "_SHIKEISHO_ID":"xpath:://div[contains(@id='rdHomeGoToNewShiekshoDetailsID']",
-  "SHIKEISHO_ID":"id::rdHomeGoToNewShiekshoDetailsID",
+  "SHIKEISHO_ID":"xpath:://h4[@id='rdHomeGoToNewShiekshoDetailsID']",
+  "_SHIKEISHO_ID":"id::rdHomeGoToNewShiekshoDetailsID",
   "PART_ID":"id::hemanth",
   "KANRI_ID":"id::hemanth",
   "EO_ID":"id::hemanth",
@@ -56,6 +56,9 @@
  "DAIMLER_SEARCH_FIELD":"id::rdUpdateRoleSearchField",
  "GET_DETAILS":"id::rdUpdateRoleSearchButton",
  "SELECT_ROLE":"id::rdupdateRoleTableSelectRole",
- "UPDATE_ROLE_BUTTON":"id::rdupdateRoleTableUpdateUser"
+ "UPDATE_ROLE_BUTTON":"id::rdupdateRoleTableUpdateUser",
+ "SHIKEISHO_ACTION_SECTION":"xpath:://div[@id=approvedStausContent2]",
+ "CHANGED_SHIKEISHO_ID":"xpath:://h4[@id='rdHomeReceivedGoToNewShiekshoDetailsID']",
+ "APPROVE_BOM_CHANGE_SHIKEISHO":"xpath:://button[text()='Approve']"
   
   }
