@@ -151,6 +151,7 @@ public class PROCUREMENTPO extends TestBase {
 			oSelUtil.ufSendKeys(driver, PROC_USER_PASSWORD, oJsTD_Reg.getString("PROC_USER_PASSWORD"));
 			oSelUtil.ufClick(driver, SIGN_IN);
 			oSelUtil.AlertHandling(ngWebDriver, driver);
+			oComUtil.getScreenShot();
 		} catch (Exception pul) {
 			log.info("Fails to login as Procurement User" + pul.getMessage());
 			procUser_login = false;
@@ -166,10 +167,10 @@ public class PROCUREMENTPO extends TestBase {
 			oSelUtil.ufSendKeys(driver, PROC_USER_PASSWORD, oJsTD_Reg.getString("PROC_ADMIN_PASSWORD"));
 			oSelUtil.ufClick(driver, SIGN_IN);
 			oSelUtil.AlertHandling(ngWebDriver, driver);
-			// ngWebDriver.waitForAngularRequestsToFinish();
-			// oSelUtil.ufClick(driver, PROC_USER_PROFILE);
-			// oSelUtil.ufClick(driver, SWITCH2ADMIN);
-
+			ngWebDriver.waitForAngularRequestsToFinish();
+			oSelUtil.ufClick(driver, PROC_USER_PROFILE);
+			oSelUtil.ufClick(driver, SWITCH2ADMIN);
+			oComUtil.getScreenShot();
 		} catch (Exception pul) {
 			log.info("Fails to login as Procurement Admin" + pul.getMessage());
 			procAdmin_login = false;
@@ -263,6 +264,7 @@ public class PROCUREMENTPO extends TestBase {
 			oSelUtil.ufClick(driver, USER_DETAIL);
 			oSelUtil.ufClick(driver, APPROVE);
 			oSelUtil.AlertHandling(ngWebDriver, driver);
+			oComUtil.getScreenShot();
 
 		} catch (Exception ua) {
 			log.info("Fails to create new buyer by Proc Admin" + ua.getMessage());
@@ -305,8 +307,8 @@ public class PROCUREMENTPO extends TestBase {
 			ShiRfq.get(1).click();
 			ngWebDriver.waitForAngularRequestsToFinish();
 			oSelUtil.ufClick(driver, SHIKEISHO_ID);
-
 			ngWebDriver.waitForAngularRequestsToFinish();
+			oComUtil.getScreenShot();
 			/*
 			 * List<WebElement> allShikeisho =oSelUtil.ufGetWebElements(driver,
 			 * SHIKEISHO_ID); int count= allShikeisho.size(); int iContainText =
@@ -329,7 +331,9 @@ public class PROCUREMENTPO extends TestBase {
 			for (int i = 0; i < SupplierClass.size(); i++) {
 
 				SupplierClass.get(i).click();
+				ngWebDriver.waitForAngularRequestsToFinish();
 				List<WebElement> SelectSuppliers = oSelUtil.ufGetWebElements(driver, ALL_SUPPLIERS);
+
 				SelectSuppliers.get(1).click();
 				SelectSuppliers.get(2).click();
 				SelectSuppliers.get(3).click();
@@ -341,6 +345,7 @@ public class PROCUREMENTPO extends TestBase {
 			ngWebDriver.waitForAngularRequestsToFinish();
 
 			oSelUtil.ufClick(driver, SAVE_SELECTED_SUPPLIERS);
+			oComUtil.getScreenShot();
 
 			ngWebDriver.waitForAngularRequestsToFinish();
 			oSelUtil.AlertHandling(ngWebDriver, driver);
@@ -357,37 +362,31 @@ public class PROCUREMENTPO extends TestBase {
 	public boolean RFQ() throws Exception {
 		boolean rfq_basedon_group = false;
 		try {
+			int count = 0;
 			ngWebDriver.waitForAngularRequestsToFinish();
 			List<WebElement> rfq = oSelUtil.ufGetWebElements(driver, NEW_SHIKEISHO);
 			Thread.sleep(1000);
 			rfq.get(0).click();
 			ngWebDriver.waitForAngularRequestsToFinish();
-
 			oSelUtil.ufClick(driver, GET_RFQ_BUTTON);
 			ngWebDriver.waitForAngularRequestsToFinish();
-			List<WebElement> allTables = oSelUtil.ufGetWebElements(driver, PART_TABLE);
-			for (int i = 0; i < allTables.size(); i++) {
+			List<WebElement> SupplierHeadingToShow = oSelUtil.ufGetWebElements(driver, SUPPLIER_HEADINGS);
+			int count1 = SupplierHeadingToShow.size();
+			log.info("Number supplier based on group is" + count1);
+			for (int i = 0; i < SupplierHeadingToShow.size(); i++) {
+				String supplierNames = SupplierHeadingToShow.get(i).getText();
+				log.info("supplier names are" + supplierNames);
 				List<WebElement> AllCheckmark = oSelUtil.ufGetWebElements(driver, CHECK_MARKS);
-				for (int m = 0; m < AllCheckmark.size(); m++) {
-					ngWebDriver.waitForAngularRequestsToFinish();
-					AllCheckmark.get(m).click();
+				ngWebDriver.waitForAngularRequestsToFinish();
+				for (int j = count; j < AllCheckmark.size(); j++) {
+					AllCheckmark.get(j).click();
+					count++;
 				}
+				ngWebDriver.waitForAngularRequestsToFinish();
+				oComUtil.getScreenShot();
 				selectlanguage();
 
 			}
-			/*
-			 * List<WebElement> SupplierHeadingToShow = oSelUtil.ufGetWebElements(driver,
-			 * SUPPLIER_HEADINGS); int count1 = SupplierHeadingToShow.size();
-			 * log.info("Number supplier based on group is" + count1); for (int i = 0; i <
-			 * SupplierHeadingToShow.size(); i++) { String supplierNames =
-			 * SupplierHeadingToShow.get(i).getText(); log.info("supplier names are" +
-			 * supplierNames); ngWebDriver.waitForAngularRequestsToFinish();
-			 * List<WebElement> AllCheckmark = oSelUtil.ufGetWebElements(driver,
-			 * CHECK_MARKS); for (int m = 0; m < AllCheckmark.size(); m++) {
-			 * 
-			 * AllCheckmark.get(m).click(); } selectlanguage(); }
-			 */
-			ngWebDriver.waitForAngularRequestsToFinish();
 
 		} catch (Exception rbg) {
 			log.info("Fails to select Chekmarks" + rbg.getMessage());
@@ -415,6 +414,7 @@ public class PROCUREMENTPO extends TestBase {
 			ngWebDriver.waitForAngularRequestsToFinish();
 
 			oSelUtil.ufClick(driver, LANGUAGE_DONE);
+			oComUtil.getScreenShot();
 
 		} catch (Exception sl) {
 			log.info("fails to select language" + sl.getMessage());
@@ -431,6 +431,7 @@ public class PROCUREMENTPO extends TestBase {
 			ngWebDriver.waitForAngularRequestsToFinish();
 			oSelUtil.ufSendKeys(driver, COMMENTS_ON_CANCELORDER, oJsTD_Reg.getString("CANCELORDER"));
 			oSelUtil.ufClick(driver, CANCEL_ORDER_DONE);
+			oComUtil.getScreenShot();
 
 		} catch (Exception co) {
 			log.info("Fails to cancel the order" + co.getMessage());
@@ -448,6 +449,7 @@ public class PROCUREMENTPO extends TestBase {
 			oSelUtil.ufSendKeys(driver, TRANSPORTATION_COST, oJsTD_Reg.getString("TRANSPORTATION_COST"));
 			oSelUtil.ufSendKeys(driver, NOTES, oJsTD_Reg.getString("NOTES"));
 			oSelUtil.ufClick(driver, SAVE_UNIT_PRICE);
+			oComUtil.getScreenShot();
 
 		} catch (Exception up) {
 			log.info("Fails to enter and save Unit price" + up.getMessage());
@@ -460,6 +462,7 @@ public class PROCUREMENTPO extends TestBase {
 		boolean place_order = false;
 		try {
 			oSelUtil.ufClick(driver, PLACE_ORDER);
+			oComUtil.getScreenShot();
 		} catch (Exception po) {
 			log.info("Fails to place order by BOM" + po.getMessage());
 			place_order = false;

@@ -7,54 +7,56 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Properties;
+
 import org.apache.commons.io.FileUtils;
 import org.json.JSONObject;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.io.Zip;
-import org.slf4j.*;
-import org.testng.annotations.BeforeMethod;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-public class CommonUtilities extends TestBase{
-		
-		static Properties props = new Properties();
-		static FileInputStream fileIn = null;
-		final Logger log = LoggerFactory.getLogger(getClass().getSimpleName());
+public class CommonUtilities extends TestBase {
+	static int screenshotcount = 1;
 
-	
+	static Properties props = new Properties();
+	static FileInputStream fileIn = null;
+	final Logger log = LoggerFactory.getLogger(getClass().getSimpleName());
+
 	public void loadPropertyFiles(String PropertiesFilePath) throws Exception {
 
-			log.info("Current dir using System:" + PropertiesFilePath);
-			fileIn = new FileInputStream(PropertiesFilePath);
-			props.load(fileIn);
-			System.getProperties().putAll(props);
-			// log.info(util.props);
+		log.info("Current dir using System:" + PropertiesFilePath);
+		fileIn = new FileInputStream(PropertiesFilePath);
+		props.load(fileIn);
+		System.getProperties().putAll(props);
+		// log.info(util.props);
 	}
 
 	public String[] ufSplitMe(String sReadyTosplit) {
-	
+
 		String[] sArrAfterSplit = sReadyTosplit.split("::");
-		if(sArrAfterSplit[0].contains("model"))
-			sArrAfterSplit[0]="model";
-		else if(sArrAfterSplit[0].contains("button"))
-			sArrAfterSplit[0]="button";
-		
+		if (sArrAfterSplit[0].contains("model"))
+			sArrAfterSplit[0] = "model";
+		else if (sArrAfterSplit[0].contains("button"))
+			sArrAfterSplit[0] = "button";
+
 		return sArrAfterSplit;
 	}
 
-
 	public String getTypeOfPortal(String sURL) {
-	
-		String sPortalType=null;
-		if(sURL.toLowerCase().contains("blimpi"))
-			sPortalType=Constants.sCustPortType_Generic;
-		else if(sURL.toLowerCase().contains("coldstone"))
-			sPortalType=Constants.sCustPortType_Customized;
-		else if(sURL.toLowerCase().contains("jamesconey"))
-			sPortalType=Constants.sCustPortType_Templeted;
+
+		String sPortalType = null;
+		if (sURL.toLowerCase().contains("blimpi"))
+			sPortalType = Constants.sCustPortType_Generic;
+		else if (sURL.toLowerCase().contains("coldstone"))
+			sPortalType = Constants.sCustPortType_Customized;
+		else if (sURL.toLowerCase().contains("jamesconey"))
+			sPortalType = Constants.sCustPortType_Templeted;
 		else
 			log.error("portal type not found. Script is going to fail");
 		return sPortalType;
 	}
-	
+
 	public void deleteScreenShotDirectory() {
 		String destDir = "screenshots";
 		String SRC_FOLDER = System.getProperty("user.dir") + "/test-output/" + destDir;
@@ -103,7 +105,7 @@ public class CommonUtilities extends TestBase{
 			log.info("File is deleted : " + file.getAbsolutePath());
 		}
 	}
-	
+
 	public void ufdeletescreenshots() throws IOException {
 		String destdir = "screenshots";
 		String screenpath = System.getProperty("user.dir") + "/test-output/" + destdir;
@@ -152,13 +154,14 @@ public class CommonUtilities extends TestBase{
 			try {
 				jsonObject = new JSONObject(sPathOfJson.substring(sPathOfJson.indexOf('{')));
 			} catch (Exception pja) {
-				
+
 				log.error("Unable to parse " + pj);
 			}
 		}
 
 		return jsonObject;
 	}
+
 	public String readfileReturnInString(String sPathOfJson) throws IOException {
 
 		byte[] encoded = Files.readAllBytes(Paths.get(sPathOfJson));
@@ -176,9 +179,16 @@ public class CommonUtilities extends TestBase{
 	}
 
 	private String TrimmingToTenLetters(String valueOf) {
-		String sReadyToUse =valueOf.substring((valueOf.length())-10);
-		log.info("Actual Time Stamp: "+valueOf+"\nConverted Time Stamp: "+sReadyToUse);
+		String sReadyToUse = valueOf.substring((valueOf.length()) - 10);
+		log.info("Actual Time Stamp: " + valueOf + "\nConverted Time Stamp: " + sReadyToUse);
 		return sReadyToUse;
 	}
-	
+
+	public void getScreenShot() throws Exception {
+		String Destinationfilepath = System.getProperty("user.dir") + "/test-output/screenshots/";
+		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(scrFile, new File(Destinationfilepath + screenshotcount + ".png"));
+		screenshotcount++;
+	}
+
 }
