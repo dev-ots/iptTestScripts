@@ -5,7 +5,6 @@ import org.slf4j.LoggerFactory;
 import org.testng.annotations.Test;
 
 import com.ortusolis.pageobjectsPO.BOMPO;
-import com.ortusolis.pageobjectsPO.LMrqstAprvByAdmnPO;
 import com.ortusolis.utilities.TestBase;
 
 public class BOM extends TestBase {
@@ -25,49 +24,51 @@ public class BOM extends TestBase {
 	public void BOM_RGSTR() throws Exception {
 		log.info(oJsConfig.getString("IPT_Login_URL"));
 		driver.get(oJsConfig.getString("IPT_Login_URL"));
+
+		oComUtil.getScreenShot();
 		bp.BOMusrLocators();
 		bp.RgstrBOMUsr();
 	}
 
 	@Test(priority = 2)
-	public void BOM_USR_LOG() throws Exception {
-		log.info(oJsConfig.getString("IPT_Login_URL"));
-		driver.get(oJsConfig.getString("IPT_Login_URL"));
-		bp.BOMusrLocators();
-		bp.BOMlogin();
-	}
-
-	@Test(priority = 3)
 	public void BOM_AD_LOG() throws Exception {
 		log.info(oJsConfig.getString("IPT_Login_URL"));
 		driver.get(oJsConfig.getString("IPT_Login_URL"));
-		bp.BOMusrLocators();
 		bp.BOMADMINlogin();
 		bp.AdminAproveUser();
 		Thread.sleep(3000);
 		driver.get(oJsConfig.getString("IPT_Login_URL"));
-		bp.BOMlogin();
+
 	}
 
-	@Test(priority = 4)
+	@Test(priority = 3)
 	public void AssignBOMUser() throws Exception {
 		log.info(oJsConfig.getString("IPT_Login_URL"));
 		driver.get(oJsConfig.getString("IPT_Login_URL"));
-		bp.BOMusrLocators();
-		bp.BOMADMINlogin();
-		bp.SearchShikeisho(); // bp.AssignBOMUserforLMAprvShi();
-		bp.VerifyChangedVAlues();
+		oComUtil.getScreenShot();
+		bp.BOMlogin();
+		bp.SearchShikeisho();
+		bp.AssignBOMUserforLMAprvShi();
+
 	}
 
-	@Test(priority = 5)
-	public void LMviewAfterBOMChangedShikeisho() throws Exception {
+	@Test(priority = 4)
+	public void PartValues() throws Exception {
 		log.info(oJsConfig.getString("IPT_Login_URL"));
 		driver.get(oJsConfig.getString("IPT_Login_URL"));
-		LMrqstAprvByAdmnPO laba = new LMrqstAprvByAdmnPO();
-		laba.AdmnLogn();
-		laba.ViewvingBOMChangedShikeishoByLM();
-		laba.LMUserLogout();
+		bp.BOMlogin1();
+		bp.SearchShikeisho();
+		bp.VerifyChangedVAlues();
+
 	}
+
+	/*
+	 * @Test(priority = 5) public void LMviewAfterBOMChangedShikeisho() throws
+	 * Exception { log.info(oJsConfig.getString("IPT_Login_URL"));
+	 * driver.get(oJsConfig.getString("IPT_Login_URL")); LMrqstAprvByAdmnPO laba =
+	 * new LMrqstAprvByAdmnPO(); laba.AdmnLogn();
+	 * laba.ViewvingBOMChangedShikeishoByLM(); laba.LMUserLogout(); }
+	 */
 
 }
 /*

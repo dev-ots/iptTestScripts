@@ -114,15 +114,35 @@ public class BOMPO extends TestBase {
 		try {
 			oSelUtil.ufClear(driver, Usr);
 			oSelUtil.ufSendKeys(driver, Usr, Constants.sDaimlerIDForBOMFlow);
+			// oSelUtil.ufSendKeys(driver, Usr, oJsTD_Reg.getString("UsrId"));
 			oSelUtil.ufClear(driver, Pwd);
 			oSelUtil.ufSendKeys(driver, Pwd, oJsTD_Reg.getString("UsrPwd"));
 			oSelUtil.ufClick(driver, signup);
 			oSelUtil.AlertHandling(ngWebDriver, driver);
+			oComUtil.getScreenShot();
 		} catch (Exception ex) {
 			log.info("Login error in BOM page" + ex.getMessage());
 			BOM_login = false;
 		}
 		return BOM_login;
+
+	}
+
+	public boolean BOMlogin1() throws Exception {
+		boolean BOM_login1 = false;
+		try {
+			oSelUtil.ufClear(driver, Usr);
+			oSelUtil.ufSendKeys(driver, Usr, oJsTD_Reg.getString("UsrId1"));
+			oSelUtil.ufClear(driver, Pwd);
+			oSelUtil.ufSendKeys(driver, Pwd, oJsTD_Reg.getString("UsrPwd1"));
+			oSelUtil.ufClick(driver, signup);
+			oSelUtil.AlertHandling(ngWebDriver, driver);
+			oComUtil.getScreenShot();
+		} catch (Exception ex) {
+			log.info("Login error in BOM page" + ex.getMessage());
+			BOM_login1 = false;
+		}
+		return BOM_login1;
 
 	}
 
@@ -133,12 +153,13 @@ public class BOMPO extends TestBase {
 			oSelUtil.ufSendKeys(driver, Pwd, oJsTD_Reg.getString("AdmnPwd"));
 			oSelUtil.ufClick(driver, signup);
 			oSelUtil.AlertHandling(ngWebDriver, driver);
-			/*
-			 * if (!oSelUtil.ufIsDisplayed(driver, Usr_pro))
-			 * oSelUtil.AlertHandling(ngWebDriver, driver); oSelUtil.ufClick(driver,
-			 * Usr_pro); Thread.sleep(2000); oSelUtil.ufClick(driver, swtcadmn);
-			 * ngWebDriver.waitForAngularRequestsToFinish();
-			 */
+
+			if (!oSelUtil.ufIsDisplayed(driver, Usr_pro))
+				oSelUtil.AlertHandling(ngWebDriver, driver);
+			oSelUtil.ufClick(driver, Usr_pro);
+			oSelUtil.ufClick(driver, swtcadmn);
+			ngWebDriver.waitForAngularRequestsToFinish();
+			oComUtil.getScreenShot();
 
 		} catch (Exception ex) {
 			log.info("Login error in BOM page" + ex);
@@ -152,7 +173,6 @@ public class BOMPO extends TestBase {
 		boolean rgstrusr = false;
 		try {
 			oCons.sDaimlerIDForBOMFlow = oComUtil.generateUnixTimeStamp();
-
 			oSelUtil.ufClick(driver, NEW_REGISER);
 			ngWebDriver.waitForAngularRequestsToFinish();
 			oSelUtil.ufClear(driver, fname);
@@ -213,7 +233,9 @@ public class BOMPO extends TestBase {
 			 * oCons.sDaimlerIdForBOMFlow); allusers.get(iContainText).click();
 			 */
 			oSelUtil.ufClick(driver, APPROVE);
+			oComUtil.getScreenShot();
 			oSelUtil.AlertHandling(ngWebDriver, driver);
+			oComUtil.getScreenShot();
 
 			// List<WebElement> allusers =oSelUtil.ufGetWebElements(driver, ClkUsr);
 			// int count= allusers.size();
@@ -303,6 +325,7 @@ public class BOMPO extends TestBase {
 					oJsTD_Reg.getString("SHIKEISHO_ID"));
 			allShikeisho.get(iContainText).click();
 			ngWebDriver.waitForAngularRequestsToFinish();
+			oComUtil.getScreenShot();
 		} catch (Exception ss) {
 			log.info("Fails in searching shikeisho" + ss.getMessage());
 			srh_shi = false;
@@ -314,6 +337,7 @@ public class BOMPO extends TestBase {
 		boolean verify_values = false;
 		try {
 			System.out.println("Verify the changes");
+			oComUtil.getScreenShot();
 			List<WebElement> allparts = oSelUtil.ufGetWebElements(driver, PART_DETAILS);
 			List<WebElement> Parts_QUANTITIES = oSelUtil.ufGetWebElements(driver, QUANTITIES);
 			List<WebElement> Parts_DELIVERY_DATE = oSelUtil.ufGetWebElements(driver, BOM_DLIVERY_DATE);
@@ -337,6 +361,7 @@ public class BOMPO extends TestBase {
 			}
 
 			oSelUtil.ufClick(driver, VERIFY);
+			oComUtil.getScreenShot();
 			ngWebDriver.waitForAngularRequestsToFinish();
 			oSelUtil.ufClick(driver, VERIFY_YES_BUTTON);
 			oSelUtil.AlertHandling(ngWebDriver, driver);
@@ -364,12 +389,10 @@ public class BOMPO extends TestBase {
 		try {
 			ngWebDriver.waitForAngularRequestsToFinish();
 			Select sll = new Select(driver.findElement(ASSIGN_BOM));
-			System.out.println("BOM USER");
-
-			sll.selectByValue("SUGAWARA");
-			System.out.println("BOM USER");
+			sll.selectByValue("BOMUSER1");
 			oSelUtil.ufClick(driver, SAVE_BOMUSER);
 			oSelUtil.AlertHandling(ngWebDriver, driver);
+			oComUtil.getScreenShot();
 
 		} catch (Exception ab) {
 			log.info("Fail to assign the bom user " + ab.getMessage());

@@ -16,7 +16,7 @@ public class PROCUREMENT extends TestBase {
 		log.info(oJsConfig.getString("IPT_Login_URL"));
 		driver.get(oJsConfig.getString("IPT_Login_URL"));
 		ppo.ProcusrLocators();
-		ppo.ProcAdminLogin();
+		ppo.ProcUserLogin();
 		ppo.SearchShikeisho();
 		ppo.SelectSupplier();
 		Thread.sleep(2000);

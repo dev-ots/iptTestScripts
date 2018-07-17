@@ -15,18 +15,16 @@ public class LMrqstAprvByAd extends TestBase {
 	String sTestCaseName_3 = "Admin login failure test case";
 	String sTestCaseName_4 = "User login failure test case";
 
-	@Test(priority = 3)
+	@Test(priority = 2)
 	public void LM_AdmnLog() throws Exception
 
 	{
 		log.info(oJsConfig.getString("IPT_Login_URL"));
 		driver.get(oJsConfig.getString("IPT_Login_URL"));
-		lml.RqstAprvLocators();
 		lml.AdmnLogn();
-
 		lml.LMUserApprovalByLMAdmin();
 		driver.get(oJsConfig.getString("IPT_Login_URL"));
-		lml.UsrLogn();
+		// lml.UsrLogn();
 	}
 
 	@Test(priority = 1)
@@ -35,18 +33,11 @@ public class LMrqstAprvByAd extends TestBase {
 		driver.get(oJsConfig.getString("IPT_Login_URL"));
 		lml.RqstAprvLocators();
 		lml.RgstrLMUsr();
+		lml.UsrLogn();
 
 	}
 
-	@Test(priority = 2)
-	public void LM_Usr_Login() throws Exception {
-		log.info(oJsConfig.getString("IPT_Login_URL"));
-		driver.get(oJsConfig.getString("IPT_Login_URL"));
-		lml.RqstAprvLocators();
-		// lml.UsrLogn();
-	}
-
-	@Test(priority = 4)
+	@Test(priority = 3)
 	public void UpdatingByLM() throws Exception {
 		log.info(oJsConfig.getString("IPT_Login_URL"));
 		driver.get(oJsConfig.getString("IPT_Login_URL"));

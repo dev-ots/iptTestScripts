@@ -3,6 +3,7 @@
 "Browser":"chrome",
 "_Browser":"chrome,Firefox,edge,ie",
 "IPT_Login_URL":"http://53.87.137.65/login",
+"_IPT_Login_URL":"http://s575mjiyh134.jpadc.corpintra.net",
 "IPT_USER_REGISTRATION":"http://53.87.137.65/signUp",
 "IPT_RD_LANDING":"http://53.87.137.65/rdHome",
 "IPT_RD_ADMIN":"http://53.87.137.65/rdAdminHome",

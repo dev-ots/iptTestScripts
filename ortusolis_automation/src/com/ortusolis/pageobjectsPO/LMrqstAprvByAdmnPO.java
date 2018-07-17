@@ -14,7 +14,7 @@ import com.ortusolis.utilities.Constants;
 import com.ortusolis.utilities.TestBase;
 
 public class LMrqstAprvByAdmnPO extends TestBase {
-	By New_Rgstr, fname, lname, email, Daimlr, role, Rgstr_Usr, Usr, Pwd, signup, Usr_pro, swtcadmn, Pndg, ClkUsr, Aprv,
+	By New_Rgstr, fname, lname, email, Daimlr, role, Rgstr_Usr, Usr, Pwd, signup, Usr_pro, swtcadmn, Pndg, ClkUsr,
 			Admn_Pro, signout, AdminLogout, SEARCH_BY, SHIKEISHO_NUM, PART_NUM, KANRI_NUM, EO_NUM, SEARCH_FIELD,
 			SEARCH_BUTTON, NEW_SHIKEISHO, CHANGED_SHIKEISHO, SHIKEISHO_ID, PART_ID, KANRI_ID, EO_ID, APPROVE, REJECT,
 			FUNDING_LINK, FUNDING_CLOSE, LOCATION, DELIVERY_DATE, DIGIT, QUANTITY, SUBMIT_BUTTON, ADD_NEW_USER,
@@ -53,7 +53,7 @@ public class LMrqstAprvByAdmnPO extends TestBase {
 		swtcadmn = oSelUtil.loadWithBy(oJsOR_Reg.getString("swtcadmn"));
 		Pndg = oSelUtil.loadWithBy(oJsOR_Reg.getString("Pndg"));
 		ClkUsr = oSelUtil.loadWithBy(oJsOR_Reg.getString("ClkUsr"));
-		Aprv = oSelUtil.loadWithBy(oJsOR_Reg.getString("Aprv"));
+		APPROVE = oSelUtil.loadWithBy(oJsOR_Reg.getString("APPROVE"));
 		signout = oSelUtil.loadWithBy(oJsOR_Reg.getString("signout"));
 		AdminLogout = oSelUtil.loadWithBy(oJsOR_Reg.getString("AdminLogout"));
 		Admn_Pro = oSelUtil.loadWithBy(oJsOR_Reg.getString("Admn_Pro"));
@@ -78,7 +78,7 @@ public class LMrqstAprvByAdmnPO extends TestBase {
 		DELIVERY_DATE = oSelUtil.loadWithBy(oJsOR_Reg.getString("DELIVERY_DATE"));
 		DIGIT = oSelUtil.loadWithBy(oJsOR_Reg.getString("DIGIT"));
 		// QUANTITY = oSelUtil.loadWithBy(oJsOR_Reg.getString("QUANTITY"));
-		// SUBMIT_BUTTON = oSelUtil.loadWithBy(oJsOR_Reg.getString("SUBMIT_BUTTON"));
+		SUBMIT_BUTTON = oSelUtil.loadWithBy(oJsOR_Reg.getString("SUBMIT_BUTTON"));
 		ADD_NEW_USER = oSelUtil.loadWithBy(oJsOR_Reg.getString("ADD_NEW_USER"));
 		NEW_USER_BUTTON = oSelUtil.loadWithBy(oJsOR_Reg.getString("NEW_USER_BUTTON"));
 		USER_NAME = oSelUtil.loadWithBy(oJsOR_Reg.getString("USER_NAME"));
@@ -105,6 +105,7 @@ public class LMrqstAprvByAdmnPO extends TestBase {
 		try {
 			oCons.sDaimlerIDForLMFlow = oComUtil.generateUnixTimeStamp();
 			oSelUtil.ufClick(driver, New_Rgstr);
+			oComUtil.getScreenShot();
 			ngWebDriver.waitForAngularRequestsToFinish();
 			oSelUtil.ufSendKeys(driver, fname, oJsTD_Reg.getString("f_name"));
 			Thread.sleep(1000);
@@ -143,6 +144,7 @@ public class LMrqstAprvByAdmnPO extends TestBase {
 			oSelUtil.ufClick(driver, signup);
 			Thread.sleep(2000);
 			oSelUtil.AlertHandling(ngWebDriver, driver);
+			oComUtil.getScreenShot();
 		} catch (Exception ee) {
 			log.info("Unable to login" + ee.getMessage());
 			usr_log = false;
@@ -161,13 +163,11 @@ public class LMrqstAprvByAdmnPO extends TestBase {
 			Thread.sleep(2000);
 			oSelUtil.AlertHandling(ngWebDriver, driver);
 			ngWebDriver.waitForAngularRequestsToFinish();
-
-			/*
-			 * oSelUtil.ufWaitForElementVisible(driver, Usr_pro, 10);
-			 * oSelUtil.ufClick(driver, Usr_pro); oSelUtil.ufClick(driver, swtcadmn);
-			 * ngWebDriver.waitForAngularRequestsToFinish();
-			 */
-
+			oSelUtil.ufWaitForElementVisible(driver, Usr_pro, 10);
+			oSelUtil.ufClick(driver, Usr_pro);
+			oSelUtil.ufClick(driver, swtcadmn);
+			ngWebDriver.waitForAngularRequestsToFinish();
+			oComUtil.getScreenShot();
 		} catch (Exception ep) {
 			log.info("Unable to login by Admin" + ep.getMessage());
 			adm_log = false;
@@ -198,10 +198,10 @@ public class LMrqstAprvByAdmnPO extends TestBase {
 			 * oSelUtil.getIndexOfMatchingTextWebElements(allusers,
 			 * oCons.sDamlerIDForLMFlow); allusers.get(iContainText).click();
 			 */
-			oSelUtil.ufClick(driver, Aprv);
+			oSelUtil.ufClick(driver, APPROVE);
 			Thread.sleep(2000);
 			oSelUtil.AlertHandling(ngWebDriver, driver);
-
+			oComUtil.getScreenShot();
 			/*
 			 * SoftAssert sa = new SoftAssert(); sa.assertEquals(USER_APPROVED,
 			 * oJsTD_Reg.getString("USER_APPROVAL")); sa.assertAll();
@@ -243,6 +243,7 @@ public class LMrqstAprvByAdmnPO extends TestBase {
 			Thread.sleep(1000);
 			oSelUtil.ufClick(driver, FUNDING_CLOSE);
 			ngWebDriver.waitForAngularRequestsToFinish();
+			oComUtil.getScreenShot();
 		} catch (Exception m) {
 			log.info("Shikeisho not found in User landing screen" + m.getMessage());
 			aprv_shi = false;
@@ -260,7 +261,7 @@ public class LMrqstAprvByAdmnPO extends TestBase {
 			oSelUtil.ufClick(driver, NEW_SHIKEISHO);
 			oSelUtil.ufIsDisplayed(driver, PART_ID);
 			oSelUtil.ufClick(driver, PART_ID);
-			oSelUtil.ufClick(driver, APPROVE);
+			// oSelUtil.ufClick(driver, APPROVE);
 			oSelUtil.ufClick(driver, FUNDING_LINK);
 			oSelUtil.ufClick(driver, FUNDING_CLOSE);
 			oSelUtil.ufClick(driver, CHANGED_SHIKEISHO);
@@ -287,7 +288,7 @@ public class LMrqstAprvByAdmnPO extends TestBase {
 			oSelUtil.ufClick(driver, NEW_SHIKEISHO);
 			oSelUtil.ufIsDisplayed(driver, KANRI_ID);
 			oSelUtil.ufClick(driver, KANRI_ID);
-			oSelUtil.ufClick(driver, APPROVE);
+			// oSelUtil.ufClick(driver, APPROVE);
 			oSelUtil.ufClick(driver, FUNDING_LINK);
 			oSelUtil.ufClick(driver, FUNDING_CLOSE);
 			oSelUtil.ufClick(driver, CHANGED_SHIKEISHO);
@@ -314,7 +315,7 @@ public class LMrqstAprvByAdmnPO extends TestBase {
 			oSelUtil.ufClick(driver, NEW_SHIKEISHO);
 			oSelUtil.ufIsDisplayed(driver, EO_ID);
 			oSelUtil.ufClick(driver, EO_ID);
-			oSelUtil.ufClick(driver, APPROVE);
+			// oSelUtil.ufClick(driver, APPROVE);
 			oSelUtil.ufClick(driver, FUNDING_LINK);
 			oSelUtil.ufClick(driver, FUNDING_CLOSE);
 			oSelUtil.ufClick(driver, CHANGED_SHIKEISHO);
@@ -348,9 +349,9 @@ public class LMrqstAprvByAdmnPO extends TestBase {
 			oSelUtil.ufSendKeys(driver, DELIVERY_DATE, oJsTD_Reg.getString("DELIVERY_DATE"));
 			oSelUtil.ufClear(driver, DIGIT);
 			oSelUtil.ufSendKeys(driver, DIGIT, oJsTD_Reg.getString("DIGIT"));
-			ngWebDriver.waitForAngularRequestsToFinish();
 			oSelUtil.ufClick(driver, SUBMIT_BUTTON);
 			oSelUtil.AlertHandling(ngWebDriver, driver);
+			oComUtil.getScreenShot();
 
 		} catch (Exception uv) {
 			log.info("Error in updating the kanri " + uv.getMessage());
@@ -449,6 +450,7 @@ public class LMrqstAprvByAdmnPO extends TestBase {
 				allShikeisho.get(iContainText1).click();
 			}
 			oSelUtil.ufClick(driver, APPROVE_BOM_CHANGE_SHIKEISHO);
+			oComUtil.getScreenShot();
 
 		} catch (Exception bcs) {
 			log.info("Fails to approve the Shikeisho Quantity changed by the BOM" + bcs.getMessage());

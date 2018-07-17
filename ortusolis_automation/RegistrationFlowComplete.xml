@@ -5,9 +5,10 @@
 </listeners>
 <!--  Test --> 
     <!--  -->
-  <test name="BOM Details">
+  <test name="RD Details">
      <classes>
-      <class name="com.ortusolis.registration.BOM"/>
+      <class name="com.ortusolis.registration.RDDetailsValidation"/>
+     
     </classes>
   </test> 
 
@@ -16,17 +17,17 @@
       <class name="com.ortusolis.registration.LMrqstAprvByAd"/>
     </classes>
   </test>
- <test name="Procurement Details">
+ <test name="BOM Details">
      <classes>
-      <class name="com.ortusolis.registration.PROCUREMENT"/>
-    </classes>
+      <class name="com.ortusolis.registration.BOM"/>
+     </classes>
   </test> 
   
 
-<test name="RD Details">
+<test name="PROCUREMENT Details">
   
     <classes>
-      <class name="com.ortusolis.registration.RDDetailsValidation"/>
+      <class name="com.ortusolis.registration.PROCUREMENT"/>
     </classes>
   </test>
    
