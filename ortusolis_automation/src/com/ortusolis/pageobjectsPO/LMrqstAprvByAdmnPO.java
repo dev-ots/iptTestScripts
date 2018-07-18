@@ -152,6 +152,22 @@ public class LMrqstAprvByAdmnPO extends TestBase {
 		return usr_log;
 	}
 
+	public boolean UsrLognToApproveChangedShikeisho() throws Exception {
+		boolean usr_log = false;
+		try {
+			oSelUtil.ufSendKeys(driver, Usr, oJsTD_Reg.getString("UserID11"));
+			oSelUtil.ufSendKeys(driver, Pwd, oJsTD_Reg.getString("UsrPwd11"));
+			oSelUtil.ufClick(driver, signup);
+			Thread.sleep(2000);
+			oSelUtil.AlertHandling(ngWebDriver, driver);
+			oComUtil.getScreenShot();
+		} catch (Exception ee) {
+			log.info("Unable to login" + ee.getMessage());
+			usr_log = false;
+		}
+		return usr_log;
+	}
+
 	public boolean AdmnLogn() throws Exception {
 		boolean adm_log = false;
 		try {
