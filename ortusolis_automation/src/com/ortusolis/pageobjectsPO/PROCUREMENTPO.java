@@ -24,7 +24,8 @@ public class PROCUREMENTPO extends TestBase {
 			GET_RFQ_BUTTON, SUPPLIER_HEADINGS, LANGUAGE_CLASS, LANGUAGE_DONE, CANCEL_ORDER, COMMENTS_ON_CANCELORDER,
 			CANCEL_ORDER_DONE, UNIT_PRICE, MOLD_COST, PREPARATION_COST, TRANSPORTATION_COST, NOTES, SAVE_UNIT_PRICE,
 			PLACE_ORDER, CHECK_MARKS, UPDATE_ROLE_SECTION, UPDATE_ROLE_BUTTON, USER_ID_FIELD, GET_ROLE_DETAILS,
-			CHANGE_ROLE, EDIT_USER_DETAILS, SAVE_USER_DETAILS, CANCEL_USER_DETAILS, PART_TABLE;
+			CHANGE_ROLE, EDIT_USER_DETAILS, SAVE_USER_DETAILS, CANCEL_USER_DETAILS, PART_TABLE,
+			SELECT_GROUP_FOR_ASSISTANT, SAVE_ADD_NEW_ASSISTANT;
 
 	final Logger log = LoggerFactory.getLogger(getClass().getSimpleName());
 	public static JSONObject oJsOR_Reg = new JSONObject();
@@ -122,6 +123,8 @@ public class PROCUREMENTPO extends TestBase {
 		SAVE_USER_DETAILS = oSelUtil.loadWithBy(oJsOR_Reg.getString("SAVE_USER_DETAILS"));
 		CANCEL_USER_DETAILS = oSelUtil.loadWithBy(oJsOR_Reg.getString("CANCEL_USER_DETAILS"));
 		PART_TABLE = oSelUtil.loadWithBy(oJsOR_Reg.getString("PART_TABLE"));
+		SELECT_GROUP_FOR_ASSISTANT = oSelUtil.loadWithBy(oJsOR_Reg.getString("SELECT_GROUP_FOR_ASSISTANT"));
+		SAVE_ADD_NEW_ASSISTANT = oSelUtil.loadWithBy(oJsOR_Reg.getString("SAVE_ADD_NEW_ASSISTANT"));
 	}
 
 	public boolean RegisterAsProcUser() throws Exception {
@@ -248,6 +251,9 @@ public class PROCUREMENTPO extends TestBase {
 			oSelUtil.ufSendKeys(driver, ASSISTANT_USER_ID, oJsTD_Reg.getString("ASSISTANT_USER_ID"));
 			oSelUtil.ufSendKeys(driver, ASSISTANT_NAME, oJsTD_Reg.getString("ASSISTANT_NAME"));
 			oSelUtil.ufSendKeys(driver, ASSISTANT_ID, oJsTD_Reg.getString("ASSISTANT_ID"));
+			Select selectGroupForAssistant = new Select(driver.findElement(SELECT_GROUP_FOR_ASSISTANT));
+			selectGroupForAssistant.selectByIndex(2);
+			oSelUtil.ufClick(driver, SAVE_ADD_NEW_ASSISTANT);
 
 		} catch (Exception nA) {
 			log.info("Fails to create new buyer by Proc Admin" + nA.getMessage());
@@ -443,13 +449,19 @@ public class PROCUREMENTPO extends TestBase {
 	public boolean UnitPrice_Cost() throws Exception {
 		boolean unit_price = false;
 		try {
+			oSelUtil.ufClear(driver, UNIT_PRICE);
 			oSelUtil.ufSendKeys(driver, UNIT_PRICE, oJsTD_Reg.getString("UNIT_PRICE"));
+			oSelUtil.ufClear(driver, MOLD_COST);
 			oSelUtil.ufSendKeys(driver, MOLD_COST, oJsTD_Reg.getString("MOLD_COST"));
+			oSelUtil.ufClear(driver, PREPARATION_COST);
 			oSelUtil.ufSendKeys(driver, PREPARATION_COST, oJsTD_Reg.getString("PREPARATION_COST"));
+			oSelUtil.ufClear(driver, TRANSPORTATION_COST);
 			oSelUtil.ufSendKeys(driver, TRANSPORTATION_COST, oJsTD_Reg.getString("TRANSPORTATION_COST"));
+			oSelUtil.ufClear(driver, NOTES);
 			oSelUtil.ufSendKeys(driver, NOTES, oJsTD_Reg.getString("NOTES"));
 			oSelUtil.ufClick(driver, SAVE_UNIT_PRICE);
-			oComUtil.getScreenShot();
+			oSelUtil.AlertHandling(ngWebDriver, driver);
+			oSelUtil.oComUtil.getScreenShot();
 
 		} catch (Exception up) {
 			log.info("Fails to enter and save Unit price" + up.getMessage());

@@ -46,7 +46,6 @@
 "SHIKEISHO_ID":"id::rdHomeGoToNewShiekshoDetailsID",
 "SELECT_SUPPLIER_CLASS":"xpath:://div[contains(text(),'Select Supplier')]",
 "AFTER_SUPPLIER_DONE":"id::rdDetailsClickBackButton",
-"SAVE_URL":"::",
 "SUPPLIER_SEARCH_FIELD":"id::search-input",
 "ALL_SUPPLIERS":"xpath:://span[@class='supplier-name-css-class']",
 "_SUPPLIER_DONE":"xpath:://div[contains(@class='col-2 modal-class-language-heading')]",
@@ -79,6 +78,8 @@
 "CHANGE_ROLE":"id::rdupdateRoleTableSelectRole",
 "SAVE_USER_DETAILS":"xpath:://button[text()='Save']",
 "CANCEL_USER_DETAILS":"xpath:://button[text()='Cancel']",
- "PART_TABLE":"xpath:://table[@class='table']"
+ "PART_TABLE":"xpath:://table[@class='table']",
+ "SELECT_GROUP_FOR_ASSISTANT":"id::addNewUserSelectDesignerId",
+ "SAVE_ADD_NEW_ASSISTANT":"id::addNewUserSubmitButton"
 
 }	
